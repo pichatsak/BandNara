@@ -25,6 +25,7 @@
                 android:background="@color/Teal_50">
 
                 <ImageView
+                    android:id="@+id/back1"
                     android:layout_width="20dp"
                     android:layout_height="23dp"
                     android:layout_marginLeft="20dp"

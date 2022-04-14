@@ -3,12 +3,14 @@ package com.app.bandnara;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class register1Activity extends AppCompatActivity {
     private Spinner sp_sex;
     public TextView dateOk;
     final Calendar myCalendar = Calendar.getInstance();
+    private ImageView back1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +38,16 @@ public class register1Activity extends AppCompatActivity {
 
         sp_sex = findViewById(R.id.sp_sex);
         dateOk = findViewById(R.id.dateOk);
-
+        back1 = findViewById(R.id.back1);
         List<String> list = new ArrayList<>();
         list.add("เลือกเพศ");
         list.add("ชาย");
         list.add("หญิง");
 
-
+        //สปินเนอร์อะแดปเตอร์
         SexAdapter sexAdaptor = new SexAdapter(this, list);
-
         sp_sex.setAdapter(sexAdaptor);
-
+    //ปฏิทิน
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -64,8 +66,17 @@ public class register1Activity extends AppCompatActivity {
             }
         });
 
-    }
 
+        back1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(register1Activity.this,registerActivity.class);
+                startActivity(back);
+            }
+        });
+
+    }
+//ปฏิทิน
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
