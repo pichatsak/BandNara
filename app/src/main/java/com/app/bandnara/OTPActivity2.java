@@ -40,6 +40,7 @@ public class OTPActivity2 extends AppCompatActivity {
     private EditText OTP4;
     private EditText OTP5;
     private EditText OTP6;
+    private TextView resendOTP;
     private AppCompatButton nextOTP;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     String verId = "";
@@ -56,18 +57,18 @@ public class OTPActivity2 extends AppCompatActivity {
         OTP5 = findViewById(R.id.OTP5);
         OTP6 = findViewById(R.id.OTP6);
         nextOTP = findViewById(R.id.nextOTP);
-
+        resendOTP = findViewById(R.id.resendOTP);
         CloseBar closeBar = new CloseBar(this);
 //        //ส่งเบอร์โทรศัพท์มาโชว์
         Bundle bundle = getIntent().getExtras();
-        String getphone = "+66" + bundle.getString("phone");
+        String getphone = bundle.getString("phone");
         showphone.setText(getphone);
 
         //ส่งเลขOTP
         attachTextWatchers();
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(auth)
-                        .setPhoneNumber(getphone)       // Phone number to verify
+                        .setPhoneNumber("+66"+getphone)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -106,12 +107,48 @@ public class OTPActivity2 extends AppCompatActivity {
 
                 if (getOTP1.isEmpty() || getOTP2.isEmpty() || getOTP3.isEmpty() || getOTP4.isEmpty() || getOTP5.isEmpty() || getOTP6.isEmpty()) {
 
-                    Toast.makeText(OTPActivity2.this, "กรุณาพิมหมายเลข OTP ให้ครบ ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OTPActivity2.this, "กรุณาใส่หมายเลข OTP ให้ครบ ", Toast.LENGTH_SHORT).show();
                 } else {
                     String code = getOTP1 + getOTP2 + getOTP3 + getOTP4 + getOTP5 + getOTP6;
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verId, code);
                     signInWithPhoneAuthCredential(credential);
                 }
+
+            }
+        });
+        //กดส่ง OTP อีกครั้ง
+
+        resendOTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                attachTextWatchers();
+                PhoneAuthOptions options =
+                        PhoneAuthOptions.newBuilder(auth)
+                                .setPhoneNumber("+66"+getphone)       // Phone number to verify
+                                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                                .setActivity(OTPActivity2.this)
+                                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                                    @Override
+                                    public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                        verId = verificationId;
+                                    }
+
+                                    @Override
+                                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                                        Log.d("CHKERR", "no");
+                                        // Sign in with the credential
+                                        // ...
+                                    }
+
+                                    @Override
+                                    public void onVerificationFailed(FirebaseException e) {
+                                        Log.d("CHKERR", e.getMessage());
+                                        // ...
+                                    }
+                                })          // OnVerificationStateChangedCallbacks
+                                .build();
+                PhoneAuthProvider.verifyPhoneNumber(options);
 
             }
         });

@@ -75,6 +75,7 @@ public class register1Activity extends AppCompatActivity {
             }
         });
 
+
     }
 //ปฏิทิน
     private void updateLabel() {

@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="กรุณาระบุรหัสผ่าน OTP 4 หลัก"
+            android:text="กรุณาระบุรหัสผ่าน OTP 6 หลัก"
             android:textSize="17sp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -162,6 +162,7 @@
         android:gravity="center"
         android:layout_marginTop="30dp">
         <TextView
+            android:id="@+id/resendOTP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ส่งรหัส OTP อีกครั้ง"
