@@ -46,7 +46,7 @@
             android:name=".registerActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".register1Activity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".register1Activity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".loginActivity"
