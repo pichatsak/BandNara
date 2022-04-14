@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main"
+    android:orientation="vertical"
+    tools:context=".register1Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/Teal_50">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="23dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="36dp"
+                    android:background="@drawable/left_arrow_angle"
+                    android:backgroundTint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ลงทะเบียนผู้ใช้"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/clipboard"
+                    android:backgroundTint="@color/Teal_50" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dp"
+                        android:backgroundTint="@color/black"
+                        android:hint="ข้อมูลส่วนตัว"
+                        android:textColorHint="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/black">
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="ชื่อ"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="นามสกุล"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+            <TextView
+                android:id="@+id/dateOk"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:drawableEnd="@drawable/calendar"
+                android:drawableTint="@color/Teal_50"
+                android:hint="วัน/เดือน/ปีเกิด"
+                android:inputType="date"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="13dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="อายุ"
+                android:inputType="number"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <Spinner
+        android:id="@+id/sp_sex"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/design_fram"
+        android:drawableEnd="@drawable/calendar"
+        android:drawableTint="@color/Teal_50"
+        android:hint="เลือกเพศ"
+        android:inputType="phone"
+        android:textColorHint="@color/gray_50"
+        android:textSize="16sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/down"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/Teal_50"
+        />
+</RelativeLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="18.5dp"
+                    android:background="@drawable/id_card"
+                    android:backgroundTint="@color/Teal_50" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="75dp"
+                        android:backgroundTint="@color/black"
+                        android:hint="ข้อมูลที่อยู่ตามบัตรประชาชน"
+                        android:textColorHint="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2.0px"
+                android:background="@color/gray_600">
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="เลขที่อยู่"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="หมู่"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/design_fram"
+                android:hint="ถนน"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+                android:layout_marginBottom="13dp"
+                />
+        </LinearLayout>
+</LinearLayout>
+</LinearLayout>

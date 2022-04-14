@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "730429056285",
+    "project_id": "bangnara-mobile-app",
+    "storage_bucket": "bangnara-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730429056285:android:33f65973f68762c00f6df4",
+        "android_client_info": {
+          "package_name": "com.app.bandnara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730429056285-9fbeeg9hnlfcv1iubi79far3lm2ctrub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBgU8QPO-jfYzmz-EfWcul_RiVPncVVlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730429056285-9fbeeg9hnlfcv1iubi79far3lm2ctrub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
