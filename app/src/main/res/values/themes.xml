@@ -21,6 +21,10 @@
         <item name="android:fontFamily">@font/prompt_regular</item>
     </style>
 
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
     <style name="passwordeditext" parent="android:Widget">
         <item name="materialThemeOverlay">@style/ThemeOverlay.Design.TextInputEditText</item>
