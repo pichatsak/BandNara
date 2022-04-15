@@ -50,6 +50,7 @@ public class OTPActivity2 extends AppCompatActivity {
     private String verId = "";
     private ImageView back;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +70,12 @@ public class OTPActivity2 extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String getphone = bundle.getString("phone");
         showphone.setText(getphone);
-        //ส่งเลขOTP
+
+        //เรียกใช้ฟังก์ชั่นพิมข้ามช่อง
         attachTextWatchers();
+        //ส่งเลขOTP
+
+
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber("+66" + getphone)       // Phone number to verify
@@ -82,6 +87,7 @@ public class OTPActivity2 extends AppCompatActivity {
                                 verId = verificationId;
 
                             }
+
 
                             @Override
                             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
@@ -145,6 +151,7 @@ public class OTPActivity2 extends AppCompatActivity {
 
                                     }
 
+
                                     @Override
                                     public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                                         Log.d("CHKERR", "no");
@@ -186,12 +193,8 @@ public class OTPActivity2 extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("numphone", "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                           // getemail_and_password();
+                            // getemail_and_password();
                             //เก็บอีเมลไปไฟล์เบส
-
-//                            UsersFB usersFB = new UsersFB();
-//                            usersFB.setID(verId);
-//                            MyApplication.setUserRegis1(usersFB);
 
 
 //                            user.updateEmail(MyApplication.getUserRegis().getPim04())
@@ -205,9 +208,9 @@ public class OTPActivity2 extends AppCompatActivity {
 //                                                            @Override
 //                                                            public void onComplete(@NonNull Task<Void> task) {
 //                                                                if (task.isSuccessful()) {
-                                                                    Intent next = new Intent(OTPActivity2.this, register1Activity.class);
-                                                                    startActivity(next);
-                                                                    finish();
+                            Intent next = new Intent(OTPActivity2.this, register1Activity.class);
+                            startActivity(next);
+                            finish();
 //
 //                                                                }
 //                                                            }
@@ -243,9 +246,7 @@ public class OTPActivity2 extends AppCompatActivity {
 //                            Intent next = new Intent(OTPActivity2.this, register1Activity.class);
 //                            startActivity(next);
 //                            finish();
-////                            UsersFB usersFB = new UsersFB();
-////                            usersFB.setID(verId);
-////                            MyApplication.setUserRegis1(usersFB);
+
 //
 //                        } else {
 //                            // If sign in fails, display a message to the user.

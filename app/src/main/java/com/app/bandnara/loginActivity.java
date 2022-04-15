@@ -25,9 +25,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class loginActivity extends AppCompatActivity {
     private AppCompatButton login;
     boolean doubleBackToExitPressedOnce = false;
-    private AppCompatButton login1;
-    private TextInputEditText loginPassword;
-    private EditText loginPhone;
+    private AppCompatButton login1; // เข้าสู่ระบบ
+    private TextInputEditText loginPassword; // รหัสผ่าน
+    private EditText loginPhone; //เบอร์โทร
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class loginActivity extends AppCompatActivity {
 //        super.onStart();
 //
 //    }
-
+//คลิก2ครั้งออกแอพ
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -94,30 +94,11 @@ public class loginActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
+//เข้าสู่ระบบ
     public void SucCed() {
         String getloginPhone = loginPhone.getText().toString();
         String getloginPassword = loginPassword.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(getloginPhone, getloginPassword)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("1", "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-//                                Intent next = new Intent(loginActivity.this, momActivity.class);
-//                                startActivity(next);
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("1", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(loginActivity.this, "รหัสสมาชิกไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
     }
 }
