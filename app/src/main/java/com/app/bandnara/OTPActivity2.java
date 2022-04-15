@@ -63,7 +63,6 @@ public class OTPActivity2 extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String getphone = bundle.getString("phone");
         showphone.setText(getphone);
-
         //ส่งเลขOTP
         attachTextWatchers();
         PhoneAuthOptions options =

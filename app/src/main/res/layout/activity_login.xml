@@ -27,16 +27,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="50dp"
             android:gravity="center">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bang Nara"
                 android:textColor="@color/Teal_50"
                 android:textSize="25sp"
-
                 />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
