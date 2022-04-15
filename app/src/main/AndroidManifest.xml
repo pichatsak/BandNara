@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".MyApplication"
         android:theme="@style/Theme.BandNara">
         <activity
             android:name=".EXActivity"
@@ -44,20 +45,21 @@
             android:exported="false" />
         <activity
             android:name=".registerActivity"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".register1Activity"
-            android:exported="true" >
 
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".register1Activity"
             android:exported="false" />
         <activity
             android:name=".loginActivity"

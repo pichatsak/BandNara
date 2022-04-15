@@ -1,6 +1,7 @@
 package com.app.bandnara;
 
 import static android.content.ContentValues.TAG;
+import static android.os.Build.VERSION_CODES.O;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,14 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.bandnara.PhoneEditNumber.GenericKeyEvent;
 import com.app.bandnara.PhoneEditNumber.GenericTextWatcher;
 import com.app.bandnara.ToolBar.CloseBar;
+import com.app.bandnara.keepFireStory.UsersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -29,6 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,8 +47,9 @@ public class OTPActivity2 extends AppCompatActivity {
     private TextView resendOTP;
     private AppCompatButton nextOTP;
     FirebaseAuth auth = FirebaseAuth.getInstance();
-    String verId = "";
-
+    private String verId = "";
+    private ImageView back;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,7 @@ public class OTPActivity2 extends AppCompatActivity {
         OTP6 = findViewById(R.id.OTP6);
         nextOTP = findViewById(R.id.nextOTP);
         resendOTP = findViewById(R.id.resendOTP);
+        back = findViewById(R.id.back);
         CloseBar closeBar = new CloseBar(this);
 //        //ส่งเบอร์โทรศัพท์มาโชว์
         Bundle bundle = getIntent().getExtras();
@@ -67,13 +73,14 @@ public class OTPActivity2 extends AppCompatActivity {
         attachTextWatchers();
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(auth)
-                        .setPhoneNumber("+66"+getphone)       // Phone number to verify
+                        .setPhoneNumber("+66" + getphone)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
                             public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 verId = verificationId;
+
                             }
 
                             @Override
@@ -92,6 +99,7 @@ public class OTPActivity2 extends AppCompatActivity {
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
 
+
         //กดยืนยันเลขOTP
         nextOTP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,9 +116,12 @@ public class OTPActivity2 extends AppCompatActivity {
 
                     Toast.makeText(OTPActivity2.this, "กรุณาใส่หมายเลข OTP ให้ครบ ", Toast.LENGTH_SHORT).show();
                 } else {
+
+
                     String code = getOTP1 + getOTP2 + getOTP3 + getOTP4 + getOTP5 + getOTP6;
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verId, code);
                     signInWithPhoneAuthCredential(credential);
+
                 }
 
             }
@@ -124,13 +135,14 @@ public class OTPActivity2 extends AppCompatActivity {
                 attachTextWatchers();
                 PhoneAuthOptions options =
                         PhoneAuthOptions.newBuilder(auth)
-                                .setPhoneNumber("+66"+getphone)       // Phone number to verify
+                                .setPhoneNumber("+66" + getphone)       // Phone number to verify
                                 .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                                 .setActivity(OTPActivity2.this)
                                 .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                                     @Override
                                     public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                         verId = verificationId;
+
                                     }
 
                                     @Override
@@ -149,13 +161,22 @@ public class OTPActivity2 extends AppCompatActivity {
                                 .build();
                 PhoneAuthProvider.verifyPhoneNumber(options);
 
+
             }
         });
 
 
+        //ย้อนกลับ
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
+
     }
 
-    //ยืนยันOTP
+    //เช็ครหัสว่าถูกไหมOTP
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -165,22 +186,78 @@ public class OTPActivity2 extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("numphone", "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                            Intent next = new Intent(OTPActivity2.this, register1Activity.class);
-                            startActivity(next);
-                            finish();
+                           // getemail_and_password();
+                            //เก็บอีเมลไปไฟล์เบส
+
+//                            UsersFB usersFB = new UsersFB();
+//                            usersFB.setID(verId);
+//                            MyApplication.setUserRegis1(usersFB);
+
+
+//                            user.updateEmail(MyApplication.getUserRegis().getPim04())
+//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()) {
+//                                                //เก็บพาสเวิสไปไฟล์เบส
+//                                                user.updatePassword(MyApplication.getUserRegis().getPim02())
+//                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                            @Override
+//                                                            public void onComplete(@NonNull Task<Void> task) {
+//                                                                if (task.isSuccessful()) {
+                                                                    Intent next = new Intent(OTPActivity2.this, register1Activity.class);
+                                                                    startActivity(next);
+                                                                    finish();
+//
+//                                                                }
+//                                                            }
+//                                                        });
+//                                            }
+//                                        }
+//                                    });
                             // Update UI
+
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w("numphone", "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
-                                Toast.makeText(OTPActivity2.this, "หมายเลข OTP ไม่ถูกต้อง ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OTPActivity2.this, "หมายเลข OTP ไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
                 });
-    }
 
+    }
+//    public void getemail_and_password(){
+//        mAuth.createUserWithEmailAndPassword(MyApplication.getUserRegis().getPim04(), MyApplication.getUserRegis().getPim02())
+//                .addOnCompleteListener(OTPActivity2.this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d("1", "createUserWithEmail:success");
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//
+//                            Intent next = new Intent(OTPActivity2.this, register1Activity.class);
+//                            startActivity(next);
+//                            finish();
+////                            UsersFB usersFB = new UsersFB();
+////                            usersFB.setID(verId);
+////                            MyApplication.setUserRegis1(usersFB);
+//
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w("1", "createUserWithEmail:failure", task.getException());
+//                            Toast.makeText(OTPActivity2.this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    }
+//                });
+//    }
+
+    //พิมหมายเลข OTP ข้ามช่อง
     private void attachTextWatchers() {
         OTP1.addTextChangedListener(new GenericTextWatcher(OTP1, OTP2));
         OTP2.addTextChangedListener(new GenericTextWatcher(OTP2, OTP3));

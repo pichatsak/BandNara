@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.app.bandnara.ToolBar.CloseBar;
+import com.app.bandnara.keepFireStory.UsersFB;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -40,7 +41,8 @@ public class registerActivity extends AppCompatActivity {
     private ImageView imgIcon;
     private ShapeableImageView imgProfile;
     private Uri UrlImg;
-    private int StatusChooseImg=0;
+    private int StatusChooseImg = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,20 +85,27 @@ public class registerActivity extends AppCompatActivity {
                 //เด้งข้อความถ้าไม่ใส่ข้อมูลให้ครบ
                 if (pim01.getText().toString().isEmpty()) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกเบอร์โทรศัพท์ ", Toast.LENGTH_SHORT).show();
-                } else if (StatusChooseImg==0) {
+                } else if (StatusChooseImg == 0) {
                     Toast.makeText(registerActivity.this, "กรุณาอัพโหลดรูปภาพ ", Toast.LENGTH_SHORT).show();
                 } else if (pim02.getText().toString().isEmpty()) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกรหัสผ่าน ", Toast.LENGTH_SHORT).show();
-                } else if (pim02.getText().toString().length()<8) {
+                } else if (pim02.getText().toString().length() < 8) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกรหัสผ่านให้มากกว่า 8 ตัวอักษร ", Toast.LENGTH_SHORT).show();
                 } else if (pim03.getText().toString().isEmpty()) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกยืนยันรหัสผ่าน ", Toast.LENGTH_SHORT).show();
                 } else if (pim04.getText().toString().isEmpty()) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกอีเมล ", Toast.LENGTH_SHORT).show();
                 } else if (pim03.getText().toString().equals(pim02.getText().toString())) {
+
                     Intent next = new Intent(registerActivity.this, OTPActivity2.class);
-                    next.putExtra("phone",pim01.getText().toString());
+                    next.putExtra("phone", pim01.getText().toString());
                     startActivity(next);
+//                    UsersFB usersFB = new UsersFB();
+//                    usersFB.setPim01(pim01.getText().toString());
+//                    usersFB.setPim02(pim02.getText().toString());
+//                    usersFB.setPim04(pim04.getText().toString());
+//                    MyApplication.setUserRegis1(usersFB);
+
                 } else {
                     Toast.makeText(registerActivity.this, "กรุณากรอกรหัสผ่านให้ตรงกัน", Toast.LENGTH_SHORT).show();
                 }
@@ -104,14 +113,14 @@ public class registerActivity extends AppCompatActivity {
         });
     }
 
-    private void chooseImg() {
+    public void chooseImg() {
         // สร้าง Intent เพื่อไปหน้าเลือกรูปจากตัวเครื่อง
         Intent intent = new Intent();
         // เซ็ตค่าให้หน้าเลือกรูปภาพจะเลือกได้แค่ไฟล์ที่เป็น รูปภาพเท่านั้น
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         // ไปหน้าเลือกรูปภาพ พร้อมกับรอผลตอบกลับ
-        startActivityForResult(Intent.createChooser(intent, "เลือกรูปภาพ"),1);
+        startActivityForResult(Intent.createChooser(intent, "เลือกรูปภาพ"), 1);
     }
 
     // method นี้ทำงานเมื่อทำการเลือกรูปภาพจากในตัวเครื่องแล้ว
@@ -137,19 +146,19 @@ public class registerActivity extends AppCompatActivity {
                         break;
                     } else if (resultCode == Activity.RESULT_CANCELED) {
                         // เข้าเงื่อนไขนี้ก็ต่อเมื่อผู้ใช้ไม่ได้เลือกรูปภาพ
-                        StatusChooseImg =0;
+                        StatusChooseImg = 0;
                         Log.e("CHKIMG", "Selecting picture cancelled");
                     }
                     break;
             }
         } catch (Exception e) {
-            StatusChooseImg =0;
+            StatusChooseImg = 0;
             Log.e("CHKIMG", "Exception in onActivityResult : " + e.getMessage());
         }
     }
 
     //medthod เช็คจำนวนพาสเวิร์ด
-    public void setCheckCountPass(){
+    public void setCheckCountPass() {
         // เพิ่ม Event text change ให้กับ id:pim02 เวลาที่มีการพิมข้อความ โค้ดนี้จะทำงานทุกครั้ง
         pim02.addTextChangedListener(new TextWatcher() {
             @Override
@@ -161,12 +170,12 @@ public class registerActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // รับค่าจำนวนตัวอักษรที่พิม
                 int getnum = charSequence.length();
-                Log.d("CHKCO","count : "+getnum);
+                Log.d("CHKCO", "count : " + getnum);
                 // เช็ค if จำนวนตัวอักษร
-                if(getnum>=8){
+                if (getnum >= 8) {
                     // เซ็ตสีให้กับ เขียว icon
                     imgcheck.setColorFilter(ContextCompat.getColor(registerActivity.this, R.color.teal_501));
-                }else{
+                } else {
                     // เซ็ตสีให้กับ เทา icon
                     imgcheck.setColorFilter(ContextCompat.getColor(registerActivity.this, R.color.gray_50));
                 }
@@ -178,5 +187,6 @@ public class registerActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

@@ -9,13 +9,17 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import java.util.Calendar;
 
-public class keepFireStory {
-
-    private String sp_sex; //เพศ
-    public  String dateOk; // ปฏิทินวันเดือนปีเกิด
+public class UsersFB {
+    private String ID;
     private String name; // ชื่อ
     private String lastname; // นามสกุล
     private String age; //อายุ
+    private String sex; //เพศ
+    private String birthday; // ปฏิทินวันเดือนปีเกิด
+    private String pim01; //เบอร์โทรศัพท์
+    private String pim02; // รหัสผ่าน
+    private String pim04; // อีเมล
+    private String imgicon; //รูปภาพ
     private String numberass;  //เลขที่อยู่0
     private String mu;  //หมู่0
     private String road; //ถนน0
@@ -30,28 +34,17 @@ public class keepFireStory {
     private String oumper; //อำเภอ1
     private String tumbon1; //ตำบล1
     private String numberpri1; //รหัสไปรษณีย์1
-    private String pim01; //เบอร์โทรศัพท์
-    private String pim02; // รหัสผ่าน
-    private String pim04; // อีเมล
-    private String imgicon; //รูปภาพ
 
-    public keepFireStory() {
+    public UsersFB() {
+
     }
 
-    public String getSp_sex() {
-        return sp_sex;
+    public String getID() {
+        return ID;
     }
 
-    public void setSp_sex(String sp_sex) {
-        this.sp_sex = sp_sex;
-    }
-
-    public String getDateOk() {
-        return dateOk;
-    }
-
-    public void setDateOk(String dateOk) {
-        this.dateOk = dateOk;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getName() {
@@ -76,6 +69,54 @@ public class keepFireStory {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getPim01() {
+        return pim01;
+    }
+
+    public void setPim01(String pim01) {
+        this.pim01 = pim01;
+    }
+
+    public String getPim02() {
+        return pim02;
+    }
+
+    public void setPim02(String pim02) {
+        this.pim02 = pim02;
+    }
+
+    public String getPim04() {
+        return pim04;
+    }
+
+    public void setPim04(String pim04) {
+        this.pim04 = pim04;
+    }
+
+    public String getImgicon() {
+        return imgicon;
+    }
+
+    public void setImgicon(String imgicon) {
+        this.imgicon = imgicon;
     }
 
     public String getNumberass() {
@@ -188,37 +229,5 @@ public class keepFireStory {
 
     public void setNumberpri1(String numberpri1) {
         this.numberpri1 = numberpri1;
-    }
-
-    public String getPim01() {
-        return pim01;
-    }
-
-    public void setPim01(String pim01) {
-        this.pim01 = pim01;
-    }
-
-    public String getPim02() {
-        return pim02;
-    }
-
-    public void setPim02(String pim02) {
-        this.pim02 = pim02;
-    }
-
-    public String getPim04() {
-        return pim04;
-    }
-
-    public void setPim04(String pim04) {
-        this.pim04 = pim04;
-    }
-
-    public String getImgicon() {
-        return imgicon;
-    }
-
-    public void setImgicon(String imgicon) {
-        this.imgicon = imgicon;
     }
 }
