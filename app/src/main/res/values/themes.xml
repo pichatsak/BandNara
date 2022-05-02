@@ -17,6 +17,7 @@
 
         <item name="windowNoTitle">true</item>
         <item name="android:windowNoTitle">true</item>
+<!--        <item name="android:windowFullscreen">true</item>-->
 
         <item name="android:fontFamily">@font/prompt_regular</item>
     </style>
