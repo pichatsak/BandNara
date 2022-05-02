@@ -13,5 +13,7 @@ public class register2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
         CloseBar closeBar = new CloseBar(this);
+
+
     }
 }

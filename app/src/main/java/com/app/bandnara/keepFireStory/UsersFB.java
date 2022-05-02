@@ -1,5 +1,6 @@
 package com.app.bandnara.keepFireStory;
 
+import android.net.Uri;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -34,9 +35,36 @@ public class UsersFB {
     private String oumper; //อำเภอ1
     private String tumbon1; //ตำบล1
     private String numberpri1; //รหัสไปรษณีย์1
+    private Uri imageProflie;
+    private String statusSetPin;
+    private String pin;
 
     public UsersFB() {
 
+    }
+
+    public String getStatusSetPin() {
+        return statusSetPin;
+    }
+
+    public void setStatusSetPin(String statusSetPin) {
+        this.statusSetPin = statusSetPin;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    public Uri getImageProflie() {
+        return imageProflie;
+    }
+
+    public void setImageProflie(Uri imageProflie) {
+        this.imageProflie = imageProflie;
     }
 
     public String getID() {

@@ -1,5 +1,6 @@
 package com.app.bandnara;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -24,10 +25,18 @@ import android.widget.Toast;
 
 import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.keepFireStory.UsersFB;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.net.URISyntaxException;
+import java.util.UUID;
 
 public class registerActivity extends AppCompatActivity {
     private ImageView back;
@@ -42,6 +51,9 @@ public class registerActivity extends AppCompatActivity {
     private ShapeableImageView imgProfile;
     private Uri UrlImg;
     private int StatusChooseImg = 0;
+
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    private StorageReference storageReference = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +112,12 @@ public class registerActivity extends AppCompatActivity {
                     Intent next = new Intent(registerActivity.this, OTPActivity2.class);
                     next.putExtra("phone", pim01.getText().toString());
                     startActivity(next);
-//                    UsersFB usersFB = new UsersFB();
-//                    usersFB.setPim01(pim01.getText().toString());
-//                    usersFB.setPim02(pim02.getText().toString());
-//                    usersFB.setPim04(pim04.getText().toString());
-//                    MyApplication.setUserRegis1(usersFB);
+                    UsersFB usersFB = new UsersFB();
+                    usersFB.setPim01(pim01.getText().toString());
+                    usersFB.setPim02(pim02.getText().toString());
+                    usersFB.setPim04(pim04.getText().toString());
+
+                    MyApplication.setUserRegis1(usersFB);
 
                 } else {
                     Toast.makeText(registerActivity.this, "กรุณากรอกรหัสผ่านให้ตรงกัน", Toast.LENGTH_SHORT).show();
@@ -133,6 +146,7 @@ public class registerActivity extends AppCompatActivity {
                         // เข้าเงื่อนไขนี้ก็ต่อเมื่อผู้ใช้เลือกรูปภาพสำเร็จ
                         // รับค่ารูปภาพที่เลือกแปลงเป็นตัวแปร URI
                         Uri selectedImageUri = data.getData();
+                        MyApplication.setUriProfile(selectedImageUri);
                         UrlImg = selectedImageUri;
                         // เปลี่ยนค่าตัวแปร StatusChooseImg ให้เป็น 1 เพื่อเอาไว้เช็คว่าผู้ใช้ได้ทำการอัพโหลดรูปแล้วหรือยัง
                         StatusChooseImg = 1;

@@ -162,6 +162,7 @@
             android:paddingRight="30dp">
 
             <EditText
+                android:text="0967959507"
                 android:id="@+id/pim_01"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -184,6 +185,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pim_02"
+                    android:text="nitiphon1996"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/design_fram"
@@ -255,6 +257,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pim_03"
+                    android:text="nitiphon1996"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/design_fram"
@@ -265,6 +268,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
+                android:text="nitiphon1996@gmail.com"
                 android:id="@+id/pim_04"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"

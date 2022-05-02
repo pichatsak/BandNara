@@ -9,11 +9,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,8 +24,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.bandnara.ToolBar.CloseBar;
+import com.app.bandnara.adaptor.AmphurAdapter;
+import com.app.bandnara.adaptor.ProvAdapter;
 import com.app.bandnara.adaptor.SexAdapter;
 import com.app.bandnara.keepFireStory.UsersFB;
+import com.app.bandnara.models.AmphuresModel;
+import com.app.bandnara.models.ProvincesModel;
+import com.app.bandnara.tools.AdressData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,12 +40,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 public class register1Activity extends AppCompatActivity {
     private Spinner sp_sex; //เพศ
@@ -53,27 +64,32 @@ public class register1Activity extends AppCompatActivity {
     private EditText road; //ถนน0
     private Spinner province; //จังหวัด0
     private Spinner district; //อำเภอ0
-    private Spinner tambon; //ตำบอล0
+    private EditText tambon; //ตำบอล0
     private EditText numberpri; //รหัสไปรษณีย์0
     private EditText numberass1; //เลขที่อยู่1
     private EditText mu1; //หมู่1
     private EditText road1; //ถนน1
     private Spinner jungvat; //จังหวัด1
     private Spinner oumper; //อำเภอ1
-    private Spinner tumbon1; //ตำบล1
+    private EditText tumbon1; //ตำบล1
     private EditText numberpri1; //รหัสไปรษณีย์1
     private AppCompatButton register; //ลงทะเบียน
     private AppCompatButton cancle; //ยกเลิก
-    private TextView tig; //ติกถูกให้ข้อมูลตามบัตร ปชช ตรงกับ ที่อยู่ปัจจุบัน
+    private CheckBox tig; //ติกถูกให้ข้อมูลตามบัตร ปชช ตรงกับ ที่อยู่ปัจจุบัน
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
+    private ArrayList<ProvincesModel> provincesModelsList = new ArrayList<>();
+    private ArrayList<AmphuresModel> amphuresModelsList = new ArrayList<>();
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    private int posProv = 0;
+    private int posAmphur = 0;
 
+    private StorageReference storageReference = storage.getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1);
         CloseBar closeBar = new CloseBar(this);
-
         sp_sex = findViewById(R.id.sp_sex);
         dateOk = findViewById(R.id.dateOk);
         back1 = findViewById(R.id.back1);
@@ -150,14 +166,14 @@ public class register1Activity extends AppCompatActivity {
                 String getroad = road.getText().toString();
                 String getprovince = province.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
                 String getdistrict = district.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-                String gettambon = tambon.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+                String gettambon = tambon.getText().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
                 String getnumberpri = numberpri.getText().toString();
                 String getnumberass1 = numberass1.getText().toString();
                 String getmu1 = mu1.getText().toString();
                 String getroad1 = road1.getText().toString();
                 String getjungvat = jungvat.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
                 String getoumper = oumper.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-                String gettumbon1 = tumbon1.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+                String gettumbon1 = tumbon1.getText().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
                 String getnumberpri1 = numberpri1.getText().toString();
 
                 if (getname.isEmpty() || getlastname.isEmpty() || getdateOk.isEmpty() || getage.isEmpty() || getsp_sex.isEmpty()) {
@@ -173,39 +189,114 @@ public class register1Activity extends AppCompatActivity {
             }
         });
 
-
         //ติกถูกให้ข้อมูลตามบัตร ปชช ตรงกับ ที่อยู่ปัจจุบัน
         tig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getnumberass = numberass.getText().toString();
-                String getmu = mu.getText().toString();
-                String getroad = road.getText().toString();
-                String getprovince = province.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-                String getdistrict = district.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-                String gettambon = tambon.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-                String getnumberpri = numberpri.getText().toString();
-
-                if (getnumberass.isEmpty() || getmu.isEmpty() || getroad.isEmpty() || getprovince.isEmpty() || getdistrict.isEmpty() || gettambon.isEmpty() || getnumberpri.isEmpty()) {
-                    Toast.makeText(register1Activity.this, "กรุณากรอกข้อมูลที่อยู่ตามบัตรประชาชนให้ครบ", Toast.LENGTH_LONG).show();
-                }
-
-                //ส่งข้อมูลที่อยู่ตาม บัตร ปชช ไปที่ ที่อยู่ ปัจจุบัน
-                else {
-                    numberass1.setText(getnumberass);
-                    mu1.setText(getmu);
-                    road1.setText(getroad);
-//                    jungvat.setText(); // รอทำอแดปเตอร์เสร็จ
-//                    oumper.setText(getdistrict);// รอทำอแดปเตอร์เสร็จ
-//                    tumbon1.setText(gettambon);// รอทำอแดปเตอร์เสร็จ
-                    numberpri1.setText(getnumberpri);
-                }
+                setCbTig();
             }
         });
+
+        getProvAll();
+        getProvAll2();
+    }
+
+    public void setCbTig(){
+
+        if(tig.isChecked()){
+            String getnumberass = numberass.getText().toString();
+            String getmu = mu.getText().toString();
+            String getroad = road.getText().toString();
+            String getprovince = provincesModelsList.get(province.getSelectedItemPosition()).getProvName(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+            String getdistrict = amphuresModelsList.get(district.getSelectedItemPosition()).getAmpName(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+            String gettambon = tambon.getText().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+            String getnumberpri = numberpri.getText().toString();
+
+            if (getnumberass.isEmpty() || getmu.isEmpty() || getroad.isEmpty() || getprovince.isEmpty() || getdistrict.isEmpty() || gettambon.isEmpty() || getnumberpri.isEmpty()) {
+                Toast.makeText(register1Activity.this, "กรุณากรอกข้อมูลที่อยู่ตามบัตรประชาชนให้ครบ", Toast.LENGTH_LONG).show();
+            }
+            else {
+                //ส่งข้อมูลที่อยู่ตาม บัตร ปชช ไปที่ ที่อยู่ ปัจจุบัน
+                numberass1.setText(getnumberass);
+                mu1.setText(getmu);
+                road1.setText(getroad);
+                jungvat.setSelection(posProv);
+                tumbon1.setText(gettambon);// รอทำอแดปเตอร์เสร็จ
+                numberpri1.setText(getnumberpri);
+            }
+        }else{
+
+        }
 
 
     }
 
+    public void getProvAll(){
+        AdressData adressData = new AdressData(this);
+        ArrayList<ProvincesModel> provincesModels = adressData.getProvAll();
+        provincesModelsList = provincesModels;
+        ProvAdapter provAdapter = new ProvAdapter(register1Activity.this,provincesModels);
+        province.setAdapter(provAdapter);
+        province.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                getAmphureByProvId(provincesModels.get(i).getId());
+                posProv = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    public void getProvAll2(){
+        AdressData adressData = new AdressData(this);
+        ArrayList<ProvincesModel> provincesModels = adressData.getProvAll();
+        ProvAdapter provAdapter = new ProvAdapter(register1Activity.this,provincesModels);
+        jungvat.setAdapter(provAdapter);
+        jungvat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                getAmphureByProvId2(provincesModels.get(i).getId());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    public void getAmphureByProvId(String provId){
+        AdressData adressData = new AdressData(this);
+        ArrayList<AmphuresModel> amphuresModels = adressData.getAmpuhr(provId);
+        amphuresModelsList = amphuresModels;
+        AmphurAdapter amphurAdapter = new AmphurAdapter(register1Activity.this,amphuresModels);
+        district.setAdapter(amphurAdapter);
+        district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                posAmphur = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    public void getAmphureByProvId2(String provId){
+        AdressData adressData = new AdressData(this);
+        ArrayList<AmphuresModel> amphuresModels = adressData.getAmpuhr(provId);
+        AmphurAdapter amphurAdapter = new AmphurAdapter(register1Activity.this,amphuresModels);
+        oumper.setAdapter(amphurAdapter);
+        if(tig.isChecked()){
+            oumper.setSelection(posAmphur);
+        }
+    }
 
     //ปฏิทิน
     private void updateLabel() {
@@ -226,14 +317,14 @@ public class register1Activity extends AppCompatActivity {
         String getroad = road.getText().toString();
         String getprovince = province.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
         String getdistrict = district.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-        String gettambon = tambon.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+        String gettambon = tambon.getText().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
         String getnumberpri = numberpri.getText().toString();
         String getnumberass1 = numberass1.getText().toString();
         String getmu1 = mu1.getText().toString();
         String getroad1 = road1.getText().toString();
         String getjungvat = jungvat.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
         String getoumper = oumper.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
-        String gettumbon1 = tumbon1.getSelectedItem().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
+        String gettumbon1 = tumbon1.getText().toString(); //ค่อยมาเปลี่ยนตัวเก็บ String หลังจากทำอแดปเตอร์เสร็จ
         String getnumberpri1 = numberpri1.getText().toString();
 
 
@@ -241,7 +332,6 @@ public class register1Activity extends AppCompatActivity {
         usersFB.setPim01(usersFB.getPim01());
         usersFB.setPim02(usersFB.getPim02());
         usersFB.setPim04(usersFB.getPim04());
-     //   usersFB.setID(usersFB.getID());
         usersFB.setName(getname);
         usersFB.setLastname(getlastname);
         usersFB.setBirthday(getdateOk);
@@ -261,6 +351,24 @@ public class register1Activity extends AppCompatActivity {
         usersFB.setOumper(getoumper);
         usersFB.setTumbon1(gettumbon1);
         usersFB.setNumberpri1(getnumberpri1);
+        usersFB.setPin("");
+        usersFB.setStatusSetPin("no");
+
+        mAuth.createUserWithEmailAndPassword(usersFB.getPim04(), usersFB.getPim02())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("CHKDB", "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                        } else {
+                            Log.w("CHKDB", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(register1Activity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
         //เก็บในไฟล์สโตร์
         db.collection("users")
@@ -268,17 +376,36 @@ public class register1Activity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+
                         Log.d("1", "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(register1Activity.this, "ลงทะเบียนสำเร็จ", Toast.LENGTH_SHORT).show();
-                        Intent login = new Intent(register1Activity.this, loginActivity.class);
-                        startActivity(login);
+                        StorageReference ref = storageReference.child("imgprofile/" + documentReference.getId());
+                        ref.putFile(MyApplication.getUserRegis().getImageProflie())
+                                .addOnSuccessListener(
+                                        new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                Toast.makeText(register1Activity.this, "ลงทะเบียนสำเร็จ", Toast.LENGTH_SHORT).show();
+                                                Intent login = new Intent(register1Activity.this, loginActivity.class);
+                                                startActivity(login);
+                                            }
+                                        })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+
                         Log.w("1", "Error adding document", e);
                         Toast.makeText(register1Activity.this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
+
                     }
                 });
     }

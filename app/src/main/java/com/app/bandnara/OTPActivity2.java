@@ -195,29 +195,26 @@ public class OTPActivity2 extends AppCompatActivity {
                             FirebaseUser user = task.getResult().getUser();
                             // getemail_and_password();
                             //เก็บอีเมลไปไฟล์เบส
-
-
-//                            user.updateEmail(MyApplication.getUserRegis().getPim04())
-//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()) {
-//                                                //เก็บพาสเวิสไปไฟล์เบส
-//                                                user.updatePassword(MyApplication.getUserRegis().getPim02())
-//                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                            @Override
-//                                                            public void onComplete(@NonNull Task<Void> task) {
-//                                                                if (task.isSuccessful()) {
-                            Intent next = new Intent(OTPActivity2.this, register1Activity.class);
-                            startActivity(next);
-                            finish();
-//
-//                                                                }
-//                                                            }
-//                                                        });
-//                                            }
-//                                        }
-//                                    });
+                            user.updateEmail(MyApplication.getUserRegis().getPim04())
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                //เก็บพาสเวิสไปไฟล์เบส
+                                                user.updatePassword(MyApplication.getUserRegis().getPim02())
+                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    Intent next = new Intent(OTPActivity2.this, register1Activity.class);
+                                                                    startActivity(next);
+                                                                    finish();
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        }
+                                    });
                             // Update UI
 
 
