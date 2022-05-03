@@ -85,7 +85,6 @@ public class OTPActivity2 extends AppCompatActivity {
                             @Override
                             public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 verId = verificationId;
-
                             }
 
 
@@ -151,7 +150,6 @@ public class OTPActivity2 extends AppCompatActivity {
 
                                     }
 
-
                                     @Override
                                     public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                                         Log.d("CHKERR", "no");
@@ -194,6 +192,7 @@ public class OTPActivity2 extends AppCompatActivity {
                             Log.d("numphone", "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
                             // getemail_and_password();
+                            MyApplication.setUserRegisId(user.getUid());
                             //เก็บอีเมลไปไฟล์เบส
                             user.updateEmail(MyApplication.getUserRegis().getPim04())
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {

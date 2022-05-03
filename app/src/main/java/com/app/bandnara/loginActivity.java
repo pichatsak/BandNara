@@ -14,13 +14,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.app.bandnara.ToolBar.CloseBar;
+import com.app.bandnara.keepFireStory.UsersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ServerTimestamp;
+
+import java.util.Date;
 
 public class loginActivity extends AppCompatActivity {
     private AppCompatButton login;
@@ -29,6 +37,7 @@ public class loginActivity extends AppCompatActivity {
     private TextInputEditText loginPassword; // รหัสผ่าน
     private EditText loginPhone; //เบอร์โทร
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +68,6 @@ public class loginActivity extends AppCompatActivity {
 
             }
         });
-
-
         //เข้าสู่ระบบ
         login1.setOnClickListener(new View.OnClickListener() {
             @Override

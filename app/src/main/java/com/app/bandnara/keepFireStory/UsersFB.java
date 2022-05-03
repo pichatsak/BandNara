@@ -8,7 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.ServerTimestamp;
+
 import java.util.Calendar;
+import java.util.Date;
 
 public class UsersFB {
     private String ID;
@@ -38,9 +42,17 @@ public class UsersFB {
     private Uri imageProflie;
     private String statusSetPin;
     private String pin;
-
+    private FieldValue time;
     public UsersFB() {
 
+    }
+
+    public FieldValue getTime() {
+        return time;
+    }
+
+    public void setTime(FieldValue time) {
+        this.time = time;
     }
 
     public String getStatusSetPin() {

@@ -38,10 +38,8 @@ public class MyApplication extends Application {
         MyApplication.userRegis.setPim04(userRegis.getPim04());
     }
 
-    public static void setUserRegis2(UsersFB userRegis) {
-        MyApplication.userRegis.setPim01(userRegis.getPim01());
-        MyApplication.userRegis.setPim02(userRegis.getPim02());
-        MyApplication.userRegis.setPim04(userRegis.getPim04());
+    public static void setUserRegisId(String id) {
+        MyApplication.userRegis.setID(id);
     }
 
     public static void setUriProfile(Uri uriProfile) {

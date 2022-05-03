@@ -367,26 +367,18 @@
                     android:layout_height="wrap_content">
 
 
-                    <Spinner
+                    <EditText
                         android:id="@+id/tambon"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginBottom="13dp"
-                        android:background="@drawable/design_fram"
-                        android:drawableEnd="@drawable/calendar"
                         android:drawableTint="@color/Teal_50"
                         android:hint="ตำบล"
+                        android:background="@drawable/design_fram"
                         android:textColorHint="@color/gray_50"
                         android:textSize="16sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/down"
-                        android:backgroundTint="@color/Teal_50" />
+
                 </RelativeLayout>
 
                 <EditText
@@ -467,12 +459,12 @@
                 android:orientation="horizontal"
                 android:paddingLeft="30dp">
 
-                <TextView
+                <CheckBox
+
                     android:id="@+id/tig"
-                    android:layout_width="20dp"
+                    android:layout_width="40dp"
                     android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/design_fram_squear" />
+                    android:layout_gravity="center" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -607,26 +599,16 @@
                     android:layout_height="wrap_content">
 
 
-                    <Spinner
+                    <EditText
                         android:id="@+id/tumbon1"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginBottom="13dp"
                         android:background="@drawable/design_fram"
-                        android:drawableEnd="@drawable/calendar"
                         android:drawableTint="@color/Teal_50"
                         android:hint="ตำบล"
                         android:textColorHint="@color/gray_50"
                         android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/down"
-                        android:backgroundTint="@color/Teal_50" />
                 </RelativeLayout>
 
 
