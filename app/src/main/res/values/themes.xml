@@ -70,4 +70,10 @@
         <item name="colorAccent">@color/Teal_50</item>
         <item name="colorPrimary">@color/Teal_50</item>
     </style>
+    <style name="Theme.BandNara.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.BandNara.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.BandNara.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

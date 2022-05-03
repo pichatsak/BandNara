@@ -43,6 +43,9 @@
                             android:backgroundTint="@color/white" />
 
                         <TextView
+                            android:clickable="true"
+                            android:foreground="?selectableItemBackgroundBorderless"
+                            android:id="@+id/goProfile"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_alignParentRight="true"

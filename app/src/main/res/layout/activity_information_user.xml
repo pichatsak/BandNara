@@ -32,14 +32,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="23dp"
+                        <LinearLayout
+                            android:id="@+id/back"
+                            android:clickable="true"
+                            android:background="?selectableItemBackgroundBorderless"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/left_arrow_angle"
-                            android:backgroundTint="@color/white" />
+                            android:layout_marginTop="20dp"
+                            android:layout_width="30dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_arrow_angle"
+                                android:backgroundTint="@color/white" />
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -60,294 +68,331 @@
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
-
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:weightSum="3">
-
-
+                    android:layout_height="match_parent">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/design_fram"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/design_fram"
                             android:orientation="vertical">
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                                android:orientation="horizontal"
-                                android:weightSum="2">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1.8"
-                                    android:gravity="center|start">
-
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:background="@drawable/clipboard"
-                                        android:backgroundTint="@color/Teal_50" />
-
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:backgroundTint="@color/black"
-                                        android:hint="ข้อมูลส่วนตัว"
-                                        android:textColorHint="@color/black"
-                                        android:textSize="16sp"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="10dp"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="0.2"
-                                    android:gravity="center|end">
-
-
-                                    <TextView
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
-                                        android:background="@drawable/edit_button"
-                                        android:textAlignment="textEnd" />
-
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:orientation="vertical"
-                                android:paddingLeft="5dp"
-                                android:paddingRight="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="2px"
-                                    android:background="@color/gray_600">
+                                    android:layout_height="wrap_content"
 
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.8"
+                                        android:gravity="center|start">
+
+
+                                        <ImageView
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:background="@drawable/clipboard"
+                                            android:backgroundTint="@color/Teal_50" />
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:backgroundTint="@color/black"
+                                            android:hint="ข้อมูลส่วนตัว"
+                                            android:textColorHint="@color/black"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold"
+                                            android:layout_marginLeft="10dp"/>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:clickable="true"
+                                        android:id="@+id/goEditProfile"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.2"
+                                        android:gravity="center|end">
+                                        <TextView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:background="@drawable/edit_button"
+                                            android:textAlignment="textEnd" />
+
+                                    </LinearLayout>
                                 </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="2px"
+                                        android:background="@color/gray_600">
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
                             </LinearLayout>
+                            <!--                    <LinearLayout-->
+                            <!--                        android:layout_width="match_parent"-->
+                            <!--                        android:layout_height="wrap_content">-->
+                            <!--                        <EditText-->
+                            <!--                            android:layout_width="match_parent"-->
+                            <!--                            android:layout_height="wrap_content"/>-->
 
+                            <!--                    </LinearLayout>-->
+                            <LinearLayout
+                                android:padding="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:id="@+id/tvadr1"
+                                    android:text="ข้อมูล"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+                            </LinearLayout>
                         </LinearLayout>
-                        <!--                    <LinearLayout-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content">-->
-                        <!--                        <EditText-->
-                        <!--                            android:layout_width="match_parent"-->
-                        <!--                            android:layout_height="wrap_content"/>-->
-
-                        <!--                    </LinearLayout>-->
-                    </LinearLayout>
 
 
-                    <!--ส่วนล่าง-->
+                        <!--ส่วนล่าง-->
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1.65"
-                        android:background="@drawable/design_fram"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="2">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/design_fram"
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1">
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
                                 <LinearLayout
+                                    android:orientation="vertical"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-
+                                    android:layout_height="wrap_content">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:orientation="vertical">
 
-                                        android:orientation="horizontal"
-                                        android:weightSum="2">
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1.8"
-                                            android:gravity="center|start">
-
-
-                                            <ImageView
-                                                android:layout_width="30dp"
-                                                android:layout_height="25dp"
-                                                android:background="@drawable/id_card"
-                                                android:backgroundTint="@color/Teal_50" />
-
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:backgroundTint="@color/black"
-                                                android:hint="ข้อมูลที่อยู่ตามบัตรประชาชน"
-                                                android:textColorHint="@color/black"
-                                                android:textSize="16sp"
-                                                android:textStyle="bold"
-                                                android:layout_marginLeft="10dp"/>
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="0.2"
-                                            android:gravity="center|end">
-
-
-                                            <TextView
-                                                android:layout_width="20dp"
-                                                android:layout_height="20dp"
-                                                android:background="@drawable/edit_button"
-                                                android:textAlignment="textEnd" />
-
-                                        </LinearLayout>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="vertical"
-                                        android:paddingLeft="5dp"
-                                        android:paddingRight="5dp">
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="2px"
-                                            android:background="@color/gray_600">
+                                            android:layout_height="wrap_content"
 
+                                            android:orientation="horizontal"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1.8"
+                                                android:gravity="center|start">
+
+
+                                                <ImageView
+                                                    android:layout_width="30dp"
+                                                    android:layout_height="25dp"
+                                                    android:background="@drawable/id_card"
+                                                    android:backgroundTint="@color/Teal_50" />
+
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:backgroundTint="@color/black"
+                                                    android:hint="ข้อมูลที่อยู่ตามบัตรประชาชน"
+                                                    android:textColorHint="@color/black"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
+                                                    android:layout_marginLeft="10dp"/>
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:clickable="true"
+                                                android:id="@+id/goEditAdr1"
+                                                android:background="?selectableItemBackgroundBorderless"
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="0.2"
+                                                android:gravity="center|end">
+
+
+                                                <TextView
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:background="@drawable/edit_button"
+                                                    android:textAlignment="textEnd" />
+
+                                            </LinearLayout>
                                         </LinearLayout>
-                                    </LinearLayout>
-
-                                </LinearLayout>
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1">
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:orientation="horizontal"
-                                        android:weightSum="2">
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1.8"
-                                            android:gravity="center|start">
-
-
-                                            <ImageView
-                                                android:layout_width="30dp"
-                                                android:layout_height="25dp"
-                                                android:background="@drawable/home"
-                                                android:backgroundTint="@color/Teal_50" />
-
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:backgroundTint="@color/black"
-                                                android:hint="ข้อมูลที่อยู่ปัจจุบัน"
-                                                android:textColorHint="@color/black"
-                                                android:textSize="16sp"
-                                                android:textStyle="bold"
-                                                android:layout_marginLeft="10dp"/>
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="0.2"
-                                            android:gravity="center|end">
-
-
-                                            <TextView
-                                                android:layout_width="20dp"
-                                                android:layout_height="20dp"
-                                                android:background="@drawable/edit_button"
-                                                android:textAlignment="textEnd" />
-
-                                        </LinearLayout>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="vertical"
-                                        android:paddingLeft="5dp"
-                                        android:paddingRight="5dp">
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="2px"
-                                            android:background="@color/gray_600">
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="15dp"
+                                            android:orientation="vertical"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp">
 
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="2px"
+                                                android:background="@color/gray_600">
+
+                                            </LinearLayout>
                                         </LinearLayout>
-                                    </LinearLayout>
 
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/tvadr2"
+                                            android:text="ข้อมูล"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"/>
+                                    </LinearLayout>
                                 </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:orientation="vertical"
+                                    android:layout_height="wrap_content">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:orientation="horizontal"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1.8"
+                                                android:gravity="center|start">
+
+
+                                                <ImageView
+                                                    android:layout_width="30dp"
+                                                    android:layout_height="25dp"
+                                                    android:background="@drawable/home"
+                                                    android:backgroundTint="@color/Teal_50" />
+
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:backgroundTint="@color/black"
+                                                    android:hint="ข้อมูลที่อยู่ปัจจุบัน"
+                                                    android:textColorHint="@color/black"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
+                                                    android:layout_marginLeft="10dp"/>
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:clickable="true"
+                                                android:id="@+id/goEditAdr2"
+                                                android:background="?selectableItemBackgroundBorderless"
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="0.2"
+                                                android:gravity="center|end">
+
+
+                                                <TextView
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:background="@drawable/edit_button"
+                                                    android:textAlignment="textEnd" />
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="15dp"
+                                            android:orientation="vertical"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="2px"
+                                                android:background="@color/gray_600">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:padding="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/tvadr3"
+                                            android:text="ข้อมูล"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <!--                    ส่วนต่อล่าง-->
+
+
+
                             </LinearLayout>
 
-                            <!--                    ส่วนต่อล่าง-->
 
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp">
 
                         </LinearLayout>
 
 
                     </LinearLayout>
+                </ScrollView>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.35">
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
 
 
             </LinearLayout>
