@@ -106,7 +106,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/black">
+                android:background="@color/gray_600">
 
             </LinearLayout>
         </LinearLayout>
@@ -148,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/design_fram"
-                android:drawableEnd="@drawable/calendar"
+                android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
                 android:drawableTint="@color/Teal_50"
                 android:hint="วัน/เดือน/ปีเกิด"
                 android:inputType="date"
@@ -448,7 +448,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="2px"
-                    android:background="@color/black">
+                    android:background="@color/gray_600">
 
                 </LinearLayout>
             </LinearLayout>
