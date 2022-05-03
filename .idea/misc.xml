@@ -9,10 +9,12 @@
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_circle.xml" value="0.2805" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram.xml" value="0.2805" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram1.xml" value="0.2805" />
+        <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram2.xml" value="0.3345" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram_circle1.xml" value="0.2845" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram_otp.xml" value="0.2805" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram_squear.xml" value="0.2845" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram_squear1.xml" value="0.2845" />
+        <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/fram_1.xml" value="0.3345" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2805" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/sdf.xml" value="0.2805" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/drawable/stringbar.xml" value="0.2805" />
@@ -21,7 +23,7 @@
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_confirm_pin.xml" value="0.33" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_elderly.xml" value="0.33" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_exactivity.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_information_user.xml" value="0.33" />
+        <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_information_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_inphone.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Users/Jui/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_main.xml" value="0.33" />

@@ -12,25 +12,40 @@
         android:theme="@style/Theme.BandNara">
         <activity
             android:name=".EXActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".elderlyActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".settingActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".typeActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".announceActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
+
         <activity
             android:name=".informationUserActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".confirmPinActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".settingnewpasswordActivity"
             android:exported="true" />
@@ -52,12 +67,6 @@
             android:name=".MainActivity"
             android:exported="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity
             android:name=".register1Activity"
@@ -68,10 +77,18 @@
             android:name=".loginActivity"
             android:exported="true" >
 
+
         </activity>
         <activity
             android:name=".newsActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".OTPActivity2"
             android:exported="true">
