@@ -26,7 +26,6 @@ public class AmphuresRm extends RealmObject {
     }
 
 
-
     public void setProvId(String provId) {
         this.provId = provId;
     }
