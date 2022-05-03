@@ -55,6 +55,7 @@
             android:paddingRight="70dp">
 
             <EditText
+                android:text="0996181240"
                 android:id="@+id/loginPhon"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -76,6 +77,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/loginPassword"
+                    android:text="nitiphon1996"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/design_fram"

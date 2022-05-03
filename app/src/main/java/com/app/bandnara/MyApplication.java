@@ -24,6 +24,7 @@ public class MyApplication extends Application {
 
     private static UsersFB userRegis = new UsersFB();
     private static Context mContext;
+    private static String userId="";
     @Override
     public void onCreate() {
         Realm.init(this);
@@ -36,6 +37,14 @@ public class MyApplication extends Application {
         MyApplication.userRegis.setPim01(userRegis.getPim01());
         MyApplication.userRegis.setPim02(userRegis.getPim02());
         MyApplication.userRegis.setPim04(userRegis.getPim04());
+    }
+
+    public static String getUserId() {
+        return userId;
+    }
+
+    public static void setUserId(String userId) {
+        MyApplication.userId = userId;
     }
 
     public static void setUserRegisId(String id) {

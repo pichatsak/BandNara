@@ -59,6 +59,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/tv_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ตั้งค่ารหัส PIN"
@@ -98,31 +99,37 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/pin1"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
                 android:layout_marginRight="10dp"/>
             <TextView
+                android:id="@+id/pin2"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
                 android:layout_marginRight="10dp"/>
             <TextView
+                android:id="@+id/pin3"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
                 android:layout_marginRight="10dp"/>
             <TextView
+                android:id="@+id/pin4"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
                 android:layout_marginRight="10dp"/>
             <TextView
+                android:id="@+id/pin5"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
                 android:layout_marginRight="10dp"/>
             <TextView
+                android:id="@+id/pin6"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:background="@drawable/design_circle"
@@ -136,6 +143,9 @@
             android:layout_gravity="center"
             android:gravity="center">
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
@@ -153,14 +163,17 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -169,13 +182,16 @@
                     android:layout_centerInParent="true"/>
             </RelativeLayout>
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -193,14 +209,17 @@
             android:layout_gravity="center"
             android:gravity="center">
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -210,14 +229,17 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -226,13 +248,16 @@
                     android:layout_centerInParent="true"/>
             </RelativeLayout>
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -252,14 +277,17 @@
             android:layout_gravity="center"
             android:gravity="center">
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -269,14 +297,17 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -285,13 +316,16 @@
                     android:layout_centerInParent="true"/>
             </RelativeLayout>
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -308,15 +342,18 @@
             android:layout_gravity="center"
             android:gravity="center">
             <RelativeLayout
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:id="@+id/num10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="100dp">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -326,15 +363,18 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/del"
+                android:clickable="true"
+                android:background="?selectableItemBackgroundBorderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                >
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/design_fram_circle1"
-                    />
+                    android:background="@drawable/design_fram_circle1" />
                 <TextView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
