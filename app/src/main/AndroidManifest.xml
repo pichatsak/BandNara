@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BandNara">
         <activity
+            android:name=".ViewEventAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewNewsAllActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePassActivity"
             android:exported="false" />
         <activity

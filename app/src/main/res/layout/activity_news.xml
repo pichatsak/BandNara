@@ -139,6 +139,9 @@
                                     </LinearLayout>
 
                                     <LinearLayout
+                                        android:id="@+id/goNewsAll"
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="0.5"
@@ -164,69 +167,72 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1.7"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-
-                                <LinearLayout
+                                android:paddingTop="10dp"
+                                android:gravity="center">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/view_news"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:orientation="horizontal">
+                                    android:layout_height="match_parent"/>
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:background="@drawable/picture" />
+<!--                                <LinearLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:orientation="horizontal">-->
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:background="@drawable/picture" />
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="120dp"-->
+<!--                                        android:background="@drawable/picture" />-->
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:background="@drawable/picture" />
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="120dp"-->
+<!--                                        android:layout_marginLeft="20dp"-->
+<!--                                        android:background="@drawable/picture" />-->
+
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="120dp"-->
+<!--                                        android:layout_marginLeft="20dp"-->
+<!--                                        android:background="@drawable/picture" />-->
 
 
-                                </LinearLayout>
+<!--                                </LinearLayout>-->
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:orientation="horizontal">
+<!--                                <LinearLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:orientation="horizontal">-->
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:gravity="center"-->
+<!--                                        android:text="ข่าวสาร......"-->
+<!--                                        android:textColor="@color/Teal_50"-->
+<!--                                        android:textSize="16sp" />-->
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="20dp"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:layout_marginLeft="20dp"-->
+<!--                                        android:gravity="center"-->
+<!--                                        android:text="ข่าวสาร......"-->
+<!--                                        android:textColor="@color/Teal_50"-->
+<!--                                        android:textSize="16sp" />-->
 
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="20dp"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
+<!--                                    <TextView-->
+<!--                                        android:layout_width="120dp"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:layout_marginLeft="20dp"-->
+<!--                                        android:gravity="center"-->
+<!--                                        android:text="ข่าวสาร......"-->
+<!--                                        android:textColor="@color/Teal_50"-->
+<!--                                        android:textSize="16sp" />-->
 
-                                </LinearLayout>
+<!--                                </LinearLayout>-->
 
 
                             </LinearLayout>
@@ -294,6 +300,8 @@
                                     </LinearLayout>
 
                                     <LinearLayout
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="0.5"
@@ -321,69 +329,13 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="1.7"
                                 android:gravity="center"
+                                android:paddingTop="10dp"
                                 android:orientation="vertical">
 
-
-                                <LinearLayout
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/view_events"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:background="@drawable/picture" />
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:background="@drawable/picture" />
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="120dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:background="@drawable/picture" />
-
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="20dp"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
-
-                                    <TextView
-                                        android:layout_width="120dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="20dp"
-                                        android:gravity="center"
-                                        android:text="ข่าวสาร......"
-                                        android:textColor="@color/Teal_50"
-                                        android:textSize="16sp" />
-
-                                </LinearLayout>
-
+                                    android:layout_height="match_parent"/>
 
                             </LinearLayout>
                         </LinearLayout>

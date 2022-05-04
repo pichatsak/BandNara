@@ -24,6 +24,8 @@ public class MyApplication extends Application {
 
     private static UsersFB userRegis = new UsersFB();
     private static Context mContext;
+
+    private static String urlStorage ="gs://bangnara-mobile-app.appspot.com";
     private static String userId="";
     @Override
     public void onCreate() {
@@ -37,6 +39,14 @@ public class MyApplication extends Application {
         MyApplication.userRegis.setPim01(userRegis.getPim01());
         MyApplication.userRegis.setPim02(userRegis.getPim02());
         MyApplication.userRegis.setPim04(userRegis.getPim04());
+    }
+
+    public static String getUrlStorage() {
+        return urlStorage;
+    }
+
+    public static void setUrlStorage(String urlStorage) {
+        MyApplication.urlStorage = urlStorage;
     }
 
     public static String getUserId() {

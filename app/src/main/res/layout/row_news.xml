@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:paddingRight="10dp"
+
+    android:clickable="true"
+    android:foreground="?selectableItemBackgroundBorderless"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <ImageView
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:id="@+id/imgnews"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="ชื่อ"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:id="@+id/tvnews"
+            android:textColor="@color/Teal_50"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>
