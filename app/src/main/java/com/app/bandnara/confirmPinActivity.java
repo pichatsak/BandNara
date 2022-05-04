@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,19 +38,26 @@ public class confirmPinActivity extends AppCompatActivity {
     private int pageCur = 1;
     private String numPin1 = "";
     private String pinHave = "";
+    private String statusSet = "";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private LinearLayout back; // ปุ่มกลับ
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_pin);
         tv_sub_title = findViewById(R.id.tv_sub_title);
+        back = findViewById(R.id.back);
         CloseBar closeBar = new CloseBar(this);
         Bundle bundle = getIntent().getExtras();
         statusPin = bundle.getString("statusPin");
-
+        statusSet = bundle.getString("statusSet");
         if (statusPin.equals("no")) {
-            pageStatus = "setting";
+            if(statusSet.equals("new")){
+                pageStatus = "setting";
+            }else{
+                pageStatus = "change";
+            }
         } else {
             pageStatus = "access";
             tv_sub_title.setText("");
@@ -65,6 +73,13 @@ public class confirmPinActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDelNum();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
@@ -154,7 +169,7 @@ public class confirmPinActivity extends AppCompatActivity {
     }
 
     private void goCheck() {
-        if (pageStatus.equals("setting")) {
+        if (pageStatus.equals("setting") || pageStatus.equals("change")) {
             if (pageCur == 1) {
                 numPin1 = numCur;
                 setNextPage();
@@ -167,9 +182,14 @@ public class confirmPinActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Intent login = new Intent(confirmPinActivity.this, newsActivity.class);
-                                    startActivity(login);
+                                    if(pageStatus.equals("change")){
+                                        Toast.makeText(confirmPinActivity.this, "เปลี่ยน Pin เรียบร้อย", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Intent login = new Intent(confirmPinActivity.this, newsActivity.class);
+                                        startActivity(login);
+                                    }
                                     finish();
+
                                 }
                             });
                 } else {

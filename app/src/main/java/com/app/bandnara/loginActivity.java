@@ -84,6 +84,7 @@ public class loginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            Log.d("CHK_LOGIN","yes");
             Query firstQuery = db.collection("users").whereEqualTo("id", user.getUid());
             firstQuery.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
@@ -102,6 +103,8 @@ public class loginActivity extends AppCompatActivity {
                     }
                 }
             });
+        }else{
+            Log.d("CHK_LOGIN","no");
         }
     }
 
@@ -138,6 +141,7 @@ public class loginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d("CHKDB", document.getId() + " => " + document.getData());
+                        MyApplication.setUserId(document.getId());
                         setLogin(document.getData().get("pim04").toString(), getloginPassword, document.getData().get("statusSetPin").toString());
                     }
                 } else {
@@ -158,6 +162,7 @@ public class loginActivity extends AppCompatActivity {
                             Log.d("CHKLOGIN", "signInWithEmail:success");
                             Intent login = new Intent(loginActivity.this, confirmPinActivity.class);
                             login.putExtra("statusPin", statusPin);
+                            login.putExtra("statusSet", "new");
                             startActivity(login);
                             finish();
                         } else {

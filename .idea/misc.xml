@@ -44,6 +44,7 @@
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_circle.xml" value="0.281" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_circle_active.xml" value="0.281" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_announce.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_change_pass.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_confirm_pin.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_edit_address_one.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_edit_address_two.xml" value="0.3484375" />
@@ -60,6 +61,8 @@
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_register.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_register1.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_register2.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_setting.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_settingnewpassword.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/bottom_bar.xml" value="0.3625" />
       </map>
     </option>
