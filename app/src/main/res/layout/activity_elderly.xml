@@ -95,7 +95,7 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle1" />
+                                    android:background="@drawable/design_fram_circle3" />
 
                                 <TextView
                                     android:layout_width="15dp"
