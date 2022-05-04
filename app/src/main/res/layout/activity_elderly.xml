@@ -128,9 +128,10 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle2" />
+                                    android:background="@drawable/checked" />
 
                                 <TextView
+                                    android:visibility="gone"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
