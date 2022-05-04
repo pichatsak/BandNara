@@ -1,17 +1,20 @@
 package com.app.bandnara.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.bandnara.R;
+import com.app.bandnara.ViewNewsAndEventActivity;
 import com.app.bandnara.keepFireStory.EventsModel;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -48,10 +51,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.DailyViewH
     public void onBindViewHolder(final DailyViewHolder viewHolder, final int i) {
         final EventsModel newsModel = mEventList.get(i);
         viewHolder.tvnews.setText(newsModel.getEventTitle());
-//        StorageReference gsReference = storage.getReferenceFromUrl(MyApplication.getUrlStorage()+"/newsPic/news_"+newsModel.getKeyId());
-//        Glide.with(mContext)
-//                .load(gsReference)
-//                .into(viewHolder.imgnews);
 
         storageRef.child("eventsPic/events_"+newsModel.getKeyId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -64,6 +63,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.DailyViewH
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle any errors
+            }
+        });
+
+        viewHolder.contMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ViewNewsAndEventActivity.class);
+                intent.putExtra("keyId",newsModel.getKeyId());
+                intent.putExtra("type","events");
+                mContext.startActivity(intent);
             }
         });
 
@@ -80,13 +89,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.DailyViewH
 
         ImageView imgnews;
         TextView tvnews;
+        LinearLayout contMain;
         public OnClickBill onClickBill;
 
         public DailyViewHolder(View itemView, OnClickBill onClickBill) {
             super(itemView);
             imgnews = itemView.findViewById(R.id.imgnews);
             tvnews = itemView.findViewById(R.id.tvnews);
-
+            contMain = itemView.findViewById(R.id.contMain);
             this.onClickBill = onClickBill;
             itemView.setOnClickListener(this);
         }

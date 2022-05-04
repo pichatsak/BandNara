@@ -11,6 +11,7 @@ import com.app.bandnara.announceActivity;
 import com.app.bandnara.informationUserActivity;
 import com.app.bandnara.newsActivity;
 import com.app.bandnara.settingActivity;
+import com.app.bandnara.typeActivity;
 
 public class BottomBar {
     private Context context;
@@ -45,6 +46,16 @@ public class BottomBar {
                 context.startActivity(intent);
             }
         });
+
+        LinearLayout menu_regis = frameLayout.findViewById(R.id.menu_regis);
+        menu_regis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, typeActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
 
 
     }

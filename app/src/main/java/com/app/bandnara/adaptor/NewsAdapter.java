@@ -2,6 +2,7 @@ package com.app.bandnara.adaptor;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.bandnara.MyApplication;
 import com.app.bandnara.R;
+import com.app.bandnara.ViewNewsAndEventActivity;
 import com.app.bandnara.keepFireStory.NewsModel;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -72,6 +74,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.DailyViewHolde
             }
         });
 
+        viewHolder.contMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ViewNewsAndEventActivity.class);
+                intent.putExtra("keyId",newsModel.getKeyId());
+                intent.putExtra("type","news");
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -85,12 +97,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.DailyViewHolde
 
         ImageView imgnews;
         TextView tvnews;
+        LinearLayout contMain;
         public OnClickBill onClickBill;
 
         public DailyViewHolder(View itemView, OnClickBill onClickBill) {
             super(itemView);
             imgnews = itemView.findViewById(R.id.imgnews);
             tvnews = itemView.findViewById(R.id.tvnews);
+            contMain = itemView.findViewById(R.id.contMain);
 
             this.onClickBill = onClickBill;
             itemView.setOnClickListener(this);

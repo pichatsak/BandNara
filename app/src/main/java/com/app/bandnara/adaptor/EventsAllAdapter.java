@@ -16,37 +16,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.bandnara.R;
 import com.app.bandnara.ViewNewsAndEventActivity;
-import com.app.bandnara.keepFireStory.NewsModel;
-import com.app.bandnara.tools.DateTool;
+import com.app.bandnara.keepFireStory.EventsModel;
+import com.app.bandnara.loginActivity;
+import com.app.bandnara.registerActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 
-public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyViewHolder> {
+public class EventsAllAdapter extends RecyclerView.Adapter<EventsAllAdapter.DailyViewHolder> {
     private Context mContext;
-    private ArrayList<NewsModel> mNewList;
+    private ArrayList<EventsModel> mEventList;
     private OnClickBill mOnClickBill;
     private RecyclerView.Adapter mAdapter;
-    DateTool dateTool = new DateTool();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReference();
 
-    public NewsAllAdapter(Context context, ArrayList<NewsModel> data) {
+    public EventsAllAdapter(Context context, ArrayList<EventsModel> data) {
         mContext = context;
-        mNewList = data;
+        mEventList = data;
     }
 
     @NonNull
     @Override
     public DailyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.row_news_all, viewGroup, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.row_event_all, viewGroup, false);
         final DailyViewHolder viewHolder = new DailyViewHolder(v, mOnClickBill);
         return viewHolder;
     }
@@ -54,13 +52,11 @@ public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyVie
 
     @Override
     public void onBindViewHolder(final DailyViewHolder viewHolder, final int i) {
-        final NewsModel newsModel = mNewList.get(i);
-        viewHolder.tvnews.setText(newsModel.getNewsTitle());
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyy hh:mm", Locale.US);
-        String dateShow = df.format(newsModel.getDateUpdate());
-        viewHolder.tvDate.setText(dateShow);
+        final EventsModel newsModel = mEventList.get(i);
+        viewHolder.tvnews.setText(newsModel.getEventTitle());
 
-        storageRef.child("newsPic/news_"+newsModel.getKeyId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+        storageRef.child("eventsPic/events_"+newsModel.getKeyId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(mContext)
@@ -74,8 +70,8 @@ public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyVie
             }
         });
 
-        Log.d("CHKMAX","Max : "+mNewList.size()+" CUR : "+i);
-        if(mNewList.size()==(i+1)){
+        Log.d("CHKMAX","Max : "+mEventList.size()+" CUR : "+i);
+        if(mEventList.size()==(i+1)){
             Log.d("CHKMAX","YES");
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -90,7 +86,7 @@ public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyVie
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ViewNewsAndEventActivity.class);
                 intent.putExtra("keyId",newsModel.getKeyId());
-                intent.putExtra("type","news");
+                intent.putExtra("type","events");
                 mContext.startActivity(intent);
             }
         });
@@ -100,7 +96,7 @@ public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyVie
 
     @Override
     public int getItemCount() {
-        return mNewList.size();
+        return mEventList.size();
     }
 
 
@@ -109,9 +105,8 @@ public class NewsAllAdapter extends RecyclerView.Adapter<NewsAllAdapter.DailyVie
         ImageView imgnews;
         TextView tvnews;
         TextView tvDate;
-        LinearLayout contMain;
         public OnClickBill onClickBill;
-
+        LinearLayout contMain;
         public DailyViewHolder(View itemView, OnClickBill onClickBill) {
             super(itemView);
             imgnews = itemView.findViewById(R.id.imgnews);
