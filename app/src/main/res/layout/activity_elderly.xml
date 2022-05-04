@@ -69,7 +69,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -101,7 +102,7 @@
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/one"
-                                    android:backgroundTint="@color/Teal_50" />
+                                    android:backgroundTint="@color/white" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -127,14 +128,14 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle1" />
+                                    android:background="@drawable/design_fram_circle2" />
 
                                 <TextView
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/two"
-                                    android:backgroundTint="@color/Teal_50" />
+                                    android:backgroundTint="@color/white" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -159,122 +160,1780 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle1" />
+                                    android:background="@drawable/design_fram_circle2" />
 
                                 <TextView
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/tree"
-                                    android:backgroundTint="@color/Teal_50" />
+                                    android:backgroundTint="@color/white" />
                             </RelativeLayout>
 
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
-
-
-                <!--        ส่วนจบ-->
+                <!--//หน้า1-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
+                    android:visibility="gone">
 
 
-                    <LinearLayout
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp">
+                        android:layout_height="match_parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ข้อมูลผู้ยื่นคำขอ ฯ"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="center|start"
-
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-
-                            android:background="@drawable/design_circle" />
-
+                        <!--หน้าแรก-->
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:text="แจ้งด้วยตัวเอง"
-                                android:textColor="@color/Teal_50"
-                                android:textSize="16sp" />
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ข้อมูลผู้ยื่นคำขอ ฯ"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:gravity="center|start"
+
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_gravity="center"
+
+                                        android:background="@drawable/design_circle" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="แจ้งด้วยตัวเอง"
+                                            android:textColor="@color/Teal_50"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center|start"
+                                    android:orientation="horizontal">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/design_circle"
+                                        />
+
+                                        <ImageView
+                                            android:layout_centerInParent="true"
+                                            android:layout_width="13dp"
+                                            android:layout_height="13dp"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/circledark"
+
+
+                                            />
+                                    </RelativeLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="ผู้ยื่นคำขอ ฯ แทนตามหนังสือมอบอำนาจ"
+                                            android:textColor="@color/Teal_50"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <!--                        //ผู้ยื่นขอ-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="35dp"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2"
+
+                                        >
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="0.8">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="เกี่ยวข้องเป็น"
+                                                android:textColor="@color/black"
+                                                android:textSize="15dp" />
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1.2"
+                                            android:gravity="end">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="กับผู้สูงอายุที่ขอลงทะเบียน"
+                                                android:textColor="@color/black"
+                                                android:textSize="15dp" />
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:orientation="vertical">
+
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกความสัมพันธ์"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกคำนำหน้า"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุชื่อ"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุนามสกุล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุเลขประจำตัวประชาชน"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="บ้านเลขที่"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="หมู่"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตรอก/ซอย"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ถนน"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="จังหวัด"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="อำเภอ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ตำบล"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="รหัสไปรษณีย์"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุหมายเลขโทรศัพท์"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="18dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="สำเนาหนังสือมอบอำนาจ"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="13dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/fram4">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+
+                                                <ImageView
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="50dp"
+                                                    android:background="@drawable/camera"
+                                                    android:backgroundTint="@color/gray_600" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="อัพโหลดรูปภาพ"
+
+                                                    android:textColor="@color/gray_600"
+                                                    android:textSize="18sp" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="70dp"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:layout_width="160dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/design_fram1"
+                                        android:text="ถัดไป"
+                                        android:textColor="@color/white"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
                         </LinearLayout>
 
-                    </LinearLayout>
 
-                    <LinearLayout
+                    </ScrollView>
+
+                </LinearLayout>
+
+
+                <!--//หน้าสอง-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center|start"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent">
 
-                        <TextView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-
-                            android:background="@drawable/design_circle" />
-
+                        <!--หน้าแรก-->
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:text="ผู้ยื่นคำขอ ฯ แทนตามหนังสือมอบอำนาจ"
-                                android:textColor="@color/Teal_50"
-                                android:textSize="16sp" />
+                                android:paddingBottom="15dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="17dp"
+                                    android:gravity="start"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:backgroundTint="@color/black"
+                                        android:hint="ข้อมูลผู้สูงอายุ"
+                                        android:textColorHint="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!--                        //ผู้ยื่นขอ-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="20dp"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกคำนำหน้า"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุชื่อ"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุนามสกุล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
+                                            android:drawableTint="@color/Teal_50"
+                                            android:hint="วัน/เดือน/ปีเกิด"
+                                            android:inputType="date"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="อายุ"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ระบุสัญชาติ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุเลขประจำตัวประชาชน"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกสถานภาพสมรส"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุจำนวนรายได้ต่อเดือน"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ระบุอาชีพ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="บ้านเลขที่"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตรอก/ซอย"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ถนน"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="จังหวัด"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="อำเภอ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ตำบล"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="รหัสไปรษณีย์"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุหมายเลขโทรศัพท์"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+
+                                            />
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="18dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="สำเนาบัตรประจำตัวประชาชน"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="13dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/fram4">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+
+                                                <ImageView
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="50dp"
+                                                    android:background="@drawable/camera"
+                                                    android:backgroundTint="@color/gray_600" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="อัพโหลดรูปภาพ"
+
+                                                    android:textColor="@color/gray_600"
+                                                    android:textSize="18sp" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="18dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="สำเนาทะเบียนบ้าน"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="13dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/fram4">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+
+                                                <ImageView
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="50dp"
+                                                    android:background="@drawable/camera"
+                                                    android:backgroundTint="@color/gray_600" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="อัพโหลดรูปภาพ"
+
+                                                    android:textColor="@color/gray_600"
+                                                    android:textSize="18sp" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="70dp"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:layout_width="160dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/design_fram1"
+                                        android:text="ถัดไป"
+                                        android:textColor="@color/white"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
                         </LinearLayout>
 
-                    </LinearLayout>
+
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <!--                //หน้าสาม-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--หน้าแรก-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="15dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="17dp"
+                                    android:gravity="start"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:backgroundTint="@color/black"
+                                        android:hint="ข้อมูลทั่วไป : สถานภาพการรับสวัสดิการภาครัฐ"
+                                        android:textColorHint="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!--                        //ผู้ยื่นขอ-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="20dp"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
 
 
 
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle"
+                                                    />
+
+                                                <ImageView
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark"
+
+
+                                                    />
+                                            </RelativeLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="ไม่ได้รับการสงเคราะห์เบี้ยยังชีพ"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="ได้รับการสงเคราะห์เบี้ยยังชีพผู้ป่วยเอดส์"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="ได้รับการสงเคราะห์เบี้ยความพิการ"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="ย้ายภูมิลำเนาข้อมูลมาใหม่"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="20dp"
+                                            android:orientation="vertical">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="2px"
+                                                android:background="@color/gray_600">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="30dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle"
+                                                    />
+
+                                                <ImageView
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark"
+
+
+                                                    />
+                                            </RelativeLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="โอนเข้าบัญชีเงินฝากธนาคารในนามผู้มีสิทธิ"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="โอนเข้าบัญชีเงินฝากธนาคารในนามบุคคลที่ได้รับมอบอำนาจจากผู้มีสิทธิ เกี่ยวข้องเป็น"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="20dp"
+                                            android:orientation="vertical">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="2px"
+                                                android:background="@color/gray_600">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="30dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุเลขที่บัญชี"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุชื่อบัญชี"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุธนาคาร"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="18dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="หน้าสมุดบัญชีธนาคาร"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="13dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/fram4">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+
+                                                <ImageView
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="50dp"
+                                                    android:background="@drawable/camera"
+                                                    android:backgroundTint="@color/gray_600" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="อัพโหลดรูปภาพ"
+
+                                                    android:textColor="@color/gray_600"
+                                                    android:textSize="18sp" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginRight="30dp"
+                                    android:gravity="start"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+
+                                        android:layout_width="40dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="start" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="0dp"
+                                            android:text="ข้าพเจ้าขอรับรองว่าข้อมูลผู้ขอสิทธิ์เป็นผู้มีคุณสมบัติครบถ้วน ไม่ได้เป็นผู้รับบำนาญหรือสวัสดิการเป็นรายเดือนจากหน่วยงานของรัฐ รัฐวิสาหกิจหรือองค์ปกครองส่วนท้องถิ่นและขอรับรองว่าข้อความดังกล่าวข้างต้นเป็นความจริงทุกประการ"
+                                            android:textColor="@color/black"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="70dp"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:layout_width="160dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/design_fram1"
+                                        android:text="ลงทะเบียน"
+                                        android:textColor="@color/white"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <!--                //หน้าเพิ่ม-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <!--หน้าแรก-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="40dp"
+
+
+                            >
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_baseline_warning_24"
+                                android:backgroundTint="@color/gray_600" />
+
+                            <TextView
+                                android:layout_marginTop="13dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="กรุณากดเพิ่มรายการขึ้นทะเบียนผู้สูงอายุ"
+                                android:textColor="@color/gray_600"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                            <!--                        //ผู้ยื่นขอ-->
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </LinearLayout>
 
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="150dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/design_fram1"
+                    android:text="เพิ่มรายการขึ้นทะเบียนผู้สูงอายุ"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
                 android:layout_marginBottom="150dp"
-                >
+                android:gravity="center"
+                android:visibility="gone">
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="160dp"
                     android:layout_height="50dp"
