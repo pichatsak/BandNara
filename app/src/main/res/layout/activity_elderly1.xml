@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
     android:orientation="vertical"
-    tools:context=".elderlyActivity">
+    tools:context=".elderly1Activity">
 
 
     <LinearLayout
@@ -53,7 +53,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ขึ้นทะเบียนผู้สูงอายุ"
+                                android:text="ขึ้นทะเบียนผู้พิการ"
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:textStyle="bold"
@@ -106,7 +106,7 @@
                             </RelativeLayout>
 
                             <LinearLayout
-                                android:layout_width="50dp"
+                                android:layout_width="35dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="10dp"
@@ -140,7 +140,41 @@
                             </RelativeLayout>
 
                             <LinearLayout
-                                android:layout_width="50dp"
+                                android:layout_width="35dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/design_fram_circle2" />
+
+                                <TextView
+                                    android:visibility="visible"
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/tree"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="35dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="10dp"
@@ -167,7 +201,7 @@
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
-                                    android:background="@drawable/tree"
+                                    android:background="@drawable/four"
                                     android:backgroundTint="@color/white" />
                             </RelativeLayout>
 
@@ -223,12 +257,29 @@
 
                                     android:orientation="horizontal">
 
-                                    <TextView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:layout_gravity="center"
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
 
-                                        android:background="@drawable/design_circle" />
+
+
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/design_circle"
+                                            />
+
+                                        <ImageView
+                                            android:layout_centerInParent="true"
+                                            android:layout_width="13dp"
+                                            android:layout_height="13dp"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/circledark"
+
+
+                                            />
+                                    </RelativeLayout>
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -259,14 +310,15 @@
 
 
 
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:layout_gravity="center"
-                                        android:background="@drawable/design_circle"
-                                        />
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/design_circle"
+                                            />
 
                                         <ImageView
+                                            android:visibility="gone"
                                             android:layout_centerInParent="true"
                                             android:layout_width="13dp"
                                             android:layout_height="13dp"
@@ -300,7 +352,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical"
-                                android:visibility="visible">
+                                android:visibility="gone">
 
 
                                 <LinearLayout
@@ -722,7 +774,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                     <ScrollView
@@ -755,7 +807,7 @@
                                         android:layout_height="wrap_content"
 
                                         android:backgroundTint="@color/black"
-                                        android:hint="ข้อมูลผู้สูงอายุ"
+                                        android:hint="ข้อมูลผู้พิการ"
                                         android:textColorHint="@color/black"
                                         android:textSize="16sp"
                                         android:textStyle="bold" />
@@ -1127,6 +1179,31 @@
 
                                             />
 
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกประเภทความพิการ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
 
                                     </LinearLayout>
 
@@ -1308,6 +1385,93 @@
 
                                 </LinearLayout>
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="18dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="สำเนาบัตรประจำตัวคนพิการ"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="13dp"
+                                    android:paddingLeft="30dp"
+                                    android:paddingRight="30dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/fram4">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+
+                                                <ImageView
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="50dp"
+                                                    android:background="@drawable/camera"
+                                                    android:backgroundTint="@color/gray_600" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="อัพโหลดรูปภาพ"
+
+                                                    android:textColor="@color/gray_600"
+                                                    android:textSize="18sp" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -1346,6 +1510,201 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="gone">
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--หน้าแรก-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="15dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="17dp"
+                                    android:gravity="start"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:backgroundTint="@color/black"
+                                        android:hint="ข้อมูลบุคคลอ้างอิงที่สามารถติดต่อได้"
+                                        android:textColorHint="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!--                        //ผู้ยื่นขอ-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="20dp"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="เลือกคำนำหน้า"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุชื่อ"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุนามสกุล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุหมายเลขโทรศัพท์"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="70dp"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:layout_width="160dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/design_fram1"
+                                        android:text="ถัดไป"
+                                        android:textColor="@color/white"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </ScrollView>
+
+                </LinearLayout>
+
+
+<!--                //หน้าสี่-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
 
 
                     <ScrollView
@@ -1864,7 +2223,6 @@
                     </ScrollView>
 
                 </LinearLayout>
-
                 <!--                //หน้าเพิ่ม-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1901,7 +2259,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:text="กรุณากดเพิ่มรายการขึ้นทะเบียนผู้สูงอายุ"
+                                android:text="กรุณากดเพิ่มรายการขึ้นทะเบียนผู้พิการ"
                                 android:textColor="@color/gray_600"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -1932,7 +2290,7 @@
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:background="@drawable/design_fram1"
-                    android:text="เพิ่มรายการขึ้นทะเบียนผู้สูงอายุ"
+                    android:text="เพิ่มรายการขึ้นทะเบียนผู้พิการ"
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold" />
