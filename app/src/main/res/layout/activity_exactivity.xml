@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="@drawable/background_main"
     android:orientation="vertical"
     tools:context=".EXActivity">
@@ -33,13 +35,21 @@
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="23dp"
+                        <LinearLayout
+                            android:id="@+id/back"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/left_arrow_angle"
-                            android:backgroundTint="@color/white" />
+                            android:layout_marginTop="20dp"
+                            android:layout_width="30dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_arrow_angle"
+                                android:backgroundTint="@color/white" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -48,9 +58,10 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/tvTitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ถนน - ทางเท้า"
+                                android:text="หัวข้อ"
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:textStyle="bold"
@@ -61,144 +72,178 @@
                     </RelativeLayout>
                 </LinearLayout>
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:paddingLeft="30dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ปัญหาที่พบ"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp">
-
-                    <EditText
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:background="@drawable/design_fram"
-                        android:hint="เหตุผล"
-                        android:inputType="text"
-                        android:textColorHint="@color/gray_50"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:paddingLeft="30dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:paddingLeft="30dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="รูปภาพประกอบ"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="20dp"
-                    android:gravity="start"
-                    android:paddingLeft="65dp">
-
-
-                    <RelativeLayout
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/design_fram">
-
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/plus1"
-                            android:backgroundTint="@color/Teal_50" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:paddingLeft="30dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ปักมุดสถานที่"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ปัญหาที่พบ"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:paddingLeft="30dp"
+                            android:paddingRight="30dp">
 
                             <EditText
+                                android:id="@+id/reasons"
                                 android:layout_width="match_parent"
                                 android:layout_height="80dp"
                                 android:background="@drawable/design_fram"
-                                android:hint="ปักมุดสถานที่"
+                                android:hint="เหตุผล"
+                                android:inputType="text"
                                 android:textColorHint="@color/gray_50"
                                 android:textSize="16sp" />
                         </LinearLayout>
 
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/maps_and_flags"
-                            android:backgroundTint="@color/Teal_50" />
-                    </RelativeLayout>
-                </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:paddingLeft="30dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="รูปภาพประกอบ"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="160dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/design_fram1"
-                        android:text="แจ้งปัญหา"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="20dp"
+                            android:gravity="start"
+                            android:paddingLeft="65dp">
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/contImg"
+                                android:layout_width="120dp"
+                                android:layout_height="100dp"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/imgShow"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/chooseImg"
+                                android:clickable="true"
+                                android:foreground="?selectableItemBackgroundBorderless"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@drawable/design_fram">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/plus1"
+                                    android:backgroundTint="@color/Teal_50" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingLeft="30dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ปักมุดสถานที่"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:paddingLeft="30dp"
+                            android:paddingRight="30dp">
+
+                            <RelativeLayout
+                                android:id="@+id/chooseMap"
+                                android:clickable="true"
+
+                                android:foreground="?android:attr/selectableItemBackground"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp">
+
+
+                                <LinearLayout
+                                    android:background="@drawable/design_fram"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp">
+
+                                    <TextView
+                                        android:id="@+id/tvShowLo"
+                                        android:layout_gravity="center"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="ปักมุดสถานที่"
+                                        android:textColorHint="@color/gray_50"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/maps_and_flags"
+                                    android:backgroundTint="@color/Teal_50" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginBottom="100dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center">
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/sendReport"
+                                android:layout_width="160dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/design_fram1"
+                                android:text="แจ้งปัญหา"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+
             </LinearLayout>
 
             <RelativeLayout
@@ -208,146 +253,9 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/home"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="หน้าแรก"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/report_symbol"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="แจ้งปัญหา"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/cash_register"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ขึ้นทะเบียน"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-
-                                android:background="@drawable/gear"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ตั้งค่า"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                <include
+                    android:id="@+id/bottomMenu"
+                    layout="@layout/bottom_bar" />
             </RelativeLayout>
 
 

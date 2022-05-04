@@ -34,13 +34,21 @@
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="23dp"
+                        <LinearLayout
+                            android:id="@+id/back"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/left_arrow_angle"
-                            android:backgroundTint="@color/white" />
+                            android:layout_marginTop="20dp"
+                            android:layout_width="30dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_arrow_angle"
+                                android:backgroundTint="@color/white" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -67,6 +75,9 @@
 
                 <!--        ส่วนเริ่ม-->
                 <LinearLayout
+                    android:id="@+id/btnReport1"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -118,6 +129,9 @@
                 </LinearLayout>
                 <!--        ส่วนจบ-->
                 <LinearLayout
+                    android:id="@+id/btnReport2"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -169,6 +183,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnReport3"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -220,6 +237,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnReport4"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -271,6 +291,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnReport5"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -331,146 +354,10 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
 
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/home"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="หน้าแรก"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/report_symbol"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="แจ้งปัญหา"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/cash_register"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ขึ้นทะเบียน"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-
-                                android:background="@drawable/gear"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ตั้งค่า"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                <include
+                    android:id="@+id/bottomMenu"
+                    layout="@layout/bottom_bar" />
             </RelativeLayout>
 
 
