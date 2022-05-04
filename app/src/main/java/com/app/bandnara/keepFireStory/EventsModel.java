@@ -1,13 +1,16 @@
 package com.app.bandnara.keepFireStory;
 
 import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.ServerTimestamp;
+
+import java.util.Date;
 
 public class EventsModel {
     private String keyId;
     private String eventTitle;
     private String eventDetail;
-    private FieldValue dateCreate;
-    private FieldValue dateUpdate;
+    @ServerTimestamp
+    private Date dateUpdate;
 
     public EventsModel() {
 
@@ -37,19 +40,11 @@ public class EventsModel {
         this.eventDetail = eventDetail;
     }
 
-    public FieldValue getDateCreate() {
-        return dateCreate;
-    }
-
-    public void setDateCreate(FieldValue dateCreate) {
-        this.dateCreate = dateCreate;
-    }
-
-    public FieldValue getDateUpdate() {
+    public Date getDateUpdate() {
         return dateUpdate;
     }
 
-    public void setDateUpdate(FieldValue dateUpdate) {
+    public void setDateUpdate(Date dateUpdate) {
         this.dateUpdate = dateUpdate;
     }
 }

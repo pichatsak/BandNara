@@ -8,7 +8,7 @@
     android:focusableInTouchMode="true"
     android:background="@drawable/background_main"
     android:orientation="vertical"
-    tools:context=".ViewEventAllActivity">
+    tools:context=".ViewNewsAndEventActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,10 +58,12 @@
                             android:gravity="center">
 
                             <TextView
+                                android:ellipsize="end"
                                 android:id="@+id/tvTitle"
-                                android:layout_width="wrap_content"
+                                android:maxLines="1"
+                                android:layout_width="220dp"
                                 android:layout_height="wrap_content"
-                                android:text="กิจกรรมทั้งหมด"
+                                android:text="ข้อมูล"
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:textStyle="bold"
@@ -71,18 +73,39 @@
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:paddingTop="10dp"
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginBottom="70dp"
-                        android:id="@+id/viewEventAll"
+                    <LinearLayout
+                        android:paddingBottom="100dp"
+                        android:orientation="vertical"
+                        android:padding="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imgShow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="15dp"
+                            android:textAlignment="center"
+                            android:id="@+id/titleShow"
+                            android:textColor="@color/Teal_50"
+                            android:text="ชื่อหัวข้อ"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/showDetail"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </ScrollView>
 
 
             </LinearLayout>

@@ -33,7 +33,7 @@ public class newsActivity extends AppCompatActivity {
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     private RecyclerView view_news,view_events;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private LinearLayout goNewsAll;
+    private LinearLayout goNewsAll,goEventAll;
     private ArrayList<NewsModel> newsModelArrayList = new ArrayList<>();
     private ArrayList<EventsModel> eventsModelArrayList = new ArrayList<>();
 
@@ -46,6 +46,7 @@ public class newsActivity extends AppCompatActivity {
         view_news = findViewById(R.id.view_news);
         view_events = findViewById(R.id.view_events);
         goNewsAll = findViewById(R.id.goNewsAll);
+        goEventAll = findViewById(R.id.goEventAll);
 
         // เซ็ตการทำงานปุ่มเมนูล่าง
         bottomMenu = (FrameLayout)findViewById(R.id.bottomMenu);
@@ -66,6 +67,14 @@ public class newsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(newsActivity.this, ViewNewsAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        goEventAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(newsActivity.this, ViewEventAllActivity.class);
                 startActivity(intent);
             }
         });
