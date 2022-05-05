@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
     android:orientation="vertical"
+
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".elderlyActivity">
 
 
@@ -34,14 +37,21 @@
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="23dp"
+                        <LinearLayout
+                            android:id="@+id/back"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/left_arrow_angle"
-                            android:backgroundTint="@color/white" />
-
+                            android:layout_marginTop="20dp"
+                            android:layout_width="30dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_arrow_angle"
+                                android:backgroundTint="@color/white" />
+                        </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -80,8 +90,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:background="@drawable/design_fram_squear1" />
-
+<!--                        pro หน้า 1-->
                         <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/processPage1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -102,6 +114,194 @@
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/one"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/design_fram_circle2" />
+
+                                <TextView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/two"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/design_fram_circle2" />
+
+                                <TextView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/tree"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+<!--                        pro หน้า 2-->
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/processPage2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/checked" />
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/two"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/design_fram_circle3" />
+
+                                <TextView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/two"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/design_fram_circle2" />
+
+                                <TextView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/tree"
+                                    android:backgroundTint="@color/white" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+<!--                        pro หน้า 3-->
+                        <LinearLayout
+                            android:visibility="visible"
+                            android:id="@+id/processPage3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/checked" />
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/two"
                                     android:backgroundTint="@color/white" />
                             </RelativeLayout>
 
@@ -161,7 +361,7 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle2" />
+                                    android:background="@drawable/design_fram_circle3" />
 
                                 <TextView
                                     android:layout_width="15dp"
@@ -172,13 +372,15 @@
                             </RelativeLayout>
 
                         </LinearLayout>
+
                     </RelativeLayout>
                 </LinearLayout>
                 <!--//หน้า1-->
                 <LinearLayout
+                    android:id="@+id/page1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
 
                     <ScrollView
@@ -223,12 +425,27 @@
 
                                     android:orientation="horizontal">
 
-                                    <TextView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:layout_gravity="center"
+                                    <RelativeLayout
+                                        android:id="@+id/setType1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
 
-                                        android:background="@drawable/design_circle" />
+
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/design_circle" />
+
+                                        <ImageView
+                                            android:id="@+id/imgType1"
+                                            android:visibility="gone"
+                                            android:layout_width="13dp"
+                                            android:layout_height="13dp"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/circledark" />
+                                    </RelativeLayout>
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -254,6 +471,7 @@
                                     android:orientation="horizontal">
 
                                     <RelativeLayout
+                                        android:id="@+id/setType2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content">
 
@@ -267,14 +485,12 @@
                                         />
 
                                         <ImageView
-                                            android:layout_centerInParent="true"
+                                            android:id="@+id/imgType2"
                                             android:layout_width="13dp"
                                             android:layout_height="13dp"
+                                            android:layout_centerInParent="true"
                                             android:layout_gravity="center"
-                                            android:background="@drawable/circledark"
-
-
-                                            />
+                                            android:background="@drawable/circledark" />
                                     </RelativeLayout>
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -297,6 +513,7 @@
                             <!--                        //ผู้ยื่นขอ-->
 
                             <LinearLayout
+                                android:id="@+id/contInPage1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical"
@@ -364,6 +581,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinRelay"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -389,6 +607,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeName"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -408,6 +627,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:text="นิคม"
+                                            android:id="@+id/name"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -418,6 +639,8 @@
                                             android:textSize="16sp" />
 
                                         <EditText
+                                            android:text="พงษ์คำ"
+                                            android:id="@+id/lastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -430,6 +653,8 @@
                                             />
 
                                         <EditText
+                                            android:text="3560100393954"
+                                            android:id="@+id/idCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -442,6 +667,8 @@
                                             />
 
                                         <EditText
+                                            android:text="81"
+                                            android:id="@+id/homeNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -454,6 +681,8 @@
                                             />
 
                                         <EditText
+                                            android:text="7"
+                                            android:id="@+id/moo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -466,6 +695,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/soi"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -478,6 +709,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/road"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -497,6 +730,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/province"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -522,6 +756,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/amphur"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -540,32 +775,23 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
+                                        <EditText
+                                            android:text="แม่อิง"
+                                            android:id="@+id/district"
                                             android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตำบล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
 
-
-                                            <Spinner
-                                                android:layout_width="match_parent"
-                                                android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ตำบล"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
+                                            />
 
                                         <EditText
+                                            android:text="56000"
+                                            android:id="@+id/postCode"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -579,6 +805,8 @@
                                             />
 
                                         <EditText
+                                            android:text="0837651698"
+                                            android:id="@+id/phone"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -628,12 +856,17 @@
 
 
                                         <LinearLayout
+                                            android:orientation="vertical"
+                                            android:clickable="true"
+                                            android:foreground="?selectableItemBackgroundBorderless"
+                                            android:id="@+id/btnChoosePic"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
+                                                android:id="@+id/contUpload"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -655,6 +888,11 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:id="@+id/showPicUpload"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"/>
 
 
                                         </LinearLayout>
@@ -667,14 +905,13 @@
                                             android:gravity="center">
 
                                             <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeEx"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/my_text"
-
-
                                                 android:textColor="@color/orange"
-
-
                                                 android:textSize="18sp" />
 
                                         </LinearLayout>
@@ -685,32 +922,35 @@
                                 </LinearLayout>
 
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="70dp"
-                                    android:gravity="center">
-
-                                    <androidx.appcompat.widget.AppCompatButton
-                                        android:layout_width="160dp"
-                                        android:layout_height="50dp"
-                                        android:background="@drawable/design_fram1"
-                                        android:text="ถัดไป"
-                                        android:textColor="@color/white"
-                                        android:textSize="17sp"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
 
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp">
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center">
 
-                                </LinearLayout>
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnNextPage1"
+                                    android:layout_width="160dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/design_fram1"
+                                    android:text="ถัดไป"
+                                    android:textColor="@color/white"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp">
 
                             </LinearLayout>
                         </LinearLayout>
+
 
 
                     </ScrollView>
@@ -720,9 +960,10 @@
 
                 <!--//หน้าสอง-->
                 <LinearLayout
+                    android:id="@+id/page2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                     <ScrollView
@@ -810,6 +1051,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeName2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -829,6 +1071,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:id="@+id/olderName"
+                                            android:text="สุนันทา"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -839,6 +1083,8 @@
                                             android:textSize="16sp" />
 
                                         <EditText
+                                            android:text="พงษ์คำ"
+                                            android:id="@+id/olderLastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -851,6 +1097,8 @@
                                             />
 
                                         <TextView
+                                            android:clickable="true"
+                                            android:id="@+id/olderBirth"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -864,6 +1112,8 @@
                                             android:textSize="16sp" />
 
                                         <EditText
+                                            android:text="60"
+                                            android:id="@+id/olderYear"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -882,6 +1132,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinCitizen"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -901,6 +1152,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:text="1858800456150"
+                                            android:id="@+id/olderIdCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -919,6 +1172,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinStanapap"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -938,6 +1192,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:text="5000"
+                                            android:id="@+id/olderProfit"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -956,6 +1212,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinWork"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -975,6 +1232,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:text="82"
+                                            android:id="@+id/homeNo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -988,6 +1247,8 @@
                                             />
 
                                         <EditText
+                                            android:text="8"
+                                            android:id="@+id/moo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1001,6 +1262,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/soi2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1014,6 +1277,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/road2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1033,6 +1298,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/province2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1058,6 +1324,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/amphur2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1076,32 +1343,23 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
+                                        <EditText
+                                            android:text="แม่ใจ"
+                                            android:id="@+id/district2"
                                             android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตำบล"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
 
-
-                                            <Spinner
-                                                android:layout_width="match_parent"
-                                                android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ตำบล"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
+                                            />
 
                                         <EditText
+                                            android:text="56000"
+                                            android:id="@+id/postCode2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1115,6 +1373,8 @@
                                             />
 
                                         <EditText
+                                            android:text="0864403511"
+                                            android:id="@+id/phone2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1164,12 +1424,18 @@
 
 
                                         <LinearLayout
+                                            android:orientation="vertical"
+                                            android:id="@+id/chooseCopyCard"
+                                            android:clickable="true"
+                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
+                                                android:visibility="visible"
+                                                android:id="@+id/contShowCopyCard"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1191,6 +1457,11 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:id="@+id/showPicCopyCard"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"/>
 
 
                                         </LinearLayout>
@@ -1252,12 +1523,17 @@
 
 
                                         <LinearLayout
+                                            android:clickable="true"
+                                            android:id="@+id/chooseCopyHome"
+                                            android:orientation="vertical"
+                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
+                                                android:id="@+id/contShowCopyHome"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1279,7 +1555,11 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:id="@+id/showImageCopyHome"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"/>
 
                                         </LinearLayout>
 
@@ -1317,6 +1597,7 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/btnNextPage2"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -1343,6 +1624,8 @@
 
                 <!--                //หน้าสาม-->
                 <LinearLayout
+
+                    android:id="@+id/page3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="gone">
@@ -1427,6 +1710,56 @@
 
 
                                         <LinearLayout
+                                            android:id="@+id/cbst1"
+                                            android:clickable="true"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:gravity="center|start"
+                                            android:orientation="horizontal">
+
+                                            <RelativeLayout
+
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle"
+                                                    />
+
+                                                <ImageView
+                                                    android:id="@+id/imgCbSt1"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark" />
+                                            </RelativeLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp"
+                                                    android:text="ไม่ได้รับการสงเคราะห์เบี้ยยังชีพ"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="16sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/cbst2"
+                                            android:clickable="true"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
@@ -1448,44 +1781,14 @@
                                                     />
 
                                                 <ImageView
-                                                    android:layout_centerInParent="true"
+                                                    android:visibility="gone"
+                                                    android:id="@+id/imgCbSt2"
                                                     android:layout_width="13dp"
                                                     android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/circledark"
-
-
-                                                    />
+                                                    android:background="@drawable/circledark" />
                                             </RelativeLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:text="ไม่ได้รับการสงเคราะห์เบี้ยยังชีพ"
-                                                    android:textColor="@color/black"
-                                                    android:textSize="16sp" />
-                                            </LinearLayout>
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="10dp"
-                                            android:gravity="center|start"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -1503,6 +1806,8 @@
                                         </LinearLayout>
 
                                         <LinearLayout
+                                            android:id="@+id/cbst3"
+                                            android:clickable="true"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
@@ -1510,11 +1815,29 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle"
+                                                    />
+
+                                                <ImageView
+
+                                                    android:visibility="gone"
+                                                    android:id="@+id/imgCbSt3"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark" />
+                                            </RelativeLayout>
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -1532,6 +1855,8 @@
                                         </LinearLayout>
 
                                         <LinearLayout
+                                            android:id="@+id/cbst4"
+                                            android:clickable="true"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
@@ -1539,11 +1864,28 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle"
+                                                    />
+
+                                                <ImageView
+                                                    android:visibility="gone"
+                                                    android:id="@+id/imgCbSt4"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark" />
+                                            </RelativeLayout>
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -1576,6 +1918,8 @@
 
 
                                         <LinearLayout
+                                            android:id="@+id/cbBc1"
+                                            android:clickable="true"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
@@ -1588,22 +1932,19 @@
                                                 android:layout_height="wrap_content">
 
 
-
                                                 <ImageView
                                                     android:layout_width="25dp"
                                                     android:layout_height="25dp"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
+                                                    android:background="@drawable/design_circle" />
 
                                                 <ImageView
+                                                    android:id="@+id/imgCbBc1"
                                                     android:layout_centerInParent="true"
                                                     android:layout_width="13dp"
                                                     android:layout_height="13dp"
                                                     android:layout_gravity="center"
                                                     android:background="@drawable/circledark"
-
-
                                                     />
                                             </RelativeLayout>
 
@@ -1623,6 +1964,8 @@
                                         </LinearLayout>
 
                                         <LinearLayout
+                                            android:id="@+id/cbBc2"
+                                            android:clickable="true"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
@@ -1630,12 +1973,27 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
 
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle" />
+
+                                                <ImageView
+                                                    android:visibility="gone"
+                                                    android:id="@+id/imgCbBc2"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark"
+                                                    />
+                                            </RelativeLayout>
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content">
@@ -1667,6 +2025,8 @@
 
 
                                         <EditText
+                                            android:text="0511749883"
+                                            android:id="@+id/bankNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -1681,6 +2041,8 @@
                                             />
 
                                         <EditText
+                                            android:text="มาโนม พงษ์คำ"
+                                            android:id="@+id/bankName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -1695,6 +2057,8 @@
                                             />
 
                                         <EditText
+                                            android:text="กสิกรไทย"
+                                            android:id="@+id/bankOwner"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -1745,12 +2109,17 @@
 
 
                                         <LinearLayout
+                                            android:orientation="vertical"
+                                            android:id="@+id/chooseCopyBank"
+                                            android:clickable="true"
+                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
+                                                android:id="@+id/contShowCopyBank"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1767,12 +2136,15 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="อัพโหลดรูปภาพ"
-
                                                     android:textColor="@color/gray_600"
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-
+                                            <ImageView
+                                                android:id="@+id/showImgBank"
+                                                android:visibility="gone"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"/>
 
                                         </LinearLayout>
 
@@ -1812,7 +2184,7 @@
                                     android:orientation="horizontal">
 
                                     <CheckBox
-
+                                        android:id="@+id/cbAllow"
                                         android:layout_width="40dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="start" />
@@ -1841,6 +2213,7 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/saveFinal"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -1965,146 +2338,9 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/home"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="หน้าแรก"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/report_symbol"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="แจ้งปัญหา"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/cash_register"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ขึ้นทะเบียน"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-
-                                android:background="@drawable/gear"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ตั้งค่า"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                <include
+                    android:id="@+id/bottomMenu"
+                    layout="@layout/bottom_bar" />
             </RelativeLayout>
 
         </RelativeLayout>
