@@ -95,6 +95,7 @@ public class loginActivity extends AppCompatActivity {
                             MyApplication.setUserId(document.getId());
                             Intent login = new Intent(loginActivity.this, confirmPinActivity.class);
                             login.putExtra("statusPin", pinget);
+                            login.putExtra("statusSet", "new");
                             startActivity(login);
                             finish();
                         }
