@@ -75,7 +75,7 @@ public class OTPActivity2 extends AppCompatActivity {
         CloseBar closeBar = new CloseBar(this);
 //        //ส่งเบอร์โทรศัพท์มาโชว์
         Bundle bundle = getIntent().getExtras();
-        String getphone = bundle.getString("phone");
+        String getphone = "+66"+bundle.getString("phone");
         showphone.setText(getphone);
 
         //เรียกใช้ฟังก์ชั่นพิมข้ามช่อง
