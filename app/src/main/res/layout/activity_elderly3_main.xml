@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="@drawable/background_main"
     android:orientation="vertical"
     tools:context=".elderly1Activity">
@@ -165,6 +167,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeName"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -184,6 +187,8 @@
                                         </RelativeLayout>
 
                                         <EditText
+                                            android:text="นิคม"
+                                            android:id="@+id/name"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -196,6 +201,8 @@
                                             android:textSize="16sp" />
 
                                         <EditText
+                                            android:text="พงษ์คำ"
+                                            android:id="@+id/lastName"
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
@@ -210,6 +217,8 @@
                                             />
 
                                         <EditText
+                                            android:text="3560100393954"
+                                            android:id="@+id/idCard"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -224,6 +233,9 @@
                                             />
 
                                         <EditText
+                                            android:text="0837651698"
+                                            android:id="@+id/phone"
+
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
@@ -239,6 +251,8 @@
                                             />
 
                                         <EditText
+                                            android:text="81"
+                                            android:id="@+id/homeNo"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -254,6 +268,8 @@
                                             />
 
                                         <EditText
+                                            android:text="7"
+                                            android:id="@+id/moo"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -269,6 +285,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/soi"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -284,6 +302,8 @@
                                             />
 
                                         <EditText
+                                            android:text="-"
+                                            android:id="@+id/road"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -307,6 +327,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/province"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -334,6 +355,7 @@
 
 
                                             <Spinner
+                                                android:id="@+id/amphur"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -352,34 +374,26 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
+                                        <EditText
+                                            android:text="แม่อิง"
+                                            android:id="@+id/district"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginTop="13dp"
+
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตำบล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
 
-
-                                            <Spinner
-                                                android:layout_width="match_parent"
-                                                android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ตำบล"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
+                                            />
 
                                         <EditText
+                                            android:text="56000"
+                                            android:id="@+id/postCode"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
@@ -433,12 +447,17 @@
 
 
                                         <LinearLayout
+                                            android:orientation="vertical"
+                                            android:clickable="true"
+                                            android:foreground="?selectableItemBackgroundBorderless"
+                                            android:id="@+id/btnChoosePic"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="1"
+                                            android:layout_weight="2"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
+                                                android:id="@+id/contUpload"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -460,27 +479,11 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-
-
-                                        </LinearLayout>
-
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:gravity="center">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/my_text"
-
-
-                                                android:textColor="@color/orange"
-
-
-                                                android:textSize="18sp" />
+                                            <ImageView
+                                                android:visibility="gone"
+                                                android:id="@+id/showPicUpload"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="150dp"/>
 
                                         </LinearLayout>
 
@@ -501,6 +504,7 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/saveRegis"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"

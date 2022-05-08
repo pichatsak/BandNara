@@ -15,7 +15,7 @@ import com.app.bandnara.ToolBar.CloseBar;
 public class typeActivity extends AppCompatActivity {
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     private LinearLayout back; // ปุ่มกลับ
-    private RelativeLayout regisOlder;
+    private RelativeLayout regisOlder,regisDeform,regisAids;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,8 @@ public class typeActivity extends AppCompatActivity {
         // เซ็ตการทำงานปุ่มเมนูล่าง
         bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
         regisOlder = findViewById(R.id.regisOlder);
+        regisDeform = findViewById(R.id.regisDeform);
+        regisAids = findViewById(R.id.regisAids);
         BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +40,22 @@ public class typeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(typeActivity.this, elderlyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        regisDeform.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(typeActivity.this, elderly1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        regisAids.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(typeActivity.this, elderly3MainActivity.class);
                 startActivity(intent);
             }
         });

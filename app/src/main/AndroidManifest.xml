@@ -20,15 +20,18 @@
         <activity
             android:name=".elderly2Activity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ViewNewsAndEventActivity"
             android:exported="false" />
+        <activity
+            android:name=".ViewLandMarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewLandMarkAllActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ViewEventAllActivity"
             android:exported="false" />
@@ -91,6 +94,12 @@
             android:name=".register2Activity"
             android:exported="true" />
         <activity
+            android:name=".elderly1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".elderly3MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".registerActivity"
             android:exported="true" />
         <activity
@@ -102,7 +111,11 @@
         <activity
             android:name=".loginActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".newsActivity"

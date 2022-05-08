@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    android:orientation="vertical"
-    tools:context=".elderly1Activity">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -1205,6 +1204,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+
                                         android:backgroundTint="@color/black"
                                         android:hint="ข้อมูลผู้พิการ"
                                         android:textColorHint="@color/black"
@@ -1261,7 +1261,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/spinBeforeName2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1281,8 +1280,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:id="@+id/olderName"
-                                            android:text="สุนันทา"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1293,8 +1290,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="พงษ์คำ"
-                                            android:id="@+id/olderLastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1307,8 +1302,6 @@
                                             />
 
                                         <TextView
-                                            android:clickable="true"
-                                            android:id="@+id/olderBirth"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1322,8 +1315,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="60"
-                                            android:id="@+id/olderYear"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1342,7 +1333,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/spinCitizen"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1362,8 +1352,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="1858800456150"
-                                            android:id="@+id/olderIdCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1382,7 +1370,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/spinStanapap"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1402,8 +1389,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="5000"
-                                            android:id="@+id/olderProfit"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1422,7 +1407,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/spinWork"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1442,8 +1426,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="82"
-                                            android:id="@+id/homeNo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1457,8 +1439,6 @@
                                             />
 
                                         <EditText
-                                            android:text="8"
-                                            android:id="@+id/moo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1472,8 +1452,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
-                                            android:id="@+id/soi2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1487,8 +1465,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
-                                            android:id="@+id/road2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1508,7 +1484,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/province2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1534,7 +1509,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/amphur2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1553,23 +1527,32 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <EditText
-                                            android:text="แม่ใจ"
-                                            android:id="@+id/district2"
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ตำบล"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
 
-                                            />
+
+                                            <Spinner
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ตำบล"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
 
                                         <EditText
-                                            android:text="56000"
-                                            android:id="@+id/postCode2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1583,8 +1566,6 @@
                                             />
 
                                         <EditText
-                                            android:text="0864403511"
-                                            android:id="@+id/phone2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1601,8 +1582,9 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="13dp">
+
+
                                             <Spinner
-                                                android:id="@+id/spinDeform"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1658,18 +1640,12 @@
 
 
                                         <LinearLayout
-                                            android:orientation="vertical"
-                                            android:id="@+id/chooseCopyCard"
-                                            android:clickable="true"
-                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
-                                                android:visibility="visible"
-                                                android:id="@+id/contShowCopyCard"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1691,11 +1667,6 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-                                            <ImageView
-                                                android:visibility="gone"
-                                                android:id="@+id/showPicCopyCard"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="150dp"/>
 
 
                                         </LinearLayout>
@@ -1757,17 +1728,12 @@
 
 
                                         <LinearLayout
-                                            android:clickable="true"
-                                            android:id="@+id/chooseCopyHome"
-                                            android:orientation="vertical"
-                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
-                                                android:id="@+id/contShowCopyHome"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1789,11 +1755,7 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-                                            <ImageView
-                                                android:visibility="gone"
-                                                android:id="@+id/showImageCopyHome"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="150dp"/>
+
 
                                         </LinearLayout>
 
@@ -1821,6 +1783,7 @@
 
 
                                 </LinearLayout>
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1831,7 +1794,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="สำเนาบัตรประขถตัวคนพิการ"
+                                        android:text="สำเนาบัตรประจำตัวคนพิการ"
                                         android:textColor="@color/black"
                                         android:textSize="16sp" />
                                 </LinearLayout>
@@ -1852,17 +1815,12 @@
 
 
                                         <LinearLayout
-                                            android:clickable="true"
-                                            android:id="@+id/chooseCopyDeformIdCard"
-                                            android:orientation="vertical"
-                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
-                                                android:id="@+id/contShowCopyDeformIdCard"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -1884,11 +1842,7 @@
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-                                            <ImageView
-                                                android:visibility="gone"
-                                                android:id="@+id/showImageCopyDeformIdCard"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="150dp"/>
+
 
                                         </LinearLayout>
 
@@ -1926,7 +1880,6 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
-                                        android:id="@+id/btnNextPage2"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -2045,7 +1998,6 @@
 
 
                                             <Spinner
-                                                android:id="@+id/spinBeforeName3"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -2065,7 +2017,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:id="@+id/name3"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2080,7 +2031,6 @@
                                             />
 
                                         <EditText
-                                            android:id="@+id/lastname3"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2095,7 +2045,6 @@
                                             />
 
                                         <EditText
-                                            android:id="@+id/phone3"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2126,7 +2075,6 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
-                                        android:id="@+id/btnNextPage3"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -2247,26 +2195,27 @@
                                             android:orientation="horizontal">
 
                                             <RelativeLayout
-                                                android:id="@+id/btnCbOne1"
-                                                android:clickable="true"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content">
+
 
 
                                                 <ImageView
                                                     android:layout_width="25dp"
                                                     android:layout_height="25dp"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle" />
+                                                    android:background="@drawable/design_circle"
+                                                    />
 
                                                 <ImageView
-                                                    android:id="@+id/imgCbOne1"
-                                                    android:visibility="visible"
+                                                    android:layout_centerInParent="true"
                                                     android:layout_width="13dp"
                                                     android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
+                                                    android:background="@drawable/circledark"
+
+
+                                                    />
                                             </RelativeLayout>
 
                                             <LinearLayout
@@ -2292,30 +2241,11 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <RelativeLayout
-                                                android:id="@+id/btnCbOne2"
-                                                android:clickable="true"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content">
-
-
-
-                                                <ImageView
-                                                    android:layout_width="25dp"
-                                                    android:layout_height="25dp"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
-
-                                                <ImageView
-                                                    android:id="@+id/imgCbOne2"
-                                                    android:visibility="gone"
-                                                    android:layout_width="13dp"
-                                                    android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
-                                            </RelativeLayout>
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -2340,30 +2270,11 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <RelativeLayout
-                                                android:id="@+id/btnCbOne3"
-                                                android:clickable="true"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content">
-
-
-
-                                                <ImageView
-                                                    android:layout_width="25dp"
-                                                    android:layout_height="25dp"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
-
-                                                <ImageView
-                                                    android:id="@+id/imgCbOne3"
-                                                    android:visibility="gone"
-                                                    android:layout_width="13dp"
-                                                    android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
-                                            </RelativeLayout>
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -2388,30 +2299,11 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <RelativeLayout
-                                                android:id="@+id/btnCbOne4"
-                                                android:clickable="true"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content">
-
-
-
-                                                <ImageView
-                                                    android:layout_width="25dp"
-                                                    android:layout_height="25dp"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
-
-                                                <ImageView
-                                                    android:id="@+id/imgCbOne4"
-                                                    android:visibility="gone"
-                                                    android:layout_width="13dp"
-                                                    android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
-                                            </RelativeLayout>
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -2452,7 +2344,6 @@
                                             android:orientation="horizontal">
 
                                             <RelativeLayout
-                                                android:id="@+id/btnCbTwo1"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content">
 
@@ -2466,12 +2357,14 @@
                                                     />
 
                                                 <ImageView
-                                                    android:id="@+id/imgCbTwo1"
+                                                    android:layout_centerInParent="true"
                                                     android:layout_width="13dp"
                                                     android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
+                                                    android:background="@drawable/circledark"
+
+
+                                                    />
                                             </RelativeLayout>
 
                                             <LinearLayout
@@ -2497,29 +2390,12 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <RelativeLayout
-                                                android:id="@+id/btnCbTwo2"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content">
+                                            <TextView
+                                                android:layout_width="25dp"
+                                                android:layout_height="25dp"
+                                                android:layout_gravity="center"
+                                                android:background="@drawable/design_circle" />
 
-
-
-                                                <ImageView
-                                                    android:layout_width="25dp"
-                                                    android:layout_height="25dp"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
-
-                                                <ImageView
-                                                    android:visibility="gone"
-                                                    android:id="@+id/imgCbTwo2"
-                                                    android:layout_width="13dp"
-                                                    android:layout_height="13dp"
-                                                    android:layout_centerInParent="true"
-                                                    android:layout_gravity="center"
-                                                    android:background="@drawable/circledark" />
-                                            </RelativeLayout>
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content">
@@ -2551,8 +2427,6 @@
 
 
                                         <EditText
-                                            android:text="0511749883"
-                                            android:id="@+id/bankNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2567,8 +2441,6 @@
                                             />
 
                                         <EditText
-                                            android:text="มาโนม พงษ์คำ"
-                                            android:id="@+id/bankName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2583,8 +2455,6 @@
                                             />
 
                                         <EditText
-                                            android:text="กสิกรไทย"
-                                            android:id="@+id/bankOwner"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -2635,17 +2505,12 @@
 
 
                                         <LinearLayout
-                                            android:orientation="vertical"
-                                            android:id="@+id/chooseCopyBank"
-                                            android:clickable="true"
-                                            android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
                                             android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
-                                                android:id="@+id/contShowCopyBank"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="150dp"
                                                 android:gravity="center"
@@ -2662,15 +2527,12 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="อัพโหลดรูปภาพ"
+
                                                     android:textColor="@color/gray_600"
                                                     android:textSize="18sp" />
 
                                             </LinearLayout>
-                                            <ImageView
-                                                android:id="@+id/showImgBank"
-                                                android:visibility="gone"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="150dp"/>
+
 
                                         </LinearLayout>
 
@@ -2710,7 +2572,7 @@
                                     android:orientation="horizontal">
 
                                     <CheckBox
-                                        android:id="@+id/cbAllow"
+
                                         android:layout_width="40dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="start" />
@@ -2739,7 +2601,6 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
-                                        android:id="@+id/saveFinal"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
