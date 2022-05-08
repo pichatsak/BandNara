@@ -75,7 +75,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                     <ScrollView
@@ -108,7 +108,7 @@
                                         android:layout_height="wrap_content"
 
                                         android:backgroundTint="@color/black"
-                                        android:hint="ข้อมูลสำหรับขึ้นทะเบียนผู้ป่วยเอดส์"
+                                        android:hint="ข้อมูลผู้ลงทะเบียน"
                                         android:textColorHint="@color/black"
                                         android:textSize="16sp"
                                         android:textStyle="bold" />

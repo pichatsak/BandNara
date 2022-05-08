@@ -13,5 +13,7 @@
 
 
     <string name="my_text"><u>ดูตัวอย่าง</u></string>
+    <string name="my_text1"><u>ข้อมูลมารดา</u></string>
+    <string name="my_text2"><u>ข้อมูลบิดา</u></string>
 
 </resources>

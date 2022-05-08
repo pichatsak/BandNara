@@ -18,6 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BandNara">
         <activity
+            android:name=".elderly2Activity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ViewNewsAndEventActivity"
             android:exported="false" />
         <activity
@@ -52,11 +61,7 @@
         <activity
             android:name=".elderlyActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".settingActivity"
@@ -93,7 +98,7 @@
             android:exported="true" />
         <activity
             android:name=".register1Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".loginActivity"
             android:exported="true">
