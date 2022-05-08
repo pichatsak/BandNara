@@ -52,7 +52,7 @@ public class OTPActivity2 extends AppCompatActivity {
     private ImageView back;
     private FirebaseAuth mAuth;
     // [END declare_auth]
-
+    private static final String TAG = "PhoneAuthActivity";
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -229,8 +229,6 @@ public class OTPActivity2 extends AppCompatActivity {
                                         }
                                     });
                             // Update UI
-
-
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w("numphone", "signInWithCredential:failure", task.getException());

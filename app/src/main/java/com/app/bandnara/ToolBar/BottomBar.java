@@ -25,6 +25,7 @@ public class BottomBar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, newsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -34,6 +35,7 @@ public class BottomBar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, announceActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -43,6 +45,7 @@ public class BottomBar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, settingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -52,6 +55,7 @@ public class BottomBar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, typeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
