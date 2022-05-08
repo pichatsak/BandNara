@@ -104,12 +104,12 @@ public class DateTool {
         return String.valueOf(dateDifference);
     }
 
-    public String getDateCur(){
+    public long getDateCur(){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
         TimeZone thais= TimeZone.getTimeZone("Asia/Bangkok");
         dateFormat.setTimeZone(thais);
         Date date = new Date();
-        return dateFormat.format(date);
+        return date.getTime();
     }
 
 

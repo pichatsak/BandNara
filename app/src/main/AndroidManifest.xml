@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BandNara">
         <activity
+            android:name=".ViewLandMarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewLandMarkAllActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewNewsAndEventActivity"
             android:exported="false" />
         <activity
@@ -51,13 +57,7 @@
             android:exported="true" />
         <activity
             android:name=".elderlyActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".settingActivity"
             android:exported="true" />
@@ -93,11 +93,15 @@
             android:exported="true" />
         <activity
             android:name=".register1Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".loginActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".newsActivity"

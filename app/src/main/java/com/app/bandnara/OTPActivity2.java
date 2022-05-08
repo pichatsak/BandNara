@@ -95,7 +95,6 @@ public class OTPActivity2 extends AppCompatActivity {
                 //     user action.
                 Log.d(TAG, "onVerificationCompleted:" + credential);
 
-                signInWithPhoneAuthCredential(credential);
             }
 
             @Override
@@ -150,6 +149,7 @@ public class OTPActivity2 extends AppCompatActivity {
                     String code = getOTP1 + getOTP2 + getOTP3 + getOTP4 + getOTP5 + getOTP6;
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
 
+                    signInWithPhoneAuthCredential(credential);
                 }
 
             }

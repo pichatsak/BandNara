@@ -17,8 +17,10 @@ import android.widget.TextView;
 import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.EventsAdapter;
+import com.app.bandnara.adaptor.LandMarkAdapter;
 import com.app.bandnara.adaptor.NewsAdapter;
 import com.app.bandnara.keepFireStory.EventsModel;
+import com.app.bandnara.keepFireStory.LandMarkModel;
 import com.app.bandnara.keepFireStory.NewsModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,11 +33,12 @@ import java.util.ArrayList;
 public class newsActivity extends AppCompatActivity {
     private TextView goProfile;
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
-    private RecyclerView view_news,view_events;
+    private RecyclerView view_news,view_events,view_landmark;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private LinearLayout goNewsAll,goEventAll;
+    private LinearLayout goNewsAll,goEventAll,goLandMarkAll;
     private ArrayList<NewsModel> newsModelArrayList = new ArrayList<>();
     private ArrayList<EventsModel> eventsModelArrayList = new ArrayList<>();
+    private ArrayList<LandMarkModel> landMarkModelArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class newsActivity extends AppCompatActivity {
         view_events = findViewById(R.id.view_events);
         goNewsAll = findViewById(R.id.goNewsAll);
         goEventAll = findViewById(R.id.goEventAll);
+        view_landmark = findViewById(R.id.view_landmark);
+        goLandMarkAll = findViewById(R.id.goLandMarkAll);
 
         // เซ็ตการทำงานปุ่มเมนูล่าง
         bottomMenu = (FrameLayout)findViewById(R.id.bottomMenu);
@@ -62,6 +67,7 @@ public class newsActivity extends AppCompatActivity {
 
         getDataNew();
         getDataEvent();
+        getDataLandMark();
 
         goNewsAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +81,14 @@ public class newsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(newsActivity.this, ViewEventAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        goLandMarkAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(newsActivity.this, ViewLandMarkAllActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,6 +116,35 @@ public class newsActivity extends AppCompatActivity {
                                 view_events.setLayoutManager(linearLayoutManager);
                                 EventsAdapter eventsAdapter = new EventsAdapter(newsActivity.this, eventsModelArrayList);
                                 view_events.setAdapter(eventsAdapter);
+                            }
+                        } else {
+                            Log.d("CHK_DATA", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void getDataLandMark() {
+        landMarkModelArrayList = new ArrayList<>();
+        db.collection("landmarks")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("CHK_DATA", document.getId() + " => " + document.getData());
+                                LandMarkModel landMarkModel = new LandMarkModel();
+                                landMarkModel.setLandDetail(document.getData().get("landmark_detail").toString());
+                                landMarkModel.setKeyId(document.getId());
+                                landMarkModel.setLandName(document.getData().get("landmark_name").toString());
+                                landMarkModelArrayList.add(landMarkModel);
+                                view_landmark.setHasFixedSize(true);
+                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(newsActivity.this);
+                                linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                                view_landmark.setLayoutManager(linearLayoutManager);
+                                LandMarkAdapter landMarkAdapter = new LandMarkAdapter(newsActivity.this, landMarkModelArrayList);
+                                view_landmark.setAdapter(landMarkAdapter);
                             }
                         } else {
                             Log.d("CHK_DATA", "Error getting documents: ", task.getException());
