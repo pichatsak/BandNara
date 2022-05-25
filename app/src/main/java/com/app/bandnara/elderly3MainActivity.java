@@ -19,11 +19,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.adaptor.AmphurAdapter;
 import com.app.bandnara.adaptor.ProvAdapter;
 import com.app.bandnara.adaptor.SpinAdapter;
@@ -65,13 +67,16 @@ public class elderly3MainActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageReference = storage.getReference();
+    private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elderly3_main);
         spinBeforeName = findViewById(R.id.spinBeforeName2);
-
+        // เซ็ตการทำงานปุ่มเมนูล่าง
+        bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
+        BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
         spinBeforeName = findViewById(R.id.spinBeforeName);
         province = findViewById(R.id.province);
         amphur = findViewById(R.id.amphur);

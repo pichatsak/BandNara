@@ -33,13 +33,21 @@
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="23dp"
+                        <LinearLayout
+                            android:id="@+id/back"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/left_arrow_angle"
-                            android:backgroundTint="@color/white" />
+                            android:layout_marginTop="20dp"
+                            android:layout_width="30dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/left_arrow_angle"
+                                android:backgroundTint="@color/white" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -81,12 +89,12 @@
                             android:background="@drawable/design_fram_squear1" />
                         <!--                        pro หน้า 1-->
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/processPage1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="visible">
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -174,12 +182,12 @@
                         </LinearLayout>
                         <!--                        pro หน้า 2-->
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/processPage2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -192,12 +200,12 @@
                                     android:background="@drawable/checked" />
 
                                 <TextView
-                                    android:visibility="gone"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/two"
-                                    android:backgroundTint="@color/white" />
+                                    android:backgroundTint="@color/white"
+                                    android:visibility="gone" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -268,12 +276,12 @@
                         </LinearLayout>
                         <!--                        pro หน้า 3-->
                         <LinearLayout
-                            android:visibility="visible"
                             android:id="@+id/processPage3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -286,12 +294,12 @@
                                     android:background="@drawable/checked" />
 
                                 <TextView
-                                    android:visibility="gone"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/two"
-                                    android:backgroundTint="@color/white" />
+                                    android:backgroundTint="@color/white"
+                                    android:visibility="gone" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -315,18 +323,17 @@
                                 android:layout_marginRight="10dp">
 
                                 <TextView
-
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle3" />
+                                    android:background="@drawable/checked" />
 
                                 <TextView
-                                    android:visibility="visible"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/two"
-                                    android:backgroundTint="@color/white" />
+                                    android:backgroundTint="@color/white"
+                                    android:visibility="gone" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -351,7 +358,7 @@
                                 <TextView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@drawable/design_fram_circle2" />
+                                    android:background="@drawable/design_fram_circle3" />
 
                                 <TextView
                                     android:layout_width="15dp"
@@ -367,6 +374,7 @@
                 </LinearLayout>
                 <!--//หน้า1-->
                 <LinearLayout
+                    android:id="@+id/page1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="gone">
@@ -451,14 +459,15 @@
 
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinRelayBaby"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -477,15 +486,30 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
+                                        <EditText
+                                            android:id="@+id/fillRelayBay"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
                                             android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุความสัมพันธ์"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+                                            android:visibility="gone" />
+
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeName"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -505,11 +529,12 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/name"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุชื่อ"
                                             android:inputType="text"
@@ -517,11 +542,12 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/lastname"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุนามสกุล"
                                             android:inputType="text"
@@ -531,11 +557,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/idCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขประจำตัวประชาชน"
                                             android:inputType="number"
@@ -545,12 +572,14 @@
                                             />
 
                                         <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/birth"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
+                                            android:clickable="true"
                                             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
                                             android:drawableTint="@color/Teal_50"
                                             android:hint="วัน/เดือน/ปีเกิด"
@@ -560,11 +589,12 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/age"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="อายุ"
                                             android:inputType="number"
@@ -573,27 +603,40 @@
 
                                             />
 
-                                        <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="45dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ระบุสัญชาติ"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
+                                            android:layout_marginRight="10dp">
 
-                                            />
+
+                                            <Spinner
+                                                android:id="@+id/spinCitizen"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ระบุสัญชาติ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
 
                                         <LinearLayout
 
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
-                                            android:orientation="vertical"
-                                           >
+                                            android:orientation="vertical">
 
                                             <LinearLayout
                                                 android:layout_width="match_parent"
@@ -604,25 +647,25 @@
                                         </LinearLayout>
 
 
-
-<!--                                        //ที่อยู่ตามทะเบียนบ้าน-->
+                                        <!--                                        //ที่อยู่ตามทะเบียนบ้าน-->
 
                                         <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginTop="20dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="10dp"
                                             android:text="ที่อยู่ตามทะเบียนบ้าน"
                                             android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/homeNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
-                                            android:layout_marginTop="20dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="บ้านเลขที่"
                                             android:inputType="text"
@@ -630,12 +673,14 @@
                                             android:textSize="16sp"
 
                                             />
+
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/moo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="หมู่"
                                             android:inputType="text"
@@ -643,12 +688,14 @@
                                             android:textSize="16sp"
 
                                             />
+
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/soi"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ตรอก/ซอย"
                                             android:inputType="text"
@@ -658,11 +705,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/road"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ถนน"
                                             android:inputType="text"
@@ -673,14 +721,15 @@
                                             />
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/province"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -700,14 +749,15 @@
                                         </RelativeLayout>
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/amphur"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -726,39 +776,28 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
-
-
-                                            <Spinner
-                                                android:layout_width="match_parent"
-                                                android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ตำบล"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
-
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/district"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตำบล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/postCode"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="รหัสไปรษณีย์"
                                             android:inputType="number"
@@ -769,11 +808,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/phone"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุหมายเลขโทรศัพท์"
                                             android:inputType="number"
@@ -783,7 +823,7 @@
 
                                             />
 
-<!--                                        //ที่อยู่ปัจจุบัน-->
+                                        <!--                                        //ที่อยู่ปัจจุบัน-->
 
                                         <LinearLayout
 
@@ -801,26 +841,26 @@
                                         </LinearLayout>
 
                                         <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginTop="20dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="10dp"
                                             android:text="ที่อยู่ปัจจุบัน"
                                             android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <LinearLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginTop="13dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:orientation="horizontal"
                                             android:paddingLeft="0dp">
 
                                             <CheckBox
-
+                                                android:id="@+id/cbchk"
                                                 android:layout_width="40dp"
                                                 android:layout_height="20dp"
                                                 android:layout_gravity="start" />
@@ -841,11 +881,12 @@
                                         </LinearLayout>
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/homeNo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
-                                            android:layout_marginTop="20dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="บ้านเลขที่"
                                             android:inputType="text"
@@ -853,12 +894,14 @@
                                             android:textSize="16sp"
 
                                             />
+
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/moo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="หมู่"
                                             android:inputType="text"
@@ -866,12 +909,14 @@
                                             android:textSize="16sp"
 
                                             />
+
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/soi2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ตรอก/ซอย"
                                             android:inputType="text"
@@ -881,11 +926,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/road2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ถนน"
                                             android:inputType="text"
@@ -896,14 +942,15 @@
                                             />
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/province2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -923,14 +970,15 @@
                                         </RelativeLayout>
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/amphur2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -949,39 +997,28 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
-
-
-                                            <Spinner
-                                                android:layout_width="match_parent"
-                                                android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ตำบล"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
-
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/district2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ตำบล"
+                                            android:inputType="text"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/postCode2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="รหัสไปรษณีย์"
                                             android:inputType="number"
@@ -992,11 +1029,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
+                                            android:id="@+id/phone2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุหมายเลขโทรศัพท์"
                                             android:inputType="number"
@@ -1021,14 +1059,15 @@
                                         </LinearLayout>
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="30dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="30dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinWork"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1048,14 +1087,15 @@
                                         </RelativeLayout>
 
                                         <RelativeLayout
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinEdu"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1074,12 +1114,19 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-
-
-
-
-
-
+                                        <EditText
+                                            android:id="@+id/fillEdu"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุระดับการศึกษา"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+                                            android:visibility="gone" />
 
 
                                     </LinearLayout>
@@ -1088,36 +1135,30 @@
                                 </LinearLayout>
 
 
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnNextPage2"
+                                    android:layout_width="160dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/design_fram1"
+                                    android:text="ถัดไป"
+                                    android:textColor="@color/white"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
 
-
-
-
-
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="70dp"
-                                    android:gravity="center">
-
-                                    <androidx.appcompat.widget.AppCompatButton
-                                        android:layout_width="160dp"
-                                        android:layout_height="50dp"
-                                        android:background="@drawable/design_fram1"
-                                        android:text="ถัดไป"
-                                        android:textColor="@color/white"
-                                        android:textSize="17sp"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
-
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp">
-
-                                </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp">
 
                             </LinearLayout>
                         </LinearLayout>
@@ -1130,6 +1171,7 @@
 
                 <!--//หน้าสอง-->
                 <LinearLayout
+                    android:id="@+id/page2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="gone">
@@ -1213,16 +1255,16 @@
                                         android:orientation="vertical">
 
 
-
                                         <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeNameChild"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1242,11 +1284,12 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/nameChild"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุชื่อ"
                                             android:inputType="text"
@@ -1254,11 +1297,12 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/lastnameChild"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุนามสกุล"
                                             android:inputType="text"
@@ -1268,11 +1312,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/idCardChild"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขประจำตัวประชาชน"
                                             android:inputType="number"
@@ -1282,11 +1327,12 @@
                                             />
 
                                         <TextView
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/birthChild"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
                                             android:drawableTint="@color/Teal_50"
@@ -1295,7 +1341,6 @@
                                             android:textColor="@color/black"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp" />
-
 
 
                                         <LinearLayout
@@ -1315,24 +1360,25 @@
                                         <!--                                        //ที่อยู่ตามทะเบียนบ้าน-->
 
                                         <TextView
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="20dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="10dp"
                                             android:text="ข้อมูลมารดา"
                                             android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinBeforeNameMother"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1352,11 +1398,12 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/motherName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุชื่อ"
                                             android:inputType="text"
@@ -1364,11 +1411,12 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/motherLastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุนามสกุล"
                                             android:inputType="text"
@@ -1378,11 +1426,12 @@
                                             />
 
                                         <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                            android:id="@+id/motherAge"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="อายุ"
                                             android:inputType="number"
@@ -1390,28 +1439,45 @@
                                             android:textSize="16sp"
 
                                             />
-                                        <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ระบุสัญชาติ"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
 
-                                            />
                                         <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinMotherCitizen"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ระบุสัญชาติ"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
+
+
+                                            <Spinner
+                                                android:id="@+id/spinWorkMother"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1431,14 +1497,15 @@
                                         </RelativeLayout>
 
                                         <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp">
 
 
                                             <Spinner
+                                                android:id="@+id/spinEduMother"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
@@ -1457,7 +1524,19 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-
+                                        <EditText
+                                            android:id="@+id/fillEduMother"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
+                                            android:background="@drawable/design_fram"
+                                            android:hint="ระบุระดับการศึกษา"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/gray_50"
+                                            android:textSize="16sp"
+                                            android:visibility="gone" />
 
 
                                         <!--                                        //ที่อยู่ปัจจุบัน-->
@@ -1474,28 +1553,28 @@
 
                                             </LinearLayout>
                                         </LinearLayout>
+
                                         <TextView
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="20dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="10dp"
                                             android:text="ข้อมูลบิดา"
                                             android:textColor="@color/black"
                                             android:textSize="16sp" />
 
                                         <LinearLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="13dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="13dp"
+                                            android:layout_marginRight="10dp"
                                             android:orientation="horizontal"
                                             android:paddingLeft="0dp">
 
                                             <CheckBox
-
-
+                                                android:id="@+id/chkboxFather"
                                                 android:layout_width="40dp"
                                                 android:layout_height="20dp"
                                                 android:layout_gravity="start" />
@@ -1515,159 +1594,188 @@
 
                                         </LinearLayout>
 
-                                        <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
+                                        <LinearLayout
+                                            android:id="@+id/contFathers"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp">
+                                            android:orientation="vertical">
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="20dp"
+                                                android:layout_marginRight="10dp">
 
 
-                                            <Spinner
+                                                <Spinner
+                                                    android:id="@+id/spinBeforeNameFather"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="45dp"
+                                                    android:background="@drawable/design_fram"
+                                                    android:drawableTint="@color/Teal_50"
+                                                    android:hint="คำนำหน้า"
+                                                    android:textColorHint="@color/gray_50"
+                                                    android:textSize="16sp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="10dp"
+                                                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                    android:backgroundTint="@color/Teal_50" />
+                                            </RelativeLayout>
+
+                                            <EditText
+                                                android:id="@+id/fatherName"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
+                                                android:layout_marginRight="10dp"
                                                 android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="คำนำหน้า"
+                                                android:hint="ระบุชื่อ"
+                                                android:inputType="text"
+                                                android:text="มาโนช"
                                                 android:textColorHint="@color/gray_50"
                                                 android:textSize="16sp" />
 
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
-
-                                        <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ระบุชื่อ"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp" />
-
-                                        <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ระบุนามสกุล"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
-
-                                            />
-
-                                        <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="อายุ"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
-
-                                            />
-                                        <EditText
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginTop="13dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ระบุสัญชาติ"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
-
-                                            />
-                                        <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
-
-
-                                            <Spinner
+                                            <EditText
+                                                android:id="@+id/fatherLastName"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ระบุอาชีพ"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
                                                 android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
-                                        <RelativeLayout
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="13dp">
+                                                android:background="@drawable/design_fram"
+                                                android:hint="ระบุนามสกุล"
+                                                android:inputType="text"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp"
 
+                                                />
 
-                                            <Spinner
+                                            <EditText
+                                                android:id="@+id/fatherAge"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="45dp"
-                                                android:background="@drawable/design_fram"
-                                                android:drawableTint="@color/Teal_50"
-                                                android:hint="ระบุการศึกษา"
-                                                android:textColorHint="@color/gray_50"
-                                                android:textSize="16sp" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_centerVertical="true"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
                                                 android:layout_marginRight="10dp"
-                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
-                                                android:backgroundTint="@color/Teal_50" />
-                                        </RelativeLayout>
+                                                android:background="@drawable/design_fram"
+                                                android:hint="อายุ"
+                                                android:inputType="number"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp"
+
+                                                />
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
+                                                android:layout_marginRight="10dp">
 
 
+                                                <Spinner
+                                                    android:id="@+id/spinFatherCitizen"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="45dp"
+                                                    android:background="@drawable/design_fram"
+                                                    android:drawableTint="@color/Teal_50"
+                                                    android:hint="ระบุสัญชาติ"
+                                                    android:textColorHint="@color/gray_50"
+                                                    android:textSize="16sp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="10dp"
+                                                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                    android:backgroundTint="@color/Teal_50" />
+                                            </RelativeLayout>
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
+                                                android:layout_marginRight="10dp">
 
 
+                                                <Spinner
+                                                    android:id="@+id/spinWorkFather"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="45dp"
+                                                    android:background="@drawable/design_fram"
+                                                    android:drawableTint="@color/Teal_50"
+                                                    android:hint="ระบุอาชีพ"
+                                                    android:textColorHint="@color/gray_50"
+                                                    android:textSize="16sp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="10dp"
+                                                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                    android:backgroundTint="@color/Teal_50" />
+                                            </RelativeLayout>
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
+                                                android:layout_marginRight="10dp">
 
 
+                                                <Spinner
+                                                    android:id="@+id/spinEduFather"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="45dp"
+                                                    android:background="@drawable/design_fram"
+                                                    android:drawableTint="@color/Teal_50"
+                                                    android:hint="ระบุการศึกษา"
+                                                    android:textColorHint="@color/gray_50"
+                                                    android:textSize="16sp" />
 
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="10dp"
+                                                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                    android:backgroundTint="@color/Teal_50" />
+                                            </RelativeLayout>
 
-
+                                            <EditText
+                                                android:id="@+id/fillEduFather"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="13dp"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/design_fram"
+                                                android:hint="ระบุระดับการศึกษา"
+                                                android:inputType="number"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp"
+                                                android:visibility="gone" />
+                                        </LinearLayout>
 
 
                                     </LinearLayout>
 
 
                                 </LinearLayout>
-
-
-
-
-
-
-
 
 
                                 <LinearLayout
@@ -1678,6 +1786,7 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/btnNextPage3"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -1704,6 +1813,7 @@
 
                 <!--                //หน้าสาม-->
                 <LinearLayout
+                    android:id="@+id/page3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="visible">
@@ -1718,7 +1828,323 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="15dp">
 
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="17dp"
+                                    android:gravity="start"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:backgroundTint="@color/black"
+                                        android:hint="สำเนาบัตรประจำตัวผู้ปกครองและสูติบัตรเด็กแรกเกิด"
+                                        android:textColorHint="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:paddingRight="5dp"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_marginBottom="10dp"
+                                        android:textAlignment="center"
+                                        android:text="บัตรประจำตัวผู้ปกครอง"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:id="@+id/chooseCopyParent"
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/fram4">
+
+                                        <LinearLayout
+                                            android:visibility="visible"
+                                            android:id="@+id/contShowCopyParent"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:background="@drawable/camera"
+                                                android:backgroundTint="@color/gray_600" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="อัพโหลดรูปภาพ"
+
+                                                android:textColor="@color/gray_600"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:id="@+id/showPicCopyParent"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"/>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:paddingLeft="5dp"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_marginBottom="10dp"
+                                        android:textAlignment="center"
+                                        android:text="สูติบัตรเด็กแรกเกิด"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:id="@+id/chooseCopyChild"
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/fram4">
+
+                                        <LinearLayout
+                                            android:visibility="visible"
+                                            android:id="@+id/contShowCopyChild"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:background="@drawable/camera"
+                                                android:backgroundTint="@color/gray_600" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="อัพโหลดรูปภาพ"
+
+                                                android:textColor="@color/gray_600"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:id="@+id/showPicCopyChild"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"/>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="15dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="17dp"
+                                    android:gravity="start"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:backgroundTint="@color/black"
+                                        android:hint="แบบรับรองสถานะครอบครัว (ดร.02)"
+                                        android:textColorHint="@color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2px"
+                                    android:background="@color/gray_600">
+
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:paddingRight="5dp"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_marginBottom="10dp"
+                                        android:textAlignment="center"
+                                        android:text="หน้า 1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:id="@+id/chooseCopyFamily"
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/fram4">
+
+                                        <LinearLayout
+                                            android:visibility="visible"
+                                            android:id="@+id/contShowCopyFamily"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:background="@drawable/camera"
+                                                android:backgroundTint="@color/gray_600" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="อัพโหลดรูปภาพ"
+
+                                                android:textColor="@color/gray_600"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:id="@+id/showPicCopyFamily"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"/>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:paddingLeft="5dp"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_marginBottom="10dp"
+                                        android:textAlignment="center"
+                                        android:text="หน้า 2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:id="@+id/chooseCopyFamily2"
+                                        android:clickable="true"
+                                        android:foreground="?selectableItemBackgroundBorderless"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/fram4">
+
+                                        <LinearLayout
+                                            android:visibility="visible"
+                                            android:id="@+id/contShowCopyFamily2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <ImageView
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:background="@drawable/camera"
+                                                android:backgroundTint="@color/gray_600" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="อัพโหลดรูปภาพ"
+
+                                                android:textColor="@color/gray_600"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:id="@+id/showPicCopyFamily2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="150dp"/>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -1796,27 +2222,27 @@
                                             android:orientation="horizontal">
 
                                             <RelativeLayout
+                                                android:clickable="true"
+                                                android:id="@+id/cbbank1"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content">
-
 
 
                                                 <ImageView
                                                     android:layout_width="25dp"
                                                     android:layout_height="25dp"
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/design_circle"
-                                                    />
+                                                    android:background="@drawable/design_circle" />
 
                                                 <ImageView
-                                                    android:layout_centerInParent="true"
+                                                    android:id="@+id/imgcb1"
                                                     android:layout_width="13dp"
                                                     android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+
+
                                                     android:layout_gravity="center"
-                                                    android:background="@drawable/circledark"
-
-
-                                                    />
+                                                    android:background="@drawable/circledark" />
                                             </RelativeLayout>
 
                                             <LinearLayout
@@ -1842,11 +2268,31 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
+                                            <RelativeLayout
+                                                android:clickable="true"
+                                                android:id="@+id/cbbank2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+                                                <ImageView
+
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle" />
+
+                                                <ImageView
+                                                    android:id="@+id/imgcb2"
+                                                    android:visibility="gone"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_gravity="center"
+
+
+                                                    android:background="@drawable/circledark" />
+                                            </RelativeLayout>
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -1871,11 +2317,30 @@
                                             android:gravity="center|start"
                                             android:orientation="horizontal">
 
-                                            <TextView
-                                                android:layout_width="25dp"
-                                                android:layout_height="25dp"
-                                                android:layout_gravity="center"
-                                                android:background="@drawable/design_circle" />
+                                            <RelativeLayout
+                                                android:clickable="true"
+                                                android:id="@+id/cbbank3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content">
+
+
+                                                <ImageView
+                                                    android:layout_width="25dp"
+                                                    android:layout_height="25dp"
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/design_circle" />
+
+                                                <ImageView
+                                                    android:id="@+id/imgcb3"
+                                                    android:visibility="gone"
+                                                    android:layout_width="13dp"
+                                                    android:layout_height="13dp"
+                                                    android:layout_centerInParent="true"
+
+
+                                                    android:layout_gravity="center"
+                                                    android:background="@drawable/circledark" />
+                                            </RelativeLayout>
 
                                             <LinearLayout
                                                 android:layout_width="wrap_content"
@@ -1893,7 +2358,6 @@
                                         </LinearLayout>
 
 
-
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
@@ -1909,11 +2373,8 @@
                                         </LinearLayout>
 
 
-
-
-
-
                                         <EditText
+                                            android:id="@+id/bankName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -1921,13 +2382,14 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุชื่อบัญชี"
-                                            android:inputType="number"
+                                            android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
 
                                             />
 
                                         <EditText
+                                            android:id="@+id/bankNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginLeft="10dp"
@@ -1935,7 +2397,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขที่บัญชี"
-                                            android:inputType="text"
+                                            android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
 
@@ -1973,12 +2435,18 @@
 
 
                                                 <LinearLayout
+                                                    android:orientation="vertical"
+                                                    android:id="@+id/chooseCopyBank"
+                                                    android:clickable="true"
+                                                    android:foreground="?selectableItemBackgroundBorderless"
                                                     android:layout_width="0dp"
                                                     android:layout_height="match_parent"
-                                                    android:layout_weight="1"
+                                                    android:layout_weight="2"
                                                     android:background="@drawable/fram4">
 
                                                     <LinearLayout
+                                                        android:visibility="visible"
+                                                        android:id="@+id/contShowCopyBank"
                                                         android:layout_width="match_parent"
                                                         android:layout_height="150dp"
                                                         android:gravity="center"
@@ -2000,29 +2468,14 @@
                                                             android:textSize="18sp" />
 
                                                     </LinearLayout>
-
-
-                                                </LinearLayout>
-
-
-                                                <LinearLayout
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_weight="1"
-                                                    android:gravity="center">
-
-                                                    <TextView
-                                                        android:layout_width="wrap_content"
-                                                        android:layout_height="wrap_content"
-                                                        android:text="@string/my_text"
-
-
-                                                        android:textColor="@color/orange"
-
-
-                                                        android:textSize="18sp" />
+                                                    <ImageView
+                                                        android:visibility="gone"
+                                                        android:id="@+id/showPicCopyBank"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="150dp"/>
 
                                                 </LinearLayout>
+
 
                                             </LinearLayout>
 
@@ -2039,7 +2492,7 @@
                                             android:orientation="horizontal">
 
                                             <CheckBox
-
+                                                android:id="@+id/cbAllow"
                                                 android:layout_width="40dp"
                                                 android:layout_height="20dp"
                                                 android:layout_gravity="start" />
@@ -2060,17 +2513,10 @@
                                         </LinearLayout>
 
 
-
-
                                     </LinearLayout>
 
 
                                 </LinearLayout>
-
-
-
-
-
 
 
                                 <LinearLayout
@@ -2081,6 +2527,7 @@
                                     android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/saveDataToDb"
                                         android:layout_width="160dp"
                                         android:layout_height="50dp"
                                         android:background="@drawable/design_fram1"
@@ -2123,8 +2570,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
                             android:layout_marginTop="40dp"
+                            android:orientation="vertical"
 
 
                             >
@@ -2140,10 +2587,10 @@
                                 android:backgroundTint="@color/gray_600" />
 
                             <TextView
-                                android:layout_marginTop="13dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:layout_marginTop="13dp"
                                 android:text="กรุณากดเพิ่มรายการขึ้นทะเบียนเด็กแรกเกิด"
                                 android:textColor="@color/gray_600"
                                 android:textSize="16sp"
@@ -2208,146 +2655,9 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/home"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="หน้าแรก"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/report_symbol"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="แจ้งปัญหา"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/cash_register"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ขึ้นทะเบียน"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-
-                                android:background="@drawable/gear"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ตั้งค่า"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                <include
+                    android:id="@+id/bottomMenu"
+                    layout="@layout/bottom_bar" />
             </RelativeLayout>
 
         </RelativeLayout>

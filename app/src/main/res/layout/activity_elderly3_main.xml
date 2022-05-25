@@ -187,7 +187,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="นิคม"
                                             android:id="@+id/name"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -201,7 +200,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="พงษ์คำ"
                                             android:id="@+id/lastName"
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginRight="10dp"
@@ -217,7 +215,6 @@
                                             />
 
                                         <EditText
-                                            android:text="3560100393954"
                                             android:id="@+id/idCard"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -233,9 +230,7 @@
                                             />
 
                                         <EditText
-                                            android:text="0837651698"
                                             android:id="@+id/phone"
-
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginRight="10dp"
                                             android:layout_width="match_parent"
@@ -251,7 +246,6 @@
                                             />
 
                                         <EditText
-                                            android:text="81"
                                             android:id="@+id/homeNo"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -268,7 +262,6 @@
                                             />
 
                                         <EditText
-                                            android:text="7"
                                             android:id="@+id/moo"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -285,7 +278,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/soi"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -302,7 +294,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/road"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -375,7 +366,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="แม่อิง"
                                             android:id="@+id/district"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -392,7 +382,6 @@
                                             />
 
                                         <EditText
-                                            android:text="56000"
                                             android:id="@+id/postCode"
                                             android:layout_marginRight="10dp"
                                             android:layout_marginLeft="10dp"
@@ -624,7 +613,6 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </RelativeLayout>
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -632,146 +620,9 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/home"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="หน้าแรก"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/report_symbol"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="แจ้งปัญหา"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="30dp"
-                                android:layout_height="20dp"
-                                android:background="@drawable/cash_register"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ขึ้นทะเบียน"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-
-                                android:background="@drawable/gear"
-                                android:backgroundTint="@color/white" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="ตั้งค่า"
-                                android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                <include
+                    android:id="@+id/bottomMenu"
+                    layout="@layout/bottom_bar" />
             </RelativeLayout>
 
         </RelativeLayout>

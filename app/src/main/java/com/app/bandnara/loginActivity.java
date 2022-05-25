@@ -3,8 +3,12 @@ package com.app.bandnara;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -42,6 +46,7 @@ public class loginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +63,6 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent login = new Intent(loginActivity.this, registerActivity.class);
                 startActivity(login);
-
-
             }
         });
         //เข้าสู่ระบบ
@@ -77,6 +80,30 @@ public class loginActivity extends AppCompatActivity {
                 }
             }
         });
+        getPermission();
+    }
+
+    private void getPermission() {
+        int PERMISSION_ALL = 1;
+        String[] PERMISSIONS = {
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                android.Manifest.permission.CAMERA
+        };
+
+        if (!hasPermissions(this, PERMISSIONS)) {
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override

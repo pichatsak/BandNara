@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.SexAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,6 +46,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private Calendar myCalendar =null; //ปฏิทิน
     private AppCompatButton saveData;
     private LinearLayout back;
+    private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,10 @@ public class EditProfileActivity extends AppCompatActivity {
         dateOk = findViewById(R.id.dateOk);
         saveData = findViewById(R.id.saveData);
         back = findViewById(R.id.back);
+
+        // เซ็ตการทำงานปุ่มเมนูล่าง
+        bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
+        BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
 
         //ลิสต์อาเรย์เพศ
         list.add("เลือกเพศ");

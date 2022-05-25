@@ -251,7 +251,7 @@
 
             <include
                 android:id="@+id/bottomMenu"
-                layout="@layout/bottom_bar"/>
+                layout="@layout/bottom_bar" />
 
         </RelativeLayout>
 

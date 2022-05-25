@@ -15,7 +15,7 @@ import com.app.bandnara.ToolBar.CloseBar;
 public class typeActivity extends AppCompatActivity {
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     private LinearLayout back; // ปุ่มกลับ
-    private RelativeLayout regisOlder,regisDeform,regisAids;
+    private RelativeLayout regisOlder,regisDeform,regisAids,regisBaby;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,7 @@ public class typeActivity extends AppCompatActivity {
         bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
         regisOlder = findViewById(R.id.regisOlder);
         regisDeform = findViewById(R.id.regisDeform);
+        regisBaby = findViewById(R.id.regisBaby);
         regisAids = findViewById(R.id.regisAids);
         BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
 
@@ -39,7 +40,8 @@ public class typeActivity extends AppCompatActivity {
         regisOlder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(typeActivity.this, elderlyActivity.class);
+                Intent intent = new Intent(typeActivity.this, ListAddActivity.class);
+                intent.putExtra("typeAdd",1);
                 startActivity(intent);
             }
         });
@@ -47,7 +49,17 @@ public class typeActivity extends AppCompatActivity {
         regisDeform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(typeActivity.this, elderly1Activity.class);
+                Intent intent = new Intent(typeActivity.this, ListAddActivity.class);
+                intent.putExtra("typeAdd",2);
+                startActivity(intent);
+            }
+        });
+
+        regisBaby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(typeActivity.this, ListAddActivity.class);
+                intent.putExtra("typeAdd",3);
                 startActivity(intent);
             }
         });
@@ -55,9 +67,42 @@ public class typeActivity extends AppCompatActivity {
         regisAids.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(typeActivity.this, elderly3MainActivity.class);
+                Intent intent = new Intent(typeActivity.this, ListAddActivity.class);
+                intent.putExtra("typeAdd",4);
                 startActivity(intent);
             }
         });
+
+//        regisOlder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(typeActivity.this, elderlyActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        regisDeform.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(typeActivity.this, elderly1Activity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        regisAids.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(typeActivity.this, elderly3MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        regisBaby.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(typeActivity.this, elderly2Activity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

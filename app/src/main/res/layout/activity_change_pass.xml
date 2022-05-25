@@ -100,7 +100,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/design_fram"
                                 android:hint="รหัสผ่านใหม่"
-                                android:text="nitiphon2539"
+                                android:text=""
                                 android:inputType="textPassword"
                                 android:textSize="16sp" />
 
@@ -164,7 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/design_fram"
                                 android:hint="ยืนยันรหัสผ่านใหม่"
-                                android:text="nitiphon2539"
+                                android:text=""
                                 android:inputType="textPassword"
                                 android:textSize="16sp" />
 
@@ -201,7 +201,7 @@
 
                 <include
                     android:id="@+id/bottomMenu"
-                    layout="@layout/bottom_bar"/>
+                    layout="@layout/bottom_bar" />
 
             </RelativeLayout>
 

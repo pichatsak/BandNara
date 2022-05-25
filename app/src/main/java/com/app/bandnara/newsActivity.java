@@ -39,7 +39,7 @@ public class newsActivity extends AppCompatActivity {
     private ArrayList<NewsModel> newsModelArrayList = new ArrayList<>();
     private ArrayList<EventsModel> eventsModelArrayList = new ArrayList<>();
     private ArrayList<LandMarkModel> landMarkModelArrayList = new ArrayList<>();
-
+    private TextView goNoti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,7 @@ public class newsActivity extends AppCompatActivity {
         goEventAll = findViewById(R.id.goEventAll);
         view_landmark = findViewById(R.id.view_landmark);
         goLandMarkAll = findViewById(R.id.goLandMarkAll);
+        goNoti = findViewById(R.id.goNoti);
 
         // เซ็ตการทำงานปุ่มเมนูล่าง
         bottomMenu = (FrameLayout)findViewById(R.id.bottomMenu);
@@ -61,6 +62,14 @@ public class newsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent login = new Intent(newsActivity.this, informationUserActivity.class);
+                startActivity(login);
+            }
+        });
+
+        goNoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent login = new Intent(newsActivity.this, NotifyActivity.class);
                 startActivity(login);
             }
         });

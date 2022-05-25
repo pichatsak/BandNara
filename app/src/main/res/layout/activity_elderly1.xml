@@ -786,11 +786,9 @@
                                         android:layout_marginTop="5dp"
                                         android:orientation="vertical">
 
-
                                         <RelativeLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content">
-
 
                                             <Spinner
                                                 android:id="@+id/spinRelay"
@@ -839,7 +837,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="นิคม"
                                             android:id="@+id/name"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -851,7 +848,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="พงษ์คำ"
                                             android:id="@+id/lastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -865,7 +861,6 @@
                                             />
 
                                         <EditText
-                                            android:text="3560100393954"
                                             android:id="@+id/idCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -879,7 +874,6 @@
                                             />
 
                                         <EditText
-                                            android:text="81"
                                             android:id="@+id/homeNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -893,7 +887,6 @@
                                             />
 
                                         <EditText
-                                            android:text="7"
                                             android:id="@+id/moo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -907,7 +900,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/soi"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -921,7 +913,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/road"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -988,7 +979,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="แม่อิง"
                                             android:id="@+id/district"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1002,7 +992,6 @@
                                             />
 
                                         <EditText
-                                            android:text="56000"
                                             android:id="@+id/postCode"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1017,7 +1006,6 @@
                                             />
 
                                         <EditText
-                                            android:text="0837651698"
                                             android:id="@+id/phone"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1074,7 +1062,7 @@
                                             android:id="@+id/btnChoosePic"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="1"
+                                            android:layout_weight="2"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
@@ -1109,24 +1097,6 @@
 
                                         </LinearLayout>
 
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:gravity="center">
-
-                                            <TextView
-                                                android:clickable="true"
-                                                android:foreground="?selectableItemBackgroundBorderless"
-                                                android:id="@+id/btnSeeEx"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/my_text"
-                                                android:textColor="@color/orange"
-                                                android:textSize="18sp" />
-
-                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -1282,7 +1252,6 @@
 
                                         <EditText
                                             android:id="@+id/olderName"
-                                            android:text="สุนันทา"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
                                             android:layout_marginTop="13dp"
@@ -1293,7 +1262,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="พงษ์คำ"
                                             android:id="@+id/olderLastName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1322,7 +1290,6 @@
                                             android:textSize="16sp" />
 
                                         <EditText
-                                            android:text="60"
                                             android:id="@+id/olderYear"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1362,7 +1329,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="1858800456150"
                                             android:id="@+id/olderIdCard"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1402,7 +1368,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="5000"
                                             android:id="@+id/olderProfit"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1442,7 +1407,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="82"
                                             android:id="@+id/homeNo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1457,7 +1421,6 @@
                                             />
 
                                         <EditText
-                                            android:text="8"
                                             android:id="@+id/moo2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1472,7 +1435,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/soi2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1487,7 +1449,6 @@
                                             />
 
                                         <EditText
-                                            android:text="-"
                                             android:id="@+id/road2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1554,7 +1515,6 @@
                                         </RelativeLayout>
 
                                         <EditText
-                                            android:text="แม่ใจ"
                                             android:id="@+id/district2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1568,7 +1528,6 @@
                                             />
 
                                         <EditText
-                                            android:text="56000"
                                             android:id="@+id/postCode2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1583,7 +1542,6 @@
                                             />
 
                                         <EditText
-                                            android:text="0864403511"
                                             android:id="@+id/phone2"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -1763,7 +1721,7 @@
                                             android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="1"
+                                            android:layout_weight="2"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
@@ -1797,25 +1755,6 @@
 
                                         </LinearLayout>
 
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:gravity="center">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/my_text"
-
-
-                                                android:textColor="@color/orange"
-
-
-                                                android:textSize="18sp" />
-
-                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -1858,7 +1797,7 @@
                                             android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="1"
+                                            android:layout_weight="2"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
@@ -1893,24 +1832,7 @@
                                         </LinearLayout>
 
 
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:gravity="center">
 
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/my_text"
-
-
-                                                android:textColor="@color/orange"
-
-
-                                                android:textSize="18sp" />
-
-                                        </LinearLayout>
 
                                     </LinearLayout>
 
@@ -2551,7 +2473,6 @@
 
 
                                         <EditText
-                                            android:text="0511749883"
                                             android:id="@+id/bankNo"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -2567,7 +2488,6 @@
                                             />
 
                                         <EditText
-                                            android:text="มาโนม พงษ์คำ"
                                             android:id="@+id/bankName"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"
@@ -2583,7 +2503,6 @@
                                             />
 
                                         <EditText
-                                            android:text="กสิกรไทย"
                                             android:id="@+id/bankOwner"
                                             android:layout_width="match_parent"
                                             android:layout_height="45dp"

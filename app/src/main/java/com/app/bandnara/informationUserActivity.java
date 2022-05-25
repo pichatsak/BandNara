@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.ToolBar.CloseBar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +25,7 @@ public class informationUserActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private TextView tvadr1,tvadr2,tvadr3;
     private LinearLayout back,goEditProfile,goEditAdr1,goEditAdr2;
+    private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,9 @@ public class informationUserActivity extends AppCompatActivity {
         goEditAdr1 = findViewById(R.id.goEditAdr1);
         goEditAdr2 = findViewById(R.id.goEditAdr2);
         back = findViewById(R.id.back);
-        getData();
+        getData();// เซ็ตการทำงานปุ่มเมนูล่าง
+        bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
+        BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

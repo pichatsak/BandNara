@@ -72,7 +72,6 @@ public class elderly1Activity extends AppCompatActivity {
     final Calendar myCalendar = Calendar.getInstance(); //ปฏิทิน
     private LinearLayout page1, page2, page3,page4;
     private LinearLayout processPage1, processPage2, processPage3,processPage4;
-
     // Start ตัวแปร Page 1
     private RelativeLayout setType1, setType2;
     private int typeRegis = 2;
@@ -155,7 +154,6 @@ public class elderly1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elderly1);
         CloseBar closeBar = new CloseBar(this);
-
 
         back = findViewById(R.id.back);
         page1 = findViewById(R.id.page1);
@@ -689,14 +687,14 @@ public class elderly1Activity extends AppCompatActivity {
                     Toast.makeText(elderly1Activity.this, "กรุณาอัพโหลดสำเนาทะเบียนบ้าน", Toast.LENGTH_SHORT).show();
                 }else {
                     deformData.setBeforeName2(olderBeforeNameGet);
-                    deformData.setOlderName(olderNameGet);
-                    deformData.setOlderLastName(olderLastNameGet);
-                    deformData.setOlderBirth(olderBirthGet);
-                    deformData.setOlderYear(olderYearGet);
+                    deformData.setDeformName(olderNameGet);
+                    deformData.setDeformLastName(olderLastNameGet);
+                    deformData.setDeformBirth(olderBirthGet);
+                    deformData.setDeformYear(olderYearGet);
                     deformData.setCitizen(citizenget);
-                    deformData.setOlderIdCard(olderIdCardGet);
+                    deformData.setDeformIdCard(olderIdCardGet);
                     deformData.setStanapap(stanapapGet);
-                    deformData.setOlderProfit(olderProfitGet);
+                    deformData.setDeformProfit(olderProfitGet);
                     deformData.setWork(workGet);
                     deformData.setHomeNo2(homeNo2Get);
                     deformData.setMoo2(moo2Get);
@@ -762,7 +760,6 @@ public class elderly1Activity extends AppCompatActivity {
 
         getProvAllPage2();
     }
-
 
     public void getProvAllPage2() {
         AdressData adressData = new AdressData(this);
@@ -836,7 +833,6 @@ public class elderly1Activity extends AppCompatActivity {
         phone2 = findViewById(R.id.phone2);
     }
 
-
     private void setShowPage(int i) {
         pageCur = i;
         if (pageCur == 1) {
@@ -906,7 +902,6 @@ public class elderly1Activity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
     }
 
-
     private void setSpinnerPage1() {
         listRelay = new ArrayList<>();
         listRelay.add("เลือกความสัมพันธ์");
@@ -930,7 +925,6 @@ public class elderly1Activity extends AppCompatActivity {
         getProvAll();
 
     }
-
 
     public void setClickBtnPage1() {
         setType1.setOnClickListener(new View.OnClickListener() {
@@ -1069,7 +1063,6 @@ public class elderly1Activity extends AppCompatActivity {
             }
         });
     }
-
 
     public void getProvAll() {
         AdressData adressData = new AdressData(this);

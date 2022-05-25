@@ -20,14 +20,14 @@ public class DeformData {
     private String postCode;
     private String phone;
     private String beforeName2;
-    private String olderName;
-    private String olderLastName;
-    private String olderBirth;
-    private String olderYear;
+    private String deformName;
+    private String deformLastName;
+    private String deformBirth;
+    private String deformYear;
     private String citizen;
-    private String olderIdCard;
+    private String deformIdCard;
     private String stanapap;
-    private String olderProfit;
+    private String deformProfit;
     private String work;
     private String homeNo2;
     private String moo2;
@@ -54,46 +54,6 @@ public class DeformData {
     private String bankNo;
     private String bankName;
     private String bankOwner;
-
-    public int getCbSt() {
-        return cbSt;
-    }
-
-    public void setCbSt(int cbSt) {
-        this.cbSt = cbSt;
-    }
-
-    public int getCbBc() {
-        return cbBc;
-    }
-
-    public void setCbBc(int cbBc) {
-        this.cbBc = cbBc;
-    }
-
-    public String getBankNo() {
-        return bankNo;
-    }
-
-    public void setBankNo(String bankNo) {
-        this.bankNo = bankNo;
-    }
-
-    public String getBankName() {
-        return bankName;
-    }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public String getBankOwner() {
-        return bankOwner;
-    }
-
-    public void setBankOwner(String bankOwner) {
-        this.bankOwner = bankOwner;
-    }
 
     public DeformData() {
 
@@ -235,36 +195,36 @@ public class DeformData {
         this.beforeName2 = beforeName2;
     }
 
-    public String getOlderName() {
-        return olderName;
+    public String getDeformName() {
+        return deformName;
     }
 
-    public void setOlderName(String olderName) {
-        this.olderName = olderName;
+    public void setDeformName(String deformName) {
+        this.deformName = deformName;
     }
 
-    public String getOlderLastName() {
-        return olderLastName;
+    public String getDeformLastName() {
+        return deformLastName;
     }
 
-    public void setOlderLastName(String olderLastName) {
-        this.olderLastName = olderLastName;
+    public void setDeformLastName(String deformLastName) {
+        this.deformLastName = deformLastName;
     }
 
-    public String getOlderBirth() {
-        return olderBirth;
+    public String getDeformBirth() {
+        return deformBirth;
     }
 
-    public void setOlderBirth(String olderBirth) {
-        this.olderBirth = olderBirth;
+    public void setDeformBirth(String deformBirth) {
+        this.deformBirth = deformBirth;
     }
 
-    public String getOlderYear() {
-        return olderYear;
+    public String getDeformYear() {
+        return deformYear;
     }
 
-    public void setOlderYear(String olderYear) {
-        this.olderYear = olderYear;
+    public void setDeformYear(String deformYear) {
+        this.deformYear = deformYear;
     }
 
     public String getCitizen() {
@@ -275,12 +235,12 @@ public class DeformData {
         this.citizen = citizen;
     }
 
-    public String getOlderIdCard() {
-        return olderIdCard;
+    public String getDeformIdCard() {
+        return deformIdCard;
     }
 
-    public void setOlderIdCard(String olderIdCard) {
-        this.olderIdCard = olderIdCard;
+    public void setDeformIdCard(String deformIdCard) {
+        this.deformIdCard = deformIdCard;
     }
 
     public String getStanapap() {
@@ -291,12 +251,12 @@ public class DeformData {
         this.stanapap = stanapap;
     }
 
-    public String getOlderProfit() {
-        return olderProfit;
+    public String getDeformProfit() {
+        return deformProfit;
     }
 
-    public void setOlderProfit(String olderProfit) {
-        this.olderProfit = olderProfit;
+    public void setDeformProfit(String deformProfit) {
+        this.deformProfit = deformProfit;
     }
 
     public String getWork() {
@@ -441,5 +401,45 @@ public class DeformData {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getCbSt() {
+        return cbSt;
+    }
+
+    public void setCbSt(int cbSt) {
+        this.cbSt = cbSt;
+    }
+
+    public int getCbBc() {
+        return cbBc;
+    }
+
+    public void setCbBc(int cbBc) {
+        this.cbBc = cbBc;
+    }
+
+    public String getBankNo() {
+        return bankNo;
+    }
+
+    public void setBankNo(String bankNo) {
+        this.bankNo = bankNo;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getBankOwner() {
+        return bankOwner;
+    }
+
+    public void setBankOwner(String bankOwner) {
+        this.bankOwner = bankOwner;
     }
 }

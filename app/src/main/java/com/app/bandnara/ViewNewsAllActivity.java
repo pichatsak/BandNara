@@ -72,13 +72,13 @@ public class ViewNewsAllActivity extends AppCompatActivity {
                                 Timestamp timestamp = (Timestamp) document.getData().get("dateUpdate");
                                 newsModel.setDateUpdate(timestamp.toDate());
                                 newsModelArrayList.add(newsModel);
-                                viewNewAll.setHasFixedSize(true);
-                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ViewNewsAllActivity.this);
-                                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                                viewNewAll.setLayoutManager(linearLayoutManager);
-                                NewsAllAdapter newsAdapter = new NewsAllAdapter(ViewNewsAllActivity.this, newsModelArrayList);
-                                viewNewAll.setAdapter(newsAdapter);
                             }
+                            viewNewAll.setHasFixedSize(true);
+                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ViewNewsAllActivity.this);
+                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                            viewNewAll.setLayoutManager(linearLayoutManager);
+                            NewsAllAdapter newsAdapter = new NewsAllAdapter(ViewNewsAllActivity.this, newsModelArrayList);
+                            viewNewAll.setAdapter(newsAdapter);
                         } else {
                             Log.d("CHK_DATA", "Error getting documents: ", task.getException());
                         }

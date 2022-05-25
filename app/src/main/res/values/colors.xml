@@ -13,4 +13,6 @@
     <color name="gray_600">#757575</color>
     <color name="teal_501">#319fa6</color>
     <color name="orange">#f2b800</color>
+    <color name="red">#D50000</color>
+    <color name="green">#64DD17</color>
 </resources>

@@ -34,8 +34,11 @@
                         android:background="@color/Teal_50">
 
                         <TextView
+                            android:id="@+id/goNoti"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:clickable="true"
+                            android:foreground="?selectableItemBackgroundBorderless"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="25dp"
                             android:layout_marginRight="40dp"
@@ -43,8 +46,6 @@
                             android:backgroundTint="@color/white" />
 
                         <TextView
-                            android:clickable="true"
-                            android:foreground="?selectableItemBackgroundBorderless"
                             android:id="@+id/goProfile"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
@@ -52,7 +53,9 @@
                             android:layout_marginTop="25dp"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/round_account_button_with_user_inside"
-                            android:backgroundTint="@color/white" />
+                            android:backgroundTint="@color/white"
+                            android:clickable="true"
+                            android:foreground="?selectableItemBackgroundBorderless" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -418,13 +421,8 @@
                                                 android:textColor="@color/Teal_50"
                                                 android:textSize="16sp" />
                                         </LinearLayout>
-
-
                                     </LinearLayout>
-
-
                                 </LinearLayout>
-
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
@@ -432,40 +430,28 @@
                                     android:gravity="center"
                                     android:paddingTop="10dp"
                                     android:orientation="vertical">
-
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:id="@+id/view_landmark"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"/>
-
                                 </LinearLayout>
                             </LinearLayout>
-
-
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="100dp"/>
                     </LinearLayout>
-
                 </ScrollView>
-
-
             </LinearLayout>
-
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:background="@color/Teal_50">
-
                 <include
                     android:id="@+id/bottomMenu"
                     layout="@layout/bottom_bar"/>
-
             </RelativeLayout>
 
         </RelativeLayout>

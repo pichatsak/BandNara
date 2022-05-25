@@ -235,63 +235,109 @@ public class elderlyActivity extends AppCompatActivity {
     }
 
     private void setUploadImage(String idKeyReport) {
-        StorageReference ref = storageReference.child("imgolder/older_"+idKeyReport+"/bookpic_" + idKeyReport);
-        ref.putFile(imageChooseCur)
-                .addOnSuccessListener(
-                        new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                StorageReference ref2 = storageReference.child("imgolder/older_"+idKeyReport+"/idcard_" + idKeyReport);
-                                ref2.putFile(imageCopyCard)
-                                        .addOnSuccessListener(
-                                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                                    @Override
-                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                        StorageReference ref3 = storageReference.child("imgolder/older_"+idKeyReport+"/home_" + idKeyReport);
-                                                        ref3.putFile(imageCopyHome)
-                                                                .addOnSuccessListener(
-                                                                        new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                                                            @Override
-                                                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                                                StorageReference ref4 = storageReference.child("imgolder/older_"+idKeyReport+"/bank_" + idKeyReport);
-                                                                                ref4.putFile(imageCopyBank)
-                                                                                        .addOnSuccessListener(
-                                                                                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                                                                                    @Override
-                                                                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                                                                        Toast.makeText(elderlyActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
-                                                                                                    }
-                                                                                                })
-                                                                                        .addOnFailureListener(new OnFailureListener() {
-                                                                                            @Override
-                                                                                            public void onFailure(@NonNull Exception e) {
-                                                                                                Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
-                                                                                            }
-                                                                                        });
-                                                                            }
-                                                                        })
-                                                                .addOnFailureListener(new OnFailureListener() {
-                                                                    @Override
-                                                                    public void onFailure(@NonNull Exception e) {
-                                                                        Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                });
-                                                    }
-                                                })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-                        })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 1 ได้", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        if(typeRegis==1){
+            StorageReference ref2 = storageReference.child("imgolder/older_"+idKeyReport+"/idcard_" + idKeyReport);
+            ref2.putFile(imageCopyCard)
+                    .addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    StorageReference ref3 = storageReference.child("imgolder/older_"+idKeyReport+"/home_" + idKeyReport);
+                                    ref3.putFile(imageCopyHome)
+                                            .addOnSuccessListener(
+                                                    new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                        @Override
+                                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                            StorageReference ref4 = storageReference.child("imgolder/older_"+idKeyReport+"/bank_" + idKeyReport);
+                                                            ref4.putFile(imageCopyBank)
+                                                                    .addOnSuccessListener(
+                                                                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                                                @Override
+                                                                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                                                    Toast.makeText(elderlyActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                                                }
+                                                                            })
+                                                                    .addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
+                                                        }
+                                                    })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                }
+                            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }else if(typeRegis==2){
+            StorageReference ref = storageReference.child("imgolder/older_"+idKeyReport+"/bookpic_" + idKeyReport);
+            ref.putFile(imageChooseCur)
+                    .addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    StorageReference ref2 = storageReference.child("imgolder/older_"+idKeyReport+"/idcard_" + idKeyReport);
+                                    ref2.putFile(imageCopyCard)
+                                            .addOnSuccessListener(
+                                                    new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                        @Override
+                                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                            StorageReference ref3 = storageReference.child("imgolder/older_"+idKeyReport+"/home_" + idKeyReport);
+                                                            ref3.putFile(imageCopyHome)
+                                                                    .addOnSuccessListener(
+                                                                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                                                @Override
+                                                                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                                                    StorageReference ref4 = storageReference.child("imgolder/older_"+idKeyReport+"/bank_" + idKeyReport);
+                                                                                    ref4.putFile(imageCopyBank)
+                                                                                            .addOnSuccessListener(
+                                                                                                    new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                                                                        @Override
+                                                                                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                                                                            Toast.makeText(elderlyActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                                                                        }
+                                                                                                    })
+                                                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                                                @Override
+                                                                                                public void onFailure(@NonNull Exception e) {
+                                                                                                    Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                                                                }
+                                                                                            });
+                                                                                }
+                                                                            })
+                                                                    .addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
+                                                        }
+                                                    })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                }
+                            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 1 ได้", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
 
     }
 

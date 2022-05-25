@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.AmphurAdapter;
 import com.app.bandnara.adaptor.ProvAdapter;
@@ -52,7 +54,7 @@ public class EditAddressOneActivity extends AppCompatActivity {
     private String amphurMain = "";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private AppCompatButton saveData;
-
+    private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,9 @@ public class EditAddressOneActivity extends AppCompatActivity {
         tambon = findViewById(R.id.tambon);
         numberpri = findViewById(R.id.numberpri);
         saveData = findViewById(R.id.saveData);
+        // เซ็ตการทำงานปุ่มเมนูล่าง
+        bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
+        BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
