@@ -32,30 +32,60 @@
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@color/Teal_50">
-
-                        <TextView
-                            android:id="@+id/goNoti"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:clickable="true"
-                            android:foreground="?selectableItemBackgroundBorderless"
+                        <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginRight="40dp"
-                            android:background="@drawable/bell"
-                            android:backgroundTint="@color/white" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <RelativeLayout
 
-                        <TextView
-                            android:id="@+id/goProfile"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/round_account_button_with_user_inside"
-                            android:backgroundTint="@color/white"
-                            android:clickable="true"
-                            android:foreground="?selectableItemBackgroundBorderless" />
+                                android:layout_marginRight="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/goNoti"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_marginRight="0dp"
+                                    android:background="@drawable/bell"
+                                    android:backgroundTint="@color/white"
+                                    android:clickable="true"
+                                    android:foreground="?selectableItemBackgroundBorderless" />
+                                <LinearLayout
+                                    android:id="@+id/contNoti"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/circlered"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp">
+                                    <TextView
+                                        android:id="@+id/tvnumNoti"
+                                        android:textSize="15sp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:textColor="@color/white"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="0" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/goProfile"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/round_account_button_with_user_inside"
+                                android:backgroundTint="@color/white"
+                                android:clickable="true"
+                                android:foreground="?selectableItemBackgroundBorderless" />
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"

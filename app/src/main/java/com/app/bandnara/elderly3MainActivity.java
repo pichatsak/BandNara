@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -31,6 +32,7 @@ import com.app.bandnara.adaptor.ProvAdapter;
 import com.app.bandnara.adaptor.SpinAdapter;
 import com.app.bandnara.keepFireStory.AidsData;
 import com.app.bandnara.models.AmphuresModel;
+import com.app.bandnara.models.NotiWebModel;
 import com.app.bandnara.models.ProvincesModel;
 import com.app.bandnara.tools.AdressData;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -69,6 +71,8 @@ public class elderly3MainActivity extends AppCompatActivity {
     private StorageReference storageReference = storage.getReference();
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
 
+
+    ProgressDialog dialogLoad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -194,12 +198,14 @@ public class elderly3MainActivity extends AppCompatActivity {
             aidsData.setDateModify(FieldValue.serverTimestamp());
             aidsData.setStatus("wait");
             aidsData.setUserId(MyApplication.getUserId());
+            dialogLoad = ProgressDialog.show(elderly3MainActivity.this, "","กำลังบันทึกข้อมูล...", true);
             db.collection("aids_data")
                     .add(aidsData)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("CHKDB", "DocumentSnapshot written with ID: " + documentReference.getId());
+                            setSendNoti();
                             setUploadImage(documentReference.getId());
                         }
                     })
@@ -207,10 +213,35 @@ public class elderly3MainActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("CHKDB", "Error adding document", e);
+
+                            Toast.makeText(elderly3MainActivity.this, "เกิดข้อผิดผลาด", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }
 
+    }
+
+    private void setSendNoti() {
+        NotiWebModel notiWebModel = new NotiWebModel();
+        notiWebModel.setTxtNoti("มีการขึ้นทะเบียนผู้ป่วยโรคเอดส์ใหม่");
+        notiWebModel.setDateCreate(FieldValue.serverTimestamp());
+        notiWebModel.setStatusRead("no");
+        notiWebModel.setUserId(MyApplication.getUserId());
+        db.collection("noti_web")
+                .add(notiWebModel)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CHKDB", "Error adding document", e);
+                    }
+                });
     }
 
     private void setUploadImage(String id) {
@@ -220,6 +251,7 @@ public class elderly3MainActivity extends AppCompatActivity {
                         new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                dialogLoad.dismiss();
                                 Toast.makeText(elderly3MainActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
@@ -227,6 +259,7 @@ public class elderly3MainActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        dialogLoad.dismiss();
                         Toast.makeText(elderly3MainActivity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                     }
                 });

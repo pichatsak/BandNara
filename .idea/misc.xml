@@ -41,8 +41,12 @@
         <entry key="..\:/Users/Jui/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Jui/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.36302083333333335" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/cilclebtn.xml" value="0.281" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/circledark.xml" value="0.2025" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/circlered.xml" value="0.2025" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_circle.xml" value="0.281" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_circle_active.xml" value="0.281" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram.xml" value="0.2025" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram1.xml" value="0.2025" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/drawable/design_fram_circle2.xml" value="0.281" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_announce.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_change_pass.xml" value="0.3625" />
@@ -55,14 +59,17 @@
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_elderly2.xml" value="0.3378640776699029" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_elderly3_main.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_exactivity.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_forget_password.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_information_user.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_inphone.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_list_add.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_list_report.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_map_mark.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_news.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_notify.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_otp_forget_pass.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_otpactivity2.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_register.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_register1.xml" value="0.3625" />
@@ -77,6 +84,9 @@
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/activity_view_news_and_event.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/bottom_bar.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/dialog_comment.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/dialog_ex_bank.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/dialog_ex_card.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/dialog_ex_home.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/dialog_hightold.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_comment.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_event_all.xml" value="0.3625" />
@@ -84,7 +94,9 @@
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_land.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_news.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_news_all.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_noti.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_regis.xml" value="0.3625" />
+        <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/row_report.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/rowitem.xml" value="0.3625" />
         <entry key="..\:/Users/nitip/AndroidStudioProjects/BandNara/app/src/main/res/layout/rowspinner.xml" value="0.3625" />
       </map>

@@ -80,11 +80,13 @@
             android:paddingRight="30dp"
             android:layout_marginTop="50dp">
             <EditText
+                android:text="0967959507"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/design_fram"
                 android:hint="เบอร์โทรศัพท์"
                 android:inputType="phone"
+                android:id="@+id/phoneFill"
                 android:textColorHint="@color/gray_50"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -95,6 +97,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp">
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/gochk"
                 android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:background="@drawable/design_fram1"

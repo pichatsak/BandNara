@@ -1330,7 +1330,7 @@
                                             android:layout_marginTop="13dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ตำบล"
-                                            android:inputType="number"
+                                            android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
 
@@ -1451,14 +1451,13 @@
                                             android:gravity="center">
 
                                             <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeExCopyCard"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/my_text"
-
-
                                                 android:textColor="@color/orange"
-
-
                                                 android:textSize="18sp" />
 
                                         </LinearLayout>
@@ -1548,6 +1547,9 @@
                                             android:gravity="center">
 
                                             <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeExCopyHome"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/my_text"
@@ -2089,7 +2091,7 @@
                                             android:foreground="?selectableItemBackgroundBorderless"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_weight="2"
+                                            android:layout_weight="1"
                                             android:background="@drawable/fram4">
 
                                             <LinearLayout
@@ -2121,7 +2123,27 @@
                                                 android:layout_height="150dp"/>
 
                                         </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
 
+                                            <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeExCopyBank"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/my_text"
+
+
+                                                android:textColor="@color/orange"
+
+
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
 
 
 

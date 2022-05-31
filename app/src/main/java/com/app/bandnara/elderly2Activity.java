@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +20,7 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -36,6 +39,7 @@ import com.app.bandnara.adaptor.ProvAdapter;
 import com.app.bandnara.adaptor.SpinAdapter;
 import com.app.bandnara.keepFireStory.BabyData;
 import com.app.bandnara.models.AmphuresModel;
+import com.app.bandnara.models.NotiWebModel;
 import com.app.bandnara.models.ProvincesModel;
 import com.app.bandnara.tools.AdressData;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -161,6 +165,9 @@ public class elderly2Activity extends AppCompatActivity {
 
 
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
+
+    ProgressDialog dialogLoad;
+    TextView btnSeeExCopyBank;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -205,6 +212,36 @@ public class elderly2Activity extends AppCompatActivity {
                 } else if (pageCur == 3) {
                     setShowPage(2);
                 }
+            }
+        });
+        btnSeeExCopyBank = findViewById(R.id.btnSeeExCopyBank);
+        setDialogEx();
+    }
+
+    private void setDialogEx() {
+        btnSeeExCopyBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderly2Activity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_bank);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
@@ -473,12 +510,14 @@ public class elderly2Activity extends AppCompatActivity {
             babyData.setDateCreate(FieldValue.serverTimestamp());
             babyData.setDateModify(FieldValue.serverTimestamp());
             babyData.setUserId(MyApplication.getUserId());
+            dialogLoad = ProgressDialog.show(elderly2Activity.this, "","กำลังบันทึกข้อมูล...", true);
             db.collection("baby_data")
                     .add(babyData)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("CHKDB", "DocumentSnapshot written with ID: " + documentReference.getId());
+                            setSendNoti();
                             setUploadImage(documentReference.getId());
                         }
                     })
@@ -486,9 +525,33 @@ public class elderly2Activity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("CHKDB", "Error adding document", e);
+                            Toast.makeText(elderly2Activity.this, "เกิดข้อผิดผลาด", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }
+    }
+
+    private void setSendNoti() {
+        NotiWebModel notiWebModel = new NotiWebModel();
+        notiWebModel.setTxtNoti("มีการขึ้นทะเบียนเด็กแรกเกิดใหม่");
+        notiWebModel.setDateCreate(FieldValue.serverTimestamp());
+        notiWebModel.setStatusRead("no");
+        notiWebModel.setUserId(MyApplication.getUserId());
+        db.collection("noti_web")
+                .add(notiWebModel)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CHKDB", "Error adding document", e);
+                    }
+                });
     }
 
     private void setUploadImage(String id) {
@@ -522,7 +585,7 @@ public class elderly2Activity extends AppCompatActivity {
                                                                                                                         new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                                                                                                             @Override
                                                                                                                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                                                                                                                                dialogLoad.dismiss();
                                                                                                                                 Toast.makeText(elderly2Activity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
                                                                                                                                 finish();
                                                                                                                             }
@@ -530,6 +593,7 @@ public class elderly2Activity extends AppCompatActivity {
                                                                                                                 .addOnFailureListener(new OnFailureListener() {
                                                                                                                     @Override
                                                                                                                     public void onFailure(@NonNull Exception e) {
+                                                                                                                        dialogLoad.dismiss();
                                                                                                                         Toast.makeText(elderly2Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                                                                                                                     }
                                                                                                                 });
@@ -538,6 +602,7 @@ public class elderly2Activity extends AppCompatActivity {
                                                                                         .addOnFailureListener(new OnFailureListener() {
                                                                                             @Override
                                                                                             public void onFailure(@NonNull Exception e) {
+                                                                                                dialogLoad.dismiss();
                                                                                                 Toast.makeText(elderly2Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                                                                                             }
                                                                                         });
@@ -546,6 +611,7 @@ public class elderly2Activity extends AppCompatActivity {
                                                                 .addOnFailureListener(new OnFailureListener() {
                                                                     @Override
                                                                     public void onFailure(@NonNull Exception e) {
+                                                                        dialogLoad.dismiss();
                                                                         Toast.makeText(elderly2Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 });
@@ -554,6 +620,7 @@ public class elderly2Activity extends AppCompatActivity {
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
+                                                dialogLoad.dismiss();
                                                 Toast.makeText(elderly2Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                                             }
                                         });
@@ -562,11 +629,33 @@ public class elderly2Activity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        dialogLoad.dismiss();
                         Toast.makeText(elderly2Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
+    public String getAge(int year, int month, int day) {
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month-1, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = "";
+        if(ageInt<=0){
+            ageS = "0";
+        }else{
+            ageS = ageInt.toString();
+        }
+        return ageS;
+    }
 
     private void setClickBtnPage2() {
         birthChild.setOnClickListener(new View.OnClickListener() {
@@ -581,6 +670,7 @@ public class elderly2Activity extends AppCompatActivity {
                         String myFormat = "dd/MM/yyyy";
                         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
                         birthChild.setText(dateFormat.format(myCalendarbirthChild.getTime()));
+                        age.setText(getAge(year,month,day));
                     }
                 };
                 DatePickerDialog dialog = new DatePickerDialog(elderly2Activity.this, R.style.DialogTheme, date, myCalendarbirthChild.get(Calendar.YEAR), myCalendarbirthChild.get(Calendar.MONTH), myCalendarbirthChild.get(Calendar.DAY_OF_MONTH));

@@ -8,6 +8,7 @@ import com.app.bandnara.RealmDB.AmphuresRm;
 import com.app.bandnara.RealmDB.ProvinceRm;
 import com.app.bandnara.RealmDB.TumbonRm;
 import com.app.bandnara.keepFireStory.UsersFB;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,6 +34,11 @@ public class MyApplication extends Application {
         mContext = this;
         super.onCreate();
 
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+    }
+
+    public static void setSubNotiNews() {
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
     }
 
     public static void setUserRegis1(UsersFB userRegis) {

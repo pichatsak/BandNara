@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -44,6 +45,7 @@ import com.app.bandnara.adaptor.SexAdapter;
 import com.app.bandnara.adaptor.SpinAdapter;
 import com.app.bandnara.keepFireStory.OlderData;
 import com.app.bandnara.models.AmphuresModel;
+import com.app.bandnara.models.NotiWebModel;
 import com.app.bandnara.models.ProvincesModel;
 import com.app.bandnara.tools.AdressData;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -64,6 +66,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -142,7 +146,9 @@ public class elderlyActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageReference = storage.getReference();
+    TextView btnSeeExCopyCard,btnSeeExCopyHome,btnSeeExCopyBank;
 
+    ProgressDialog dialogLoad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -190,7 +196,89 @@ public class elderlyActivity extends AppCompatActivity {
                 }
             }
         });
+        btnSeeExCopyCard = findViewById(R.id.btnSeeExCopyCard);
+        btnSeeExCopyHome = findViewById(R.id.btnSeeExCopyHome);
+        btnSeeExCopyBank = findViewById(R.id.btnSeeExCopyBank);
+        setDialogEx();
+    }
 
+    private void setDialogEx() {
+        btnSeeExCopyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderlyActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_card);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        btnSeeExCopyHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderlyActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_home);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        btnSeeExCopyBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderlyActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_bank);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
     }
 
     private void setSaveFinal() {
@@ -216,12 +304,14 @@ public class elderlyActivity extends AppCompatActivity {
             olderData.setDateModify(FieldValue.serverTimestamp());
             olderData.setStatus("wait");
             olderData.setUserId(MyApplication.getUserId());
+            dialogLoad = ProgressDialog.show(elderlyActivity.this, "","กำลังบันทึกข้อมูล...", true);
             db.collection("olders_data")
                     .add(olderData)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("CHKDB", "DocumentSnapshot written with ID: " + documentReference.getId());
+                            setSendNoti();
                             setUploadImage(documentReference.getId());
                         }
                     })
@@ -229,9 +319,34 @@ public class elderlyActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("CHKDB", "Error adding document", e);
+
+                            Toast.makeText(elderlyActivity.this, "เกิดข้อผิดผลาด", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }
+    }
+
+    private void setSendNoti() {
+        NotiWebModel notiWebModel = new NotiWebModel();
+        notiWebModel.setTxtNoti("มีการขึ้นทะเบียนผู้สูงอายุใหม่");
+        notiWebModel.setDateCreate(FieldValue.serverTimestamp());
+        notiWebModel.setStatusRead("no");
+        notiWebModel.setUserId(MyApplication.getUserId());
+        db.collection("noti_web")
+                .add(notiWebModel)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CHKDB", "Error adding document", e);
+                    }
+                });
     }
 
     private void setUploadImage(String idKeyReport) {
@@ -255,11 +370,14 @@ public class elderlyActivity extends AppCompatActivity {
                                                                                 @Override
                                                                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                                                                     Toast.makeText(elderlyActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                                                    dialogLoad.dismiss();
+                                                                                    finish();
                                                                                 }
                                                                             })
                                                                     .addOnFailureListener(new OnFailureListener() {
                                                                         @Override
                                                                         public void onFailure(@NonNull Exception e) {
+                                                                            dialogLoad.dismiss();
                                                                             Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
                                                                         }
                                                                     });
@@ -269,6 +387,7 @@ public class elderlyActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
                                                     Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                    dialogLoad.dismiss();
                                                 }
                                             });
                                 }
@@ -277,6 +396,7 @@ public class elderlyActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }else if(typeRegis==2){
@@ -305,12 +425,14 @@ public class elderlyActivity extends AppCompatActivity {
                                                                                                         @Override
                                                                                                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                                                                                             Toast.makeText(elderlyActivity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                                                                            dialogLoad.dismiss();
                                                                                                         }
                                                                                                     })
                                                                                             .addOnFailureListener(new OnFailureListener() {
                                                                                                 @Override
                                                                                                 public void onFailure(@NonNull Exception e) {
                                                                                                     Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                                                                    dialogLoad.dismiss();
                                                                                                 }
                                                                                             });
                                                                                 }
@@ -319,6 +441,7 @@ public class elderlyActivity extends AppCompatActivity {
                                                                         @Override
                                                                         public void onFailure(@NonNull Exception e) {
                                                                             Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                                            dialogLoad.dismiss();
                                                                         }
                                                                     });
                                                         }
@@ -327,6 +450,7 @@ public class elderlyActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
                                                     Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
+                                                    dialogLoad.dismiss();
                                                 }
                                             });
                                 }
@@ -335,6 +459,7 @@ public class elderlyActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(elderlyActivity.this, "ไม่สามารถอัพโหลดไฟล์ 1 ได้", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }
@@ -493,6 +618,28 @@ public class elderlyActivity extends AppCompatActivity {
         phone2 = findViewById(R.id.phone2);
     }
 
+    public String getAge(int year, int month, int day) {
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month-1, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = "";
+        if(ageInt<=0){
+            ageS = "0";
+        }else{
+            ageS = ageInt.toString();
+        }
+        return ageS;
+    }
+
     private void setClickBtnPage2() {
         olderBirth.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -506,6 +653,7 @@ public class elderlyActivity extends AppCompatActivity {
                         String myFormat = "dd/MM/yyyy";
                         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
                         olderBirth.setText(dateFormat.format(myCalendar.getTime()));
+                        olderYear.setText(getAge(year,month,day));
                     }
                 };
                 DatePickerDialog dialog = new DatePickerDialog(elderlyActivity.this, R.style.DialogTheme, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -659,6 +807,7 @@ public class elderlyActivity extends AppCompatActivity {
         listCitizen.add("ไทย");
         SpinAdapter citiAdapter = new SpinAdapter(this, listCitizen);
         spinCitizen.setAdapter(citiAdapter);
+        spinCitizen.setSelection(1);
 
         listStanapap = new ArrayList<>();
         listStanapap.add("เลือกสถานะภาพสมรส");
@@ -692,8 +841,12 @@ public class elderlyActivity extends AppCompatActivity {
         listRelay.add("เลือกความสัมพันธ์");
         listRelay.add("บุตร");
         listRelay.add("บุตรหลาน");
-        listRelay.add("ตู่สมรส");
+        listRelay.add("คู่สมรส");
         listRelay.add("น้องชาย");
+        listRelay.add("น้องสาว");
+        listRelay.add("พี่ชาย");
+        listRelay.add("พี่สาว");
+        listRelay.add("อื่นๆ");
         SpinAdapter relayAdapter = new SpinAdapter(this, listRelay);
         spinRelay.setAdapter(relayAdapter);
 

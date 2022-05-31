@@ -15,6 +15,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.bandnara.ToolBar.CloseBar;
@@ -34,6 +35,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.ServerTimestamp;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Date;
 
@@ -44,6 +46,7 @@ public class loginActivity extends AppCompatActivity {
     private TextInputEditText loginPassword; // รหัสผ่าน
     private EditText loginPhone; //เบอร์โทร
     private FirebaseAuth mAuth;
+    private TextView goForget;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
@@ -56,8 +59,11 @@ public class loginActivity extends AppCompatActivity {
         login1 = findViewById(R.id.login1);
         loginPassword = findViewById(R.id.loginPassword);
         loginPhone = findViewById(R.id.loginPhon);
+        goForget = findViewById(R.id.goForget);
         mAuth = FirebaseAuth.getInstance();
 
+        // เซ็ตค่าการรับการแจ้งเตือนบทเรียนใหม่
+        MyApplication.setSubNotiNews();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +84,13 @@ public class loginActivity extends AppCompatActivity {
                 } else {
                     SucCed();
                 }
+            }
+        });
+        goForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent login = new Intent(loginActivity.this, inphoneActivity.class);
+                startActivity(login);
             }
         });
         getPermission();
@@ -105,7 +118,33 @@ public class loginActivity extends AppCompatActivity {
         }
         return true;
     }
+    public void setNewTokenMs(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("CHKMS", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
 
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        Log.d("CHKMS", "token is : "+token);
+                        db.collection("users")
+                                .document(MyApplication.getUserId())
+                                .update("tokenMs", token)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+                                    }
+                                });
+                    }
+                });
+
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -120,6 +159,7 @@ public class loginActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String pinget = document.getData().get("statusSetPin").toString();
                             MyApplication.setUserId(document.getId());
+                            setNewTokenMs();
                             Intent login = new Intent(loginActivity.this, confirmPinActivity.class);
                             login.putExtra("statusPin", pinget);
                             login.putExtra("statusSet", "new");
@@ -170,6 +210,7 @@ public class loginActivity extends AppCompatActivity {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d("CHKDB", document.getId() + " => " + document.getData());
                         MyApplication.setUserId(document.getId());
+                        setNewTokenMs();
                         setLogin(document.getData().get("pim04").toString(), getloginPassword, document.getData().get("statusSetPin").toString());
                     }
                 } else {

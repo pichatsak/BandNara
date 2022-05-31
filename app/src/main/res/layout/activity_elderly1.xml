@@ -592,7 +592,7 @@
                     android:id="@+id/page1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
 
                     <ScrollView
@@ -1144,7 +1144,7 @@
                     android:id="@+id/page2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                     <ScrollView
@@ -1521,7 +1521,7 @@
                                             android:layout_marginTop="13dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ตำบล"
-                                            android:inputType="number"
+                                            android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
 
@@ -1559,6 +1559,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="13dp">
+
                                             <Spinner
                                                 android:id="@+id/spinDeform"
                                                 android:layout_width="match_parent"
@@ -1666,6 +1667,9 @@
                                             android:gravity="center">
 
                                             <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeExCopyCard"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/my_text"
@@ -1770,7 +1774,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="สำเนาบัตรประขถตัวคนพิการ"
+                                        android:text="สำเนาบัตรประจำตัวคนพิการ"
                                         android:textColor="@color/black"
                                         android:textSize="16sp" />
                                 </LinearLayout>
@@ -2601,14 +2605,13 @@
                                             android:gravity="center">
 
                                             <TextView
+                                                android:clickable="true"
+                                                android:foreground="?selectableItemBackgroundBorderless"
+                                                android:id="@+id/btnSeeExCopyBank"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/my_text"
-
-
                                                 android:textColor="@color/orange"
-
-
                                                 android:textSize="18sp" />
 
                                         </LinearLayout>

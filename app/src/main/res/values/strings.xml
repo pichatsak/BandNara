@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BandNara</string>
+    <string name="app_name">Bang Nara</string>
     <string name="btn_add_contact"><u>ลืมรหัสผ่าน</u></string>
     <string name="title_activity_edit_adress_one">EditAdressOneActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -16,4 +16,6 @@
     <string name="my_text1"><u>ข้อมูลมารดา</u></string>
     <string name="my_text2"><u>ข้อมูลบิดา</u></string>
 
+    <string name="default_notification_channel_id">noti_from_fb</string>
+    <string name="title_activity_otp_forget_pass">OtpForgetPassActivity</string>
 </resources>

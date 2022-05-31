@@ -1,6 +1,7 @@
 package com.app.bandnara;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,7 +23,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -72,8 +75,8 @@ public class ListAddActivity extends AppCompatActivity {
                 }
             });
         } else if (getTypes == 3) {
-            tvTitle.setText("ขึ้นทะเบียนเด็กแรกเกิด");
-            btnadds.setText("เพิ่มรายการขึ้นทะเบียนเด็กแรกเกิด");
+            tvTitle.setText("ขึ้นทะเบียนเงินหนุนเด็กแรกเกิด");
+            btnadds.setText("เพิ่มรายการขึ้นทะเบียนเงินหนุนเด็กแรกเกิด");
             getDataType3();
             btnadds.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -104,37 +107,43 @@ public class ListAddActivity extends AppCompatActivity {
     }
 
     public void  getDataType4(){
+
         db.collection("aids_data")
                 .whereEqualTo("userId",MyApplication.getUserId())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                ItemRegis itemRegis = new ItemRegis();
-                                itemRegis.setKeyId(document.getId());
-                                String getNameOld = document.getData().get("name").toString()+" "+document.getData().get("lastName").toString();
-                                itemRegis.setNameRegis(getNameOld);
-                                itemRegis.setAgeRegis("");
-                                itemRegis.setTypeRegis(0);
-                                itemRegis.setTypeData(4);
-                                itemRegis.setStatusRegis(document.getData().get("status").toString());
-                                Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
-                                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                                String dateShow = df.format(timestamp.toDate());
-                                itemRegis.setDateRegis(dateShow);
-                                itemRegisArrayList.add(itemRegis);
-                            }
-                            viewData.setHasFixedSize(true);
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
-                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                            viewData.setLayoutManager(linearLayoutManager);
-                            RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
-                            viewData.setAdapter(regisAdapter);
-                        } else {
-                            Log.d("CHK_DATA", "Error getting documents: ", task.getException());
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("CHKDB", "Listen failed.", e);
+                            return;
                         }
+
+                        itemRegisArrayList = new ArrayList<>();
+
+                        for (QueryDocumentSnapshot document : value) {
+                            ItemRegis itemRegis = new ItemRegis();
+                            itemRegis.setKeyId(document.getId());
+                            String getNameOld = document.getData().get("name").toString()+" "+document.getData().get("lastName").toString();
+                            itemRegis.setNameRegis(getNameOld);
+                            itemRegis.setAgeRegis("");
+                            itemRegis.setTypeRegis(0);
+                            itemRegis.setTypeData(4);
+                            itemRegis.setStatusRegis(document.getData().get("status").toString());
+                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                            String dateShow = df.format(timestamp.toDate());
+                            itemRegis.setDateRegis(dateShow);
+                            itemRegisArrayList.add(itemRegis);
+                        }
+
+                        viewData.setHasFixedSize(true);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
+                        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        viewData.setLayoutManager(linearLayoutManager);
+                        RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
+                        viewData.setAdapter(regisAdapter);
+
                     }
                 });
     }
@@ -142,110 +151,117 @@ public class ListAddActivity extends AppCompatActivity {
     public void  getDataType3(){
         db.collection("baby_data")
                 .whereEqualTo("userId",MyApplication.getUserId())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                ItemRegis itemRegis = new ItemRegis();
-                                itemRegis.setKeyId(document.getId());
-                                String getNameOld = document.getData().get("childBeforeName").toString()+" "+document.getData().get("childLastname").toString();
-                                itemRegis.setNameRegis(getNameOld);
-                                itemRegis.setAgeRegis("");
-                                itemRegis.setTypeRegis(0);
-                                itemRegis.setTypeData(3);
-                                itemRegis.setStatusRegis(document.getData().get("status").toString());
-                                Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
-                                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                                String dateShow = df.format(timestamp.toDate());
-                                itemRegis.setDateRegis(dateShow);
-                                itemRegisArrayList.add(itemRegis);
-                            }
-                            viewData.setHasFixedSize(true);
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
-                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                            viewData.setLayoutManager(linearLayoutManager);
-                            RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
-                            viewData.setAdapter(regisAdapter);
-                        } else {
-                            Log.d("CHK_DATA", "Error getting documents: ", task.getException());
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("CHKDB", "Listen failed.", e);
+                            return;
                         }
+                        itemRegisArrayList = new ArrayList<>();
+
+                        for (QueryDocumentSnapshot document : value) {
+                            ItemRegis itemRegis = new ItemRegis();
+                            itemRegis.setKeyId(document.getId());
+                            String getNameOld = document.getData().get("childBeforeName").toString()+" "+document.getData().get("childLastname").toString();
+                            itemRegis.setNameRegis(getNameOld);
+                            itemRegis.setAgeRegis("");
+                            itemRegis.setTypeRegis(0);
+                            itemRegis.setTypeData(3);
+                            itemRegis.setStatusRegis(document.getData().get("status").toString());
+                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                            String dateShow = df.format(timestamp.toDate());
+                            itemRegis.setDateRegis(dateShow);
+                            itemRegisArrayList.add(itemRegis);
+                        }
+                        viewData.setHasFixedSize(true);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
+                        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        viewData.setLayoutManager(linearLayoutManager);
+                        RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
+                        viewData.setAdapter(regisAdapter);
                     }
                 });
+
     }
 
     public void  getDataType2(){
         db.collection("deform_data")
                 .whereEqualTo("userId",MyApplication.getUserId())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                ItemRegis itemRegis = new ItemRegis();
-                                itemRegis.setKeyId(document.getId());
-                                String getNameOld = document.getData().get("deformName").toString()+" "+document.getData().get("deformLastName").toString();
-                                itemRegis.setNameRegis(getNameOld);
-                                itemRegis.setAgeRegis(document.getData().get("deformYear").toString());
-                                itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
-                                itemRegis.setTypeData(2);
-                                itemRegis.setStatusRegis(document.getData().get("status").toString());
-                                Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
-                                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                                String dateShow = df.format(timestamp.toDate());
-                                itemRegis.setDateRegis(dateShow);
-                                itemRegisArrayList.add(itemRegis);
-                            }
-                            viewData.setHasFixedSize(true);
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
-                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                            viewData.setLayoutManager(linearLayoutManager);
-                            RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
-                            viewData.setAdapter(regisAdapter);
-                        } else {
-                            Log.d("CHK_DATA", "Error getting documents: ", task.getException());
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("CHKDB", "Listen failed.", e);
+                            return;
                         }
+                        itemRegisArrayList = new ArrayList<>();
+                        for (QueryDocumentSnapshot document : value) {
+                            ItemRegis itemRegis = new ItemRegis();
+                            itemRegis.setKeyId(document.getId());
+                            String getNameOld = document.getData().get("deformName").toString()+" "+document.getData().get("deformLastName").toString();
+                            itemRegis.setNameRegis(getNameOld);
+                            itemRegis.setAgeRegis(document.getData().get("deformYear").toString());
+                            itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
+                            itemRegis.setTypeData(2);
+                            itemRegis.setStatusRegis(document.getData().get("status").toString());
+                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                            String dateShow = df.format(timestamp.toDate());
+                            itemRegis.setDateRegis(dateShow);
+                            itemRegisArrayList.add(itemRegis);
+                        }
+
+                        viewData.setHasFixedSize(true);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
+                        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        viewData.setLayoutManager(linearLayoutManager);
+                        RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
+                        viewData.setAdapter(regisAdapter);
                     }
                 });
+
     }
 
     public void getDataType1() {
-
         db.collection("olders_data")
                 .whereEqualTo("userId",MyApplication.getUserId())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                ItemRegis itemRegis = new ItemRegis();
-                                itemRegis.setKeyId(document.getId());
-                                String getNameOld = document.getData().get("beforeName2").toString()+" "+document.getData().get("olderName").toString()+" "+document.getData().get("olderLastName").toString();
-                                itemRegis.setNameRegis(getNameOld);
-                                itemRegis.setTypeData(1);
-                                itemRegis.setAgeRegis(document.getData().get("olderYear").toString());
-                                itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
-                                itemRegis.setStatusRegis(document.getData().get("status").toString());
-                                Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
-                                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                                String dateShow = df.format(timestamp.toDate());
-                                itemRegis.setDateRegis(dateShow);
-                                itemRegisArrayList.add(itemRegis);
-                            }
-                            viewData.setHasFixedSize(true);
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
-                            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                            viewData.setLayoutManager(linearLayoutManager);
-                            RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
-                            viewData.setAdapter(regisAdapter);
-                        } else {
-                            Log.d("CHK_DATA", "Error getting documents: ", task.getException());
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("CHKDB", "Listen failed.", e);
+                            return;
                         }
+                        itemRegisArrayList = new ArrayList<>();
+                        for (QueryDocumentSnapshot document : value) {
+                            ItemRegis itemRegis = new ItemRegis();
+                            itemRegis.setKeyId(document.getId());
+                            String getNameOld = document.getData().get("beforeName2").toString()+" "+document.getData().get("olderName").toString()+" "+document.getData().get("olderLastName").toString();
+                            itemRegis.setNameRegis(getNameOld);
+                            itemRegis.setTypeData(1);
+                            itemRegis.setAgeRegis(document.getData().get("olderYear").toString());
+                            itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
+                            itemRegis.setStatusRegis(document.getData().get("status").toString());
+                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                            String dateShow = df.format(timestamp.toDate());
+                            itemRegis.setDateRegis(dateShow);
+                            itemRegisArrayList.add(itemRegis);
+                        }
+
+                        viewData.setHasFixedSize(true);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListAddActivity.this);
+                        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        viewData.setLayoutManager(linearLayoutManager);
+                        RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
+                        viewData.setAdapter(regisAdapter);
+
                     }
                 });
-
     }
 }

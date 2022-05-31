@@ -60,7 +60,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ขึ้นทะเบียนเด็กแรกเกิด"
+                                android:text="ขึ้นทะเบียนเงินหนุนเด็กแรกเกิด"
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
                                 android:textStyle="bold"
@@ -472,7 +472,7 @@
                                                 android:layout_height="45dp"
                                                 android:background="@drawable/design_fram"
                                                 android:drawableTint="@color/Teal_50"
-                                                android:hint="ผู้ปกครอง"
+                                                android:hint="ความสัมพันธ์กับเด็กแรกเกิด"
                                                 android:textColorHint="@color/gray_50"
                                                 android:textSize="16sp" />
 
@@ -1123,7 +1123,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุระดับการศึกษา"
-                                            android:inputType="number"
+                                            android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
                                             android:visibility="gone" />
@@ -1533,7 +1533,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุระดับการศึกษา"
-                                            android:inputType="number"
+                                            android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
                                             android:visibility="gone" />
@@ -2441,7 +2441,7 @@
                                                     android:foreground="?selectableItemBackgroundBorderless"
                                                     android:layout_width="0dp"
                                                     android:layout_height="match_parent"
-                                                    android:layout_weight="2"
+                                                    android:layout_weight="1"
                                                     android:background="@drawable/fram4">
 
                                                     <LinearLayout
@@ -2476,7 +2476,27 @@
 
                                                 </LinearLayout>
 
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_weight="1"
+                                                    android:gravity="center">
 
+                                                    <TextView
+                                                        android:clickable="true"
+                                                        android:foreground="?selectableItemBackgroundBorderless"
+                                                        android:id="@+id/btnSeeExCopyBank"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="@string/my_text"
+
+
+                                                        android:textColor="@color/orange"
+
+
+                                                        android:textSize="18sp" />
+
+                                                </LinearLayout>
                                             </LinearLayout>
 
 

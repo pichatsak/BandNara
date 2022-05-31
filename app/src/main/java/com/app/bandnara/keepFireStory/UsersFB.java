@@ -43,8 +43,17 @@ public class UsersFB {
     private String statusSetPin;
     private String pin;
     private FieldValue time;
+    private String tokenMs;
     public UsersFB() {
 
+    }
+
+    public String getTokenMs() {
+        return tokenMs;
+    }
+
+    public void setTokenMs(String tokenMs) {
+        this.tokenMs = tokenMs;
     }
 
     public FieldValue getTime() {

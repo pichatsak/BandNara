@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -41,6 +42,7 @@ import com.app.bandnara.adaptor.SpinAdapter;
 import com.app.bandnara.keepFireStory.DeformData;
 import com.app.bandnara.keepFireStory.OlderData;
 import com.app.bandnara.models.AmphuresModel;
+import com.app.bandnara.models.NotiWebModel;
 import com.app.bandnara.models.ProvincesModel;
 import com.app.bandnara.tools.AdressData;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -149,6 +151,8 @@ public class elderly1Activity extends AppCompatActivity {
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageReference = storage.getReference();
     private int IMG_POS_CUR=0;
+    TextView btnSeeExCopyCard,btnSeeExCopyBank;
+    ProgressDialog dialogLoad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -204,6 +208,63 @@ public class elderly1Activity extends AppCompatActivity {
                 } else if (pageCur == 4) {
                     setShowPage(3);
                 }
+            }
+        });
+
+        btnSeeExCopyCard = findViewById(R.id.btnSeeExCopyCard);
+        btnSeeExCopyBank = findViewById(R.id.btnSeeExCopyBank);
+        setDialogEx();
+    }
+
+    private void setDialogEx() {
+        btnSeeExCopyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderly1Activity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_card);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        btnSeeExCopyBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderly1Activity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_bank);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
@@ -324,12 +385,14 @@ public class elderly1Activity extends AppCompatActivity {
             deformData.setDateModify(FieldValue.serverTimestamp());
             deformData.setStatus("wait");
             deformData.setUserId(MyApplication.getUserId());
+            dialogLoad = ProgressDialog.show(elderly1Activity.this, "","กำลังบันทึกข้อมูล...", true);
             db.collection("deform_data")
                     .add(deformData)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("CHKDB", "DocumentSnapshot written with ID: " + documentReference.getId());
+                            setSendNoti();
                             setUploadImage(documentReference.getId());
                         }
                     })
@@ -337,9 +400,33 @@ public class elderly1Activity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("CHKDB", "Error adding document", e);
+                            Toast.makeText(elderly1Activity.this, "เกิดข้อผิดผลาด", Toast.LENGTH_SHORT).show();
+                            dialogLoad.dismiss();
                         }
                     });
         }
+    }
+
+    private void setSendNoti() {
+        NotiWebModel notiWebModel = new NotiWebModel();
+        notiWebModel.setTxtNoti("มีการขึ้นทะเบียนผู้พิการใหม่");
+        notiWebModel.setDateCreate(FieldValue.serverTimestamp());
+        notiWebModel.setStatusRead("no");
+        notiWebModel.setUserId(MyApplication.getUserId());
+        db.collection("noti_web")
+                .add(notiWebModel)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CHKDB", "Error adding document", e);
+                    }
+                });
     }
 
     public void setUploadImgType1(String lastId){
@@ -368,12 +455,14 @@ public class elderly1Activity extends AppCompatActivity {
                                                                                                     @Override
                                                                                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                                                                                         Toast.makeText(elderly1Activity.this, "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                                                                        dialogLoad.dismiss();
                                                                                                         finish();
                                                                                                     }
                                                                                                 })
                                                                                         .addOnFailureListener(new OnFailureListener() {
                                                                                             @Override
                                                                                             public void onFailure(@NonNull Exception e) {
+                                                                                                dialogLoad.dismiss();
                                                                                                 Toast.makeText(elderly1Activity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
                                                                                             }
                                                                                         });
@@ -382,6 +471,7 @@ public class elderly1Activity extends AppCompatActivity {
                                                                 .addOnFailureListener(new OnFailureListener() {
                                                                     @Override
                                                                     public void onFailure(@NonNull Exception e) {
+                                                                        dialogLoad.dismiss();
                                                                         Toast.makeText(elderly1Activity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 });
@@ -390,6 +480,7 @@ public class elderly1Activity extends AppCompatActivity {
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
+                                                dialogLoad.dismiss();
                                                 Toast.makeText(elderly1Activity.this, "ไม่สามารถอัพโหลดไฟล์ 2 ได้", Toast.LENGTH_SHORT).show();
                                             }
                                         });
@@ -398,6 +489,7 @@ public class elderly1Activity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        dialogLoad.dismiss();
                         Toast.makeText(elderly1Activity.this, "ไม่สามารถอัพโหลดไฟล์ได้", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -424,6 +516,7 @@ public class elderly1Activity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        dialogLoad.dismiss();
                         Toast.makeText(elderly1Activity.this, "ไม่สามารถอัพโหลดไฟล์ ได้", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -440,7 +533,7 @@ public class elderly1Activity extends AppCompatActivity {
                 if(spinBeforeName3.getSelectedItemPosition()==0||name3Get.isEmpty()||lastname3Get.isEmpty()||phone3Get.isEmpty()){
                     Toast.makeText(elderly1Activity.this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show();
                 }else{
-                    deformData.setBeforeName(beforeName3Get);
+                    deformData.setGetBeforeName3(beforeName3Get);
                     deformData.setName3(name3Get);
                     deformData.setLastName3(lastname3Get);
                     deformData.setPhone3(phone3Get);
@@ -611,7 +704,27 @@ public class elderly1Activity extends AppCompatActivity {
             }
         }
     }
+    public String getAge(int year, int month, int day) {
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
 
+        dob.set(year, month-1, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = "";
+        if(ageInt<=0){
+            ageS = "0";
+        }else{
+            ageS = ageInt.toString();
+        }
+        return ageS;
+    }
 
     private void setClickBtnPage2() {
         olderBirth.setOnClickListener(new View.OnClickListener() {
@@ -626,6 +739,7 @@ public class elderly1Activity extends AppCompatActivity {
                         String myFormat = "dd/MM/yyyy";
                         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
                         olderBirth.setText(dateFormat.format(myCalendar.getTime()));
+                        olderYear.setText(getAge(year,month,day));
                     }
                 };
                 DatePickerDialog dialog = new DatePickerDialog(elderly1Activity.this, R.style.DialogTheme, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -698,6 +812,7 @@ public class elderly1Activity extends AppCompatActivity {
                     deformData.setWork(workGet);
                     deformData.setHomeNo2(homeNo2Get);
                     deformData.setMoo2(moo2Get);
+                    deformData.setTypeDefom(typeDeform);
                     deformData.setSoi2(soi2Get);
                     deformData.setRoad2(road2Get);
                     deformData.setProvince2(province2Get);
@@ -907,8 +1022,12 @@ public class elderly1Activity extends AppCompatActivity {
         listRelay.add("เลือกความสัมพันธ์");
         listRelay.add("บุตร");
         listRelay.add("บุตรหลาน");
-        listRelay.add("ตู่สมรส");
+        listRelay.add("คู่สมรส");
         listRelay.add("น้องชาย");
+        listRelay.add("น้องสาว");
+        listRelay.add("พี่ชาย");
+        listRelay.add("พี่สาว");
+        listRelay.add("อื่นๆ");
         SpinAdapter relayAdapter = new SpinAdapter(this, listRelay);
         spinRelay.setAdapter(relayAdapter);
 

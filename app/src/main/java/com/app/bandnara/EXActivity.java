@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import com.app.bandnara.ToolBar.BottomBar;
 import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.keepFireStory.ReportsData;
+import com.app.bandnara.models.NotiWebModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -144,6 +146,8 @@ public class EXActivity extends AppCompatActivity {
             reportsData.setReasons(reasons.getText().toString());
             reportsData.setTypeReportName(tvTitle.getText().toString());
             reportsData.setUserId(MyApplication.getUserId());
+            reportsData.setStatus("0");
+            ProgressDialog dialog = ProgressDialog.show(EXActivity.this, "","กำลังบันทึกข้อมูล...", true);
             db.collection("reports")
                     .add(reportsData)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -158,13 +162,14 @@ public class EXActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                                     Toast.makeText(EXActivity.this, "ส่งข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                                                    setSendNoti();
                                                     finish();
                                                 }
                                             })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-
+                                            dialog.dismiss();
                                         }
                                     });
                         }
@@ -174,10 +179,32 @@ public class EXActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             Log.w("1", "Error adding document", e);
                             Toast.makeText(EXActivity.this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
-
+                            dialog.dismiss();
                         }
                     });
         }
+    }
+
+    private void setSendNoti() {
+        NotiWebModel notiWebModel = new NotiWebModel();
+        notiWebModel.setTxtNoti("มีการแจ้งปัญหาใหม่เข้ามา");
+        notiWebModel.setDateCreate(FieldValue.serverTimestamp());
+        notiWebModel.setStatusRead("no");
+        notiWebModel.setUserId(MyApplication.getUserId());
+        db.collection("noti_web")
+                .add(notiWebModel)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CHKDB", "Error adding document", e);
+                    }
+                });
     }
 
     private void chooseGpsMap() {

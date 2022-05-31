@@ -1,11 +1,13 @@
 package com.app.bandnara;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,12 +21,19 @@ import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.EventsAdapter;
 import com.app.bandnara.adaptor.LandMarkAdapter;
 import com.app.bandnara.adaptor.NewsAdapter;
+import com.app.bandnara.adaptor.NotiAdapter;
 import com.app.bandnara.keepFireStory.EventsModel;
 import com.app.bandnara.keepFireStory.LandMarkModel;
 import com.app.bandnara.keepFireStory.NewsModel;
+import com.app.bandnara.models.NotiUserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -33,13 +42,16 @@ import java.util.ArrayList;
 public class newsActivity extends AppCompatActivity {
     private TextView goProfile;
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
-    private RecyclerView view_news,view_events,view_landmark;
+    private RecyclerView view_news, view_events, view_landmark;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private LinearLayout goNewsAll,goEventAll,goLandMarkAll;
+    private LinearLayout goNewsAll, goEventAll, goLandMarkAll;
     private ArrayList<NewsModel> newsModelArrayList = new ArrayList<>();
     private ArrayList<EventsModel> eventsModelArrayList = new ArrayList<>();
     private ArrayList<LandMarkModel> landMarkModelArrayList = new ArrayList<>();
     private TextView goNoti;
+    private LinearLayout contNoti;
+    private TextView tvnumNoti;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +65,13 @@ public class newsActivity extends AppCompatActivity {
         view_landmark = findViewById(R.id.view_landmark);
         goLandMarkAll = findViewById(R.id.goLandMarkAll);
         goNoti = findViewById(R.id.goNoti);
+        contNoti = findViewById(R.id.contNoti);
+        tvnumNoti = findViewById(R.id.tvnumNoti);
 
         // เซ็ตการทำงานปุ่มเมนูล่าง
-        bottomMenu = (FrameLayout)findViewById(R.id.bottomMenu);
-        BottomBar bottomBar = new BottomBar(getApplicationContext(),bottomMenu);
+        bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
+        BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
+
 
         goProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +117,30 @@ public class newsActivity extends AppCompatActivity {
             }
         });
 
+        getDataNoti();
+    }
+
+    private void getDataNoti() {
+        db.collection("noti_user")
+                .whereEqualTo("userId", MyApplication.getUserId())
+                .whereEqualTo("statusRead", "no")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("CHKDB", "Listen failed.", e);
+                            return;
+                        }
+                        if(value.size()==0){
+                            contNoti.setVisibility(View.GONE);
+                            tvnumNoti.setText("0");
+                        }else{
+                            tvnumNoti.setText("" + value.size());
+                            contNoti.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
     }
 
     private void getDataEvent() {

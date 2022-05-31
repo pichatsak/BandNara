@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="การขึ้นทะเบียนเด็กแรกเกิด"
+                        android:text="การขึ้นทะเบียนเงินหนุนเด็กแรกเกิด"
                         android:textColor="@color/Teal_50"
                         android:textSize="17sp"
                         android:textStyle="bold" />

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.app.bandnara.ListReportActivity;
 import com.app.bandnara.R;
 import com.app.bandnara.announceActivity;
 import com.app.bandnara.informationUserActivity;
@@ -34,7 +35,7 @@ public class BottomBar {
         menu_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, announceActivity.class);
+                Intent intent = new Intent(context, ListReportActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

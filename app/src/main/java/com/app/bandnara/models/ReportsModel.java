@@ -1,28 +1,20 @@
-package com.app.bandnara.keepFireStory;
+package com.app.bandnara.models;
 
 import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.ServerTimestamp;
 
-public class ReportsData {
+import java.util.Date;
+
+public class ReportsModel {
     private String userId;
-    private FieldValue dateTime;
+    private String dateTime;
     private String reasons;
-    private Double locateLat;
-    private Double locateLong;
-    private String picData;
     private String status;
     private int typeReport;
     private String typeReportName;
 
-    public ReportsData() {
+    public ReportsModel() {
 
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getUserId() {
@@ -33,11 +25,11 @@ public class ReportsData {
         this.userId = userId;
     }
 
-    public FieldValue getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(FieldValue dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -49,28 +41,12 @@ public class ReportsData {
         this.reasons = reasons;
     }
 
-    public Double getLocateLat() {
-        return locateLat;
+    public String getStatus() {
+        return status;
     }
 
-    public void setLocateLat(Double locateLat) {
-        this.locateLat = locateLat;
-    }
-
-    public Double getLocateLong() {
-        return locateLong;
-    }
-
-    public void setLocateLong(Double locateLong) {
-        this.locateLong = locateLong;
-    }
-
-    public String getPicData() {
-        return picData;
-    }
-
-    public void setPicData(String picData) {
-        this.picData = picData;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getTypeReport() {
