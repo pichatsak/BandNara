@@ -3,11 +3,10 @@ package com.app.bandnara;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,16 +20,11 @@ import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.EventsAdapter;
 import com.app.bandnara.adaptor.LandMarkAdapter;
 import com.app.bandnara.adaptor.NewsAdapter;
-import com.app.bandnara.adaptor.NotiAdapter;
 import com.app.bandnara.keepFireStory.EventsModel;
 import com.app.bandnara.keepFireStory.LandMarkModel;
 import com.app.bandnara.keepFireStory.NewsModel;
-import com.app.bandnara.models.NotiUserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -119,6 +113,9 @@ public class newsActivity extends AppCompatActivity {
 
         getDataNoti();
     }
+
+
+
 
     private void getDataNoti() {
         db.collection("noti_user")

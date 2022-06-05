@@ -1,5 +1,7 @@
 package com.app.bandnara;
 
+import static com.google.firebase.firestore.DocumentSnapshot.ServerTimestampBehavior.ESTIMATE;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -17,6 +19,7 @@ import com.app.bandnara.adaptor.ReportsAdapter;
 import com.app.bandnara.models.ItemRegis;
 import com.app.bandnara.models.ReportsModel;
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -25,6 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 public class ListReportActivity extends AppCompatActivity {
@@ -122,9 +126,11 @@ public class ListReportActivity extends AppCompatActivity {
                             reportsModel.setTypeReportName(document.getData().get("typeReportName").toString());
                             reportsModel.setStatus(document.getData().get("status").toString());
                             reportsModel.setReasons(document.getData().get("reasons").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateTime");
-                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateTime", behavior);
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US);
+                            String dateShow = df.format(date);
                             reportsModel.setDateTime(dateShow);
                             reportsModelArrayList.add(reportsModel);
                         }
@@ -161,9 +167,10 @@ public class ListReportActivity extends AppCompatActivity {
                             reportsModel.setTypeReportName(document.getData().get("typeReportName").toString());
                             reportsModel.setStatus(document.getData().get("status").toString());
                             reportsModel.setReasons(document.getData().get("reasons").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateTime");
-                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateTime", behavior);
+                            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US);
+                            String dateShow = df.format(date);
                             reportsModel.setDateTime(dateShow);
                             reportsModelArrayList2.add(reportsModel);
                         }

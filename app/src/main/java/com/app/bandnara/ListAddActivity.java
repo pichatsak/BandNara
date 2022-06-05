@@ -1,5 +1,7 @@
 package com.app.bandnara;
 
+import static com.google.firebase.firestore.DocumentSnapshot.ServerTimestampBehavior.ESTIMATE;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -23,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -31,6 +35,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 public class ListAddActivity extends AppCompatActivity {
@@ -106,10 +111,10 @@ public class ListAddActivity extends AppCompatActivity {
         });
     }
 
-    public void  getDataType4(){
+    public void getDataType4() {
 
         db.collection("aids_data")
-                .whereEqualTo("userId",MyApplication.getUserId())
+                .whereEqualTo("userId", MyApplication.getUserId())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
@@ -124,15 +129,18 @@ public class ListAddActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : value) {
                             ItemRegis itemRegis = new ItemRegis();
                             itemRegis.setKeyId(document.getId());
-                            String getNameOld = document.getData().get("name").toString()+" "+document.getData().get("lastName").toString();
+                            String getNameOld = document.getData().get("beforeName").toString() + " " +document.getData().get("name").toString() + " " + document.getData().get("lastName").toString();
                             itemRegis.setNameRegis(getNameOld);
                             itemRegis.setAgeRegis("");
                             itemRegis.setTypeRegis(0);
                             itemRegis.setTypeData(4);
                             itemRegis.setStatusRegis(document.getData().get("status").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateCreate", behavior);
                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+                            String dateShow = df.format(date);
+
                             itemRegis.setDateRegis(dateShow);
                             itemRegisArrayList.add(itemRegis);
                         }
@@ -144,13 +152,14 @@ public class ListAddActivity extends AppCompatActivity {
                         RegisAdapter regisAdapter = new RegisAdapter(ListAddActivity.this, itemRegisArrayList);
                         viewData.setAdapter(regisAdapter);
 
+
                     }
                 });
     }
 
-    public void  getDataType3(){
+    public void getDataType3() {
         db.collection("baby_data")
-                .whereEqualTo("userId",MyApplication.getUserId())
+                .whereEqualTo("userId", MyApplication.getUserId())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
@@ -164,15 +173,18 @@ public class ListAddActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : value) {
                             ItemRegis itemRegis = new ItemRegis();
                             itemRegis.setKeyId(document.getId());
-                            String getNameOld = document.getData().get("childBeforeName").toString()+" "+document.getData().get("childLastname").toString();
+                            String getNameOld = document.getData().get("childBeforeName").toString() + " " + document.getData().get("childName").toString()+" "+ document.getData().get("childLastname").toString();
                             itemRegis.setNameRegis(getNameOld);
                             itemRegis.setAgeRegis("");
                             itemRegis.setTypeRegis(0);
                             itemRegis.setTypeData(3);
                             itemRegis.setStatusRegis(document.getData().get("status").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateCreate", behavior);
                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+                            String dateShow = df.format(date);
+
                             itemRegis.setDateRegis(dateShow);
                             itemRegisArrayList.add(itemRegis);
                         }
@@ -187,9 +199,9 @@ public class ListAddActivity extends AppCompatActivity {
 
     }
 
-    public void  getDataType2(){
+    public void getDataType2() {
         db.collection("deform_data")
-                .whereEqualTo("userId",MyApplication.getUserId())
+                .whereEqualTo("userId", MyApplication.getUserId())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
@@ -202,15 +214,18 @@ public class ListAddActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : value) {
                             ItemRegis itemRegis = new ItemRegis();
                             itemRegis.setKeyId(document.getId());
-                            String getNameOld = document.getData().get("deformName").toString()+" "+document.getData().get("deformLastName").toString();
+                            String getNameOld = document.getData().get("beforeName2").toString()+" "+document.getData().get("deformName").toString() + " " + document.getData().get("deformLastName").toString();
                             itemRegis.setNameRegis(getNameOld);
                             itemRegis.setAgeRegis(document.getData().get("deformYear").toString());
                             itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
                             itemRegis.setTypeData(2);
                             itemRegis.setStatusRegis(document.getData().get("status").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateCreate", behavior);
                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+                            String dateShow = df.format(date);
+
                             itemRegis.setDateRegis(dateShow);
                             itemRegisArrayList.add(itemRegis);
                         }
@@ -228,7 +243,7 @@ public class ListAddActivity extends AppCompatActivity {
 
     public void getDataType1() {
         db.collection("olders_data")
-                .whereEqualTo("userId",MyApplication.getUserId())
+                .whereEqualTo("userId", MyApplication.getUserId())
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
@@ -241,15 +256,18 @@ public class ListAddActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : value) {
                             ItemRegis itemRegis = new ItemRegis();
                             itemRegis.setKeyId(document.getId());
-                            String getNameOld = document.getData().get("beforeName2").toString()+" "+document.getData().get("olderName").toString()+" "+document.getData().get("olderLastName").toString();
+                            String getNameOld = document.getData().get("beforeName2").toString() + " " + document.getData().get("olderName").toString() + " " + document.getData().get("olderLastName").toString();
                             itemRegis.setNameRegis(getNameOld);
                             itemRegis.setTypeData(1);
                             itemRegis.setAgeRegis(document.getData().get("olderYear").toString());
                             itemRegis.setTypeRegis(Integer.parseInt(document.getData().get("typeReport").toString()));
                             itemRegis.setStatusRegis(document.getData().get("status").toString());
-                            Timestamp timestamp = (Timestamp) document.getData().get("dateCreate");
+
+                            DocumentSnapshot.ServerTimestampBehavior behavior = ESTIMATE;
+                            Date date = document.getDate("dateCreate", behavior);
                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-                            String dateShow = df.format(timestamp.toDate());
+                            String dateShow = df.format(date);
+
                             itemRegis.setDateRegis(dateShow);
                             itemRegisArrayList.add(itemRegis);
                         }

@@ -272,11 +272,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/design_fram"
-                android:hint="หมู่"
+                android:hint="หมู่/ชุมชน"
                 android:inputType="text"
                 android:textColorHint="@color/gray_50"
                 android:textSize="16sp"
                 android:layout_marginBottom="13dp"
+                />
+
+            <EditText
+                android:id="@+id/soi"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="13dp"
+                android:background="@drawable/design_fram"
+                android:hint="ตรอก/ซอย"
+                android:inputType="text"
+                android:textColorHint="@color/gray_50"
+                android:textSize="16sp"
+
                 />
             <EditText
                 android:id="@+id/road"
@@ -368,18 +381,24 @@
                     android:layout_marginTop="13dp">
 
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/tambon"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-
                         android:background="@drawable/design_fram"
                         android:drawableTint="@color/Teal_50"
                         android:hint="ตำบล"
                         android:textColorHint="@color/gray_50"
                         android:textSize="16sp" />
 
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:backgroundTint="@color/Teal_50" />
                 </RelativeLayout>
 
                 <EditText
@@ -508,11 +527,22 @@
                     android:layout_height="45dp"
                     android:layout_marginBottom="13dp"
                     android:background="@drawable/design_fram"
-                    android:hint="หมู่"
+                    android:hint="หมู่/ชุมชน"
                     android:inputType="text"
                     android:textColorHint="@color/gray_50"
                     android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/soi2"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="13dp"
+                    android:background="@drawable/design_fram"
+                    android:hint="ตรอก/ซอย"
+                    android:inputType="text"
+                    android:textColorHint="@color/gray_50"
+                    android:textSize="16sp"
 
+                    />
                 <EditText
                     android:id="@+id/road1"
                     android:layout_width="match_parent"
@@ -597,23 +627,30 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginTop="13dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp">
 
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/tumbon1"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginBottom="13dp"
                         android:background="@drawable/design_fram"
                         android:drawableTint="@color/Teal_50"
                         android:hint="ตำบล"
                         android:textColorHint="@color/gray_50"
                         android:textSize="16sp" />
-                </RelativeLayout>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:backgroundTint="@color/Teal_50" />
+                </RelativeLayout>
 
                 <EditText
                     android:id="@+id/numberpri1"

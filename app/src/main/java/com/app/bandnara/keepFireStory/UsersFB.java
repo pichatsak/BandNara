@@ -39,6 +39,8 @@ public class UsersFB {
     private String oumper; //อำเภอ1
     private String tumbon1; //ตำบล1
     private String numberpri1; //รหัสไปรษณีย์1
+    private String soi;
+    private String soi2;
     private Uri imageProflie;
     private String statusSetPin;
     private String pin;
@@ -46,6 +48,22 @@ public class UsersFB {
     private String tokenMs;
     public UsersFB() {
 
+    }
+
+    public String getSoi() {
+        return soi;
+    }
+
+    public void setSoi(String soi) {
+        this.soi = soi;
+    }
+
+    public String getSoi2() {
+        return soi2;
+    }
+
+    public void setSoi2(String soi2) {
+        this.soi2 = soi2;
     }
 
     public String getTokenMs() {

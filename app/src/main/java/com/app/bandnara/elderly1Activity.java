@@ -39,12 +39,15 @@ import com.app.bandnara.ToolBar.CloseBar;
 import com.app.bandnara.adaptor.AmphurAdapter;
 import com.app.bandnara.adaptor.ProvAdapter;
 import com.app.bandnara.adaptor.SpinAdapter;
+import com.app.bandnara.adaptor.TombonAdapter;
 import com.app.bandnara.keepFireStory.DeformData;
 import com.app.bandnara.keepFireStory.OlderData;
 import com.app.bandnara.models.AmphuresModel;
 import com.app.bandnara.models.NotiWebModel;
 import com.app.bandnara.models.ProvincesModel;
+import com.app.bandnara.models.TombonsModel;
 import com.app.bandnara.tools.AdressData;
+import com.app.bandnara.tools.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,21 +59,27 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class elderly1Activity extends AppCompatActivity {
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
     private LinearLayout back; // ปุ่มกลับ
     private int pageCur = 1;
+
+    private ArrayList<TombonsModel> tombonsMainModelsList = new ArrayList<>();
     final Calendar myCalendar = Calendar.getInstance(); //ปฏิทิน
     private LinearLayout page1, page2, page3,page4;
     private LinearLayout processPage1, processPage2, processPage3,processPage4;
@@ -85,18 +94,21 @@ public class elderly1Activity extends AppCompatActivity {
     private List<String> listDeform = new ArrayList<>();
     private ArrayList<ProvincesModel> provincesModelsList = new ArrayList<>();
     private ArrayList<AmphuresModel> amphuresModelsList = new ArrayList<>();
+    private List<TombonsModel> tombonsModelArrayList = new ArrayList<>();
 
     private ArrayList<ProvincesModel> provincesModelsList2 = new ArrayList<>();
     private ArrayList<AmphuresModel> amphuresModelsList2 = new ArrayList<>();
+    private List<TombonsModel> tombonsModelArrayList2 = new ArrayList<>();
 
     private TextView btnSeeEx;
     private ImageView showPicUpload;
     private AppCompatButton btnNextPage1;
     private LinearLayout btnChoosePic, contUpload;
-    private EditText name, lastName, idCard, homeNo, moo, soi, road, district, postCode, phone;
+    private EditText name, lastName, idCard, homeNo, moo, soi, road, postCode, phone;
     private Uri outputFileUri;
     private int statusChooseImg = 0;
     private Uri imageChooseCur;
+    private Spinner district;
     // End ตัวแปร Page 1
 
     // Start ตัวแปร Page 2
@@ -115,8 +127,9 @@ public class elderly1Activity extends AppCompatActivity {
     private int statusChooseCopyDeformIdCard = 0;
     private Uri imageCopyDeformIdCard ;
     private AppCompatButton btnNextPage2;
-    private EditText olderName,olderLastName,olderYear,olderIdCard,olderProfit,homeNo2,moo2,soi2,road2,district2,postCode2,phone2;
+    private EditText olderName,olderLastName,olderYear,olderIdCard,olderProfit,homeNo2,moo2,soi2,road2,postCode2,phone2;
     private TextView olderBirth;
+    private Spinner district2;
     // End ตัวแปร Page 2
 
     // Start ตัวแปร Page 3
@@ -151,7 +164,7 @@ public class elderly1Activity extends AppCompatActivity {
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageReference = storage.getReference();
     private int IMG_POS_CUR=0;
-    TextView btnSeeExCopyCard,btnSeeExCopyBank;
+    TextView btnSeeExCopyCard,btnSeeExCopyBank,btnSeeExCopyHome,btnSeeExCopyDeformCard;
     ProgressDialog dialogLoad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,7 +184,7 @@ public class elderly1Activity extends AppCompatActivity {
         // เซ็ตการทำงานปุ่มเมนูล่าง
         bottomMenu = (FrameLayout) findViewById(R.id.bottomMenu);
         BottomBar bottomBar = new BottomBar(getApplicationContext(), bottomMenu);
-
+        getTombonMain();
         // Start method Page 1
         setIdPage1();
         setSpinnerPage1();
@@ -213,7 +226,16 @@ public class elderly1Activity extends AppCompatActivity {
 
         btnSeeExCopyCard = findViewById(R.id.btnSeeExCopyCard);
         btnSeeExCopyBank = findViewById(R.id.btnSeeExCopyBank);
+        btnSeeExCopyHome = findViewById(R.id.btnSeeExCopyHome);
+        btnSeeExCopyDeformCard = findViewById(R.id.btnSeeExCopyDeformCard);
         setDialogEx();
+    }
+
+    private void getTombonMain() {
+        String jsonFileString = Utils.getJsonTumbonFromAssets(getApplicationContext());
+        Gson gson = new Gson();
+        Type listUserType = new TypeToken<ArrayList<TombonsModel>>() {}.getType();
+        tombonsMainModelsList = gson.fromJson(jsonFileString, listUserType);
     }
 
     private void setDialogEx() {
@@ -265,6 +287,39 @@ public class elderly1Activity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        btnSeeExCopyHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(elderly1Activity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog_ex_deformcard);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                dialog.show();
+
+                int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+                int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.90);
+
+                dialog.getWindow().setLayout(width, height);
+
+                AppCompatButton okbtn = dialog.findViewById(R.id.okbtn);
+                okbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        btnSeeExCopyDeformCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -371,7 +426,7 @@ public class elderly1Activity extends AppCompatActivity {
         boolean statusAllowGet = statusAllow;
         if(!statusAllowGet){
             Toast.makeText(this, "กรุณากดยอมรับข้อตกลง", Toast.LENGTH_SHORT).show();
-        }else if(bankNoGet.isEmpty()||bankNameGet.isEmpty()||bankOwnerGet.isEmpty()){
+        }else if(bankNoGet.isEmpty()||bankNameGet.isEmpty()||bankOwnerGet.isEmpty()||bankNoGet.length()!=10){
             Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show();
         }else if(statusChooseBank==0){
             Toast.makeText(this, "กรุณาอัพโหลดหน้าสมุดบัญชี", Toast.LENGTH_SHORT).show();
@@ -530,7 +585,7 @@ public class elderly1Activity extends AppCompatActivity {
                 String name3Get = name3.getText().toString();
                 String lastname3Get = lastname3.getText().toString();
                 String phone3Get = phone3.getText().toString();
-                if(spinBeforeName3.getSelectedItemPosition()==0||name3Get.isEmpty()||lastname3Get.isEmpty()||phone3Get.isEmpty()){
+                if(spinBeforeName3.getSelectedItemPosition()==0||name3Get.isEmpty()||lastname3Get.isEmpty()||phone3Get.isEmpty()||phone3Get.length()!=10){
                     Toast.makeText(elderly1Activity.this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show();
                 }else{
                     deformData.setGetBeforeName3(beforeName3Get);
@@ -784,15 +839,15 @@ public class elderly1Activity extends AppCompatActivity {
                 String road2Get = road2.getText().toString();
                 String province2Get = provincesModelsList2.get(province2.getSelectedItemPosition()).getProvName();
                 String amphur2Get = amphuresModelsList2.get(amphur2.getSelectedItemPosition()).getAmpName();
-                String district2Get = district2.getText().toString();
+                String district2Get = tombonsModelArrayList2.get(district2.getSelectedItemPosition()).getName_th();
                 String postCode2Get = postCode2.getText().toString();
                 String phone2Get = phone2.getText().toString();
                 String typeDeform = listDeform.get(spinDeform.getSelectedItemPosition());
                 if(spinBeforeName2.getSelectedItemPosition()==0||olderNameGet.isEmpty()||olderLastNameGet.isEmpty()||olderBirthGet.isEmpty()||olderYearGet.isEmpty()||
                         spinCitizen.getSelectedItemPosition()==0||olderIdCardGet.isEmpty()||spinStanapap.getSelectedItemPosition()==0||olderProfitGet.isEmpty()||
                         spinWork.getSelectedItemPosition()==0||homeNo2Get.isEmpty()||moo2Get.isEmpty()||soi2Get.isEmpty()||road2Get.isEmpty()||
-                        province2.getSelectedItemPosition()==0||amphur2.getSelectedItemPosition()==0||district2Get.isEmpty()||postCode2Get.isEmpty()||phone2Get.isEmpty()||
-                        spinDeform.getSelectedItemPosition()==0
+                        province2.getSelectedItemPosition()==0||amphur2.getSelectedItemPosition()==0||district2.getSelectedItemPosition()==0||postCode2Get.isEmpty()||phone2Get.isEmpty()||
+                        spinDeform.getSelectedItemPosition()==0||olderIdCardGet.length()!=13||phone2Get.length()!=10
                 ){
                     Toast.makeText(elderly1Activity.this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show();
                 }else if(statusChooseCopyCard==0){
@@ -904,7 +959,7 @@ public class elderly1Activity extends AppCompatActivity {
         amphur2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                getTombonByAmphurId2(amphuresModelsList2.get(i).getAmpId());
             }
 
             @Override
@@ -912,6 +967,38 @@ public class elderly1Activity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void getTombonByAmphurId2(String amphursId) {
+        Log.i("CHKGSON", "choose amp : " + amphursId);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            List<TombonsModel> filteredArticleList = new ArrayList<>();
+            TombonsModel tombonsModelFirst = new TombonsModel();
+            tombonsModelFirst.setName_th("เลือกตำบล");
+            tombonsModelFirst.setId("0");
+            filteredArticleList.add(tombonsModelFirst);
+            if(!amphursId.equals("0")){
+                filteredArticleList.addAll(tombonsMainModelsList.stream().filter(items -> items.getAmphure_id().contains(amphursId)).collect(Collectors.toList()));
+            }
+            tombonsModelArrayList2 = filteredArticleList;
+            TombonAdapter tombonAdapter = new TombonAdapter(elderly1Activity.this, tombonsModelArrayList2);
+            district2.setAdapter(tombonAdapter);
+            district2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(i!=0){
+                        postCode2.setText(tombonsModelArrayList2.get(i).getZip_code());
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+        }
+
     }
 
     private void setIdPage2() {
@@ -997,7 +1084,7 @@ public class elderly1Activity extends AppCompatActivity {
         contInPage1 = findViewById(R.id.contInPage1);
         spinRelay = findViewById(R.id.spinRelay);
         spinBeforeName = findViewById(R.id.spinBeforeName);
-        btnSeeEx = findViewById(R.id.btnSeeEx);
+//        btnSeeEx = findViewById(R.id.btnSeeEx);
         province = findViewById(R.id.province);
         amphur = findViewById(R.id.amphur);
         btnNextPage1 = findViewById(R.id.btnNextPage1);
@@ -1064,12 +1151,12 @@ public class elderly1Activity extends AppCompatActivity {
                 contInPage1.setVisibility(View.VISIBLE);
             }
         });
-        btnSeeEx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialogEx();
-            }
-        });
+//        btnSeeEx.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialogEx();
+//            }
+//        });
         btnNextPage1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1096,7 +1183,7 @@ public class elderly1Activity extends AppCompatActivity {
         String mooGet = moo.getText().toString();
         String soiGet = soi.getText().toString();
         String roadGet = road.getText().toString();
-        String districtGet = district.getText().toString();
+        String districtGet = tombonsMainModelsList.get(district.getSelectedItemPosition()).getName_th();
         String postCodeGet = postCode.getText().toString();
         String phoneGet = phone.getText().toString();
         String provinceGet = provincesModelsList.get(province.getSelectedItemPosition()).getProvName();
@@ -1104,8 +1191,8 @@ public class elderly1Activity extends AppCompatActivity {
         String ralayGet = listRelay.get(spinRelay.getSelectedItemPosition());
         String beforeNameGet = listBeforeName.get(spinBeforeName.getSelectedItemPosition());
         if (nameGet.isEmpty() || lastNameGet.isEmpty() || idCardGet.isEmpty() || homeNoGet.isEmpty() || mooGet.isEmpty() || soiGet.isEmpty() || roadGet.isEmpty() ||
-                districtGet.isEmpty() || postCodeGet.isEmpty() || phoneGet.isEmpty() || provinceGet.isEmpty() || amphurGet.isEmpty() ||
-                spinRelay.getSelectedItemPosition() == 0 || spinBeforeName.getSelectedItemPosition() == 0
+                district.getSelectedItemPosition()==0 || postCodeGet.isEmpty() || phoneGet.isEmpty() || provinceGet.isEmpty() || amphurGet.isEmpty() ||
+                spinRelay.getSelectedItemPosition() == 0 || spinBeforeName.getSelectedItemPosition() == 0||idCardGet.length()!=13||phoneGet.length()!=10
         ) {
             Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show();
         } else if (statusChooseImg == 0) {
@@ -1211,7 +1298,7 @@ public class elderly1Activity extends AppCompatActivity {
         amphur.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                getTombonByAmphurId(amphuresModelsList.get(i).getAmpId());
             }
 
             @Override
@@ -1219,6 +1306,38 @@ public class elderly1Activity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void getTombonByAmphurId(String amphursId) {
+        Log.i("CHKGSON", "choose amp : " + amphursId);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            List<TombonsModel> filteredArticleList = new ArrayList<>();
+            TombonsModel tombonsModelFirst = new TombonsModel();
+            tombonsModelFirst.setName_th("เลือกตำบล");
+            tombonsModelFirst.setId("0");
+            filteredArticleList.add(tombonsModelFirst);
+            if(!amphursId.equals("0")){
+                filteredArticleList.addAll(tombonsMainModelsList.stream().filter(items -> items.getAmphure_id().contains(amphursId)).collect(Collectors.toList()));
+            }
+            tombonsModelArrayList = filteredArticleList;
+            TombonAdapter tombonAdapter = new TombonAdapter(elderly1Activity.this, tombonsModelArrayList);
+            district.setAdapter(tombonAdapter);
+            district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(i!=0){
+                        postCode.setText(tombonsModelArrayList.get(i).getZip_code());
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+        }
+
     }
 
 }

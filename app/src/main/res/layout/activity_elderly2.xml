@@ -377,7 +377,7 @@
                     android:id="@+id/page1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
 
                     <ScrollView
@@ -565,6 +565,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขประจำตัวประชาชน"
+                                            android:maxLength="13"
                                             android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -682,7 +683,7 @@
                                             android:layout_marginTop="13dp"
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
-                                            android:hint="หมู่"
+                                            android:hint="หมู่/ชุมชน"
                                             android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -776,20 +777,32 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <EditText
-                                            android:id="@+id/district"
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="45dp"
+                                            android:layout_height="wrap_content"
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginTop="13dp"
-                                            android:layout_marginRight="10dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ตำบล"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
+                                            android:layout_marginRight="10dp">
 
-                                            />
+                                            <Spinner
+                                                android:id="@+id/district"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ตำบล"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
 
                                         <EditText
                                             android:id="@+id/postCode"
@@ -816,6 +829,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุหมายเลขโทรศัพท์"
+                                            android:maxLength="10"
                                             android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -903,7 +917,7 @@
                                             android:layout_marginTop="13dp"
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
-                                            android:hint="หมู่"
+                                            android:hint="หมู่/ชุมชน"
                                             android:inputType="text"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -997,20 +1011,32 @@
                                                 android:backgroundTint="@color/Teal_50" />
                                         </RelativeLayout>
 
-                                        <EditText
-                                            android:id="@+id/district2"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="45dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="13dp"
-                                            android:layout_marginRight="10dp"
-                                            android:background="@drawable/design_fram"
-                                            android:hint="ตำบล"
-                                            android:inputType="text"
-                                            android:textColorHint="@color/gray_50"
-                                            android:textSize="16sp"
+                                        <RelativeLayout
 
-                                            />
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="13dp">
+                                            <Spinner
+                                                android:id="@+id/district2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="45dp"
+                                                android:background="@drawable/design_fram"
+                                                android:drawableTint="@color/Teal_50"
+                                                android:hint="ตำบล"
+                                                android:textColorHint="@color/gray_50"
+                                                android:textSize="16sp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginRight="10dp"
+                                                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                                android:backgroundTint="@color/Teal_50" />
+                                        </RelativeLayout>
 
                                         <EditText
                                             android:id="@+id/postCode2"
@@ -1037,6 +1063,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุหมายเลขโทรศัพท์"
+                                            android:maxLength="10"
                                             android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -1320,6 +1347,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขประจำตัวประชาชน"
+                                            android:maxLength="13"
                                             android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"
@@ -1638,7 +1666,6 @@
                                                 android:background="@drawable/design_fram"
                                                 android:hint="ระบุชื่อ"
                                                 android:inputType="text"
-                                                android:text="มาโนช"
                                                 android:textColorHint="@color/gray_50"
                                                 android:textSize="16sp" />
 
@@ -1765,7 +1792,7 @@
                                                 android:layout_marginRight="10dp"
                                                 android:background="@drawable/design_fram"
                                                 android:hint="ระบุระดับการศึกษา"
-                                                android:inputType="number"
+                                                android:inputType="text"
                                                 android:textColorHint="@color/gray_50"
                                                 android:textSize="16sp"
                                                 android:visibility="gone" />
@@ -1816,7 +1843,7 @@
                     android:id="@+id/page3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                     <ScrollView
@@ -2397,6 +2424,7 @@
                                             android:layout_marginRight="10dp"
                                             android:background="@drawable/design_fram"
                                             android:hint="ระบุเลขที่บัญชี"
+                                            android:maxLength="10"
                                             android:inputType="number"
                                             android:textColorHint="@color/gray_50"
                                             android:textSize="16sp"

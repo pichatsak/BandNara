@@ -97,6 +97,8 @@ public class registerActivity extends AppCompatActivity {
                 //เด้งข้อความถ้าไม่ใส่ข้อมูลให้ครบ
                 if (pim01.getText().toString().isEmpty()) {
                     Toast.makeText(registerActivity.this, "กรุณากรอกเบอร์โทรศัพท์ ", Toast.LENGTH_SHORT).show();
+                } else if (pim01.getText().toString().length()!=10) {
+                    Toast.makeText(registerActivity.this, "กรุณากรอกเบอร์โทรศัพท์ให้ครบ ", Toast.LENGTH_SHORT).show();
                 } else if (StatusChooseImg == 0) {
                     Toast.makeText(registerActivity.this, "กรุณาอัพโหลดรูปภาพ ", Toast.LENGTH_SHORT).show();
                 } else if (pim02.getText().toString().isEmpty()) {

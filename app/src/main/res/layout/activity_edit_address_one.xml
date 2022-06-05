@@ -95,7 +95,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:background="@drawable/design_fram"
-                            android:hint="หมู่"
+                            android:hint="หมู่/ชุมชน"
                             android:inputType="text"
                             android:textColorHint="@color/gray_50"
                             android:textSize="16sp"

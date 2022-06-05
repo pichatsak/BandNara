@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -31,6 +32,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class ChangePassActivity extends AppCompatActivity {
     private FrameLayout bottomMenu;// ตัวแปรปุ่มล่าง
@@ -43,6 +46,7 @@ public class ChangePassActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String passOld="";
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +93,7 @@ public class ChangePassActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void setSaveData() {
@@ -101,6 +106,7 @@ public class ChangePassActivity extends AppCompatActivity {
         } else if(!pim02.getText().toString().equals(pim03.getText().toString())){
             Toast.makeText(ChangePassActivity.this, "รหัสผ่านไม่ตรงกัน ", Toast.LENGTH_SHORT).show();
         } else {
+            ProgressDialog dialog = ProgressDialog.show(ChangePassActivity.this, "","กำลังดำเนินการ...", true);
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String newPassword = pim02.getText().toString();
             if (user != null) {
@@ -121,13 +127,14 @@ public class ChangePassActivity extends AppCompatActivity {
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
+                                                                dialog.dismiss();
                                                                 Toast.makeText(ChangePassActivity.this, "เปลี่ยนรหัสผ่านเรียบร้อย ", Toast.LENGTH_SHORT).show();
                                                                 finish();
                                                             }
                                                         }).addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
-
+                                                        dialog.dismiss();
                                                         Log.w("CHKERR2", "Error adding document", e);
                                                         Toast.makeText(ChangePassActivity.this, "เกิดข้อผิดพลาด2", Toast.LENGTH_SHORT).show();
 
@@ -139,7 +146,7 @@ public class ChangePassActivity extends AppCompatActivity {
                                     }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-
+                                    dialog.dismiss();
                                     Log.w("CHKERR", "Error adding document", e);
                                     Toast.makeText(ChangePassActivity.this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
 
@@ -147,6 +154,8 @@ public class ChangePassActivity extends AppCompatActivity {
                             });
                         } else {
                             // Password is incorrect
+                            dialog.dismiss();
+                            Toast.makeText(ChangePassActivity.this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
